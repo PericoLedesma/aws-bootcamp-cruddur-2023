@@ -10,4 +10,4 @@ I completed all the task of the week.
 - I wartched all the videos 
 
 
-![System architecture](assets/Screenshot 2023-02-18 at 09.21.16.png)
+![System architecture].(assets/Screenshot 2023-02-18 at 09.21.16.png)
