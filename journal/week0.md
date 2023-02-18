@@ -11,4 +11,4 @@ I completed all the task of the week.
 - AWS CLI and proof it works 
 
 
-![System architecture](assets/Screenshot 2023-02-18 at 09.21.16.png)
+![System architecture](assets/system_architecture.png)
