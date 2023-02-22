@@ -59,10 +59,9 @@ This is the section where you submit the credit that you have to obtain during a
 This is a tool where you want to estimate the cost of one or more services. Useful when someone asks you to give an estimated cost of the service you are going to use. I used this tool during some exercises on skillbuilder.
 
 
+## Budged alarm
 
-## Some Gitpod commands used during the homework
-
-- To create the alarm with the CLI 
+- To create the budget alarm with the CLI 
 
 >     --account-id $ACCOUNT_ID \
 >     --budget file://aws/json/budget.json \
@@ -78,6 +77,42 @@ First we have to create SNS topic
 
 ### Create SNS topic
 
-'''
-aws sns create-topic --name my-topic
-'''
+SNS = Amazon Simple Notification services
+
+1. We need an SNS topic before we create an alarm
+2. The sSNS topic is what will delivery us an alert when we get overbilled
+3. [aws-sns-create]([https://link-url-here.org](https://docs.aws.amazon.com/cli/latest/reference/sns/create-topic.html))
+
+
+We´ll create a SNS Topic
+```
+aws sns create-topic --name my-sns-first-topic
+```
+
+We´l create a subscription supply the TopicARN and our Email
+
+```
+aws sns subscribe \
+    --topic-arn TopicARN \
+    --protocol email \
+    --notification-endpoint prl1694@gmail.com
+```
+
+where TopicARN has to be subsitute.
+
+### Create Alarm
+⋅⋅* [aws cloudwatch put-metric-alarm] (https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/put-metric-alarm.html)
+··* [Create alarm via AWS CLI**]([https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/put-metric-alarm.html](https://aws.amazon.com/premiumsupport/knowledge-center/cloudwatch-estimatedcharges-alarm/))
+··* We need to update the configuration json script with the TopicARN we generated earlier
+··* We are just a json file becuase --metrics is required for expresisions and so its easier to us a JSON file.
+
+```
+aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/alarm-config.json
+```
+
+
+aws sns subscribe \
+    --topic-arn="TopicArn": "arn:aws:sns:eu-central-1:528963888625:my-sns-first-topic" \
+    --protocol email \
+    --notification-endpoint prl1694@gmail.com
+
