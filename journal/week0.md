@@ -68,7 +68,16 @@ This is a tool where you want to estimate the cost of one or more services. Usef
 >     --budget file://aws/json/budget.json \
 >     --notifications-with-subscribers file://aws/json/notifications-with-subscribers.json
 
+Note: Important to have the json files necesarries with the configs
 
-### Billing alarm
+
+
+## Billing alarm
 
 First we have to create SNS topic
+
+### Create SNS topic
+
+'''
+aws sns create-topic --name my-topic
+'''
