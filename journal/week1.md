@@ -60,6 +60,11 @@ For Managed Containers in AWS:
 > - AWS ECS
 > - AWS EKS
 > - AWS Fargate
+
+Reason to run containers on the cloud
+> - Integration with AWS Services
+> - Using automation to provision containers at sale with speed and security
+
  
 Docker compose
 > It is a tool for defining and running multi container Docker Applications (It uses yml file).
