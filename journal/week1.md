@@ -48,9 +48,26 @@ Security best practices
 > - Use DevSecOps pratices while building application security
 > - Ensure all code is tested for vulnerabilities before production use
 
+Tools to identify vulnerailitues on your containers are:
+> - Snyk OpenSource Security. 
+> - AWS Inspector
+
+Tools to store and manage secrets are:
+> - AWS Secret Manager 
+> - Harshicorp Vault
+
+For Managed Containers in AWS:
+> - AWS ECS
+> - AWS EKS
+> - AWS Fargate
+ 
+Docker compose
+> It is a tool for defining and running multi container Docker Applications (It uses yml file).
+
 ### Dockers components
 
 ![Docker components](assets/week1_architecture.svg)
+
 
 ## 2. Practice/Homework
 
