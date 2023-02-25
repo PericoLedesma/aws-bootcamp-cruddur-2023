@@ -190,7 +190,7 @@ networks:
 to run the docker compose, type terminal docker compose up
 
 
-### Coding the startpoint for the notifications endpoint API
+### Coding Flask Backend endpoint for notifications
 
 Curretly, the notifications endpoint API was not created.
 
@@ -205,7 +205,7 @@ We can see after we linked to the class the route the hardcore results are given
 ![Current point of the notifications page](assets/week1_notapi_results.png)
 
 
-### Coding the startpoint for the notifications frontend Page
+### Coding the React page for notifications
 
 Currently, the Notifications page was not created.
 
