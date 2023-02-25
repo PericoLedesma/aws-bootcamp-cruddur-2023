@@ -285,7 +285,7 @@ Having this local version helps you save on throughput, data storage, and data t
 
 [Setting up DynamoDB local](https://link-url-here.org](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html)
 
-[Challenge DynamoDB local](https://github.com/100DaysOfCloud/challenge-dynamodb-local)
+[Example using DynamoDB Local: Challenge DynamoDB local](https://github.com/100DaysOfCloud/challenge-dynamodb-local)
 
 We add this to the docker-compose.yml file:
 
@@ -305,8 +305,6 @@ services:
     working_dir: /home/dynamodblocal
 ```
 
-Example of using DynamoDB local
-https://github.com/100DaysOfCloud/challenge-dynamodb-local
 
 ## Volumes
 
