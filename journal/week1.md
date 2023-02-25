@@ -81,6 +81,7 @@ Docker compose
 
 <details><summary>Practice/Homework</summary>
 <p>
+ 
 ## 2. Practice/Homework
 
 ### Dockers
@@ -223,7 +224,6 @@ We created the page in app.js and create the NotificationsFeedPage.js with same 
 ![Current point of the notifications page](assets/week1_notpage.png)
 
 
-
 ## Adding DynamoDB Local and Postgres
 
 We are going to use Postgres and DynamoDB local in future labs
@@ -278,8 +278,6 @@ To access to the postgres DB:
 psql -Upostgres --host localhost
 
 ```
-
-
 
 ### DynamoDB Local
 
