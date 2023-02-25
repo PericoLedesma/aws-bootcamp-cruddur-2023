@@ -215,3 +215,106 @@ We created the page in app.js and create the NotificationsFeedPage.js with same 
 
 ![Current point of the notifications page](assets/week1_notpage.png)
 
+
+
+## Adding DynamoDB Local and Postgres
+
+We are going to use Postgres and DynamoDB local in future labs
+We can bring them in as containers and reference them externally
+
+Lets integrate the following into our existing docker compose file:
+
+### Postgres
+
+What is Postgres?
+> Is a free and open-source relational database management system emphasizing extensibility and SQL compliance.
+
+[Setting up Postgres local](https://www.prisma.io/dataguide/postgresql/setting-up-a-local-postgresql-database)
+
+We add this to the docker-compose.yml file:
+
+```yaml
+services:
+  db:
+    image: postgres:13-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    ports:
+      - '5432:5432'
+    volumes: 
+      - db:/var/lib/postgresql/data
+
+```
+And this part in the end of the file after networks:
+
+```
+volumes:
+  db:
+    driver: local
+```
+
+To install the postgres client into Gitpod
+
+```sh
+  - name: postgres
+    init: |
+      curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg
+      echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" |sudo tee  /etc/apt/sources.list.d/pgdg.list
+      sudo apt update
+      sudo apt install -y postgresql-client-13 libpq-dev
+```
+
+### DynamoDB Local
+
+What is DynamoDB?
+> Is a fully managed proprietary NoSQL database service that supports key–value and document data structures and is offered by Amazon.com as part of the Amazon Web Services portfolio. 
+
+With the downloadable version of Amazon DynamoDB, you can develop and test applications without accessing the DynamoDB web service. Instead, the database is self-contained on your computer. When you're ready to deploy your application in production, you remove the local endpoint in the code, and then it points to the DynamoDB web service.
+
+Having this local version helps you save on throughput, data storage, and data transfer fees. In addition, you don't need an internet connection while you develop your application.
+
+[Setting up DynamoDB local]([https://link-url-here.org](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html))
+
+
+We add this to the docker-compose.yml file:
+
+```yaml
+services:
+  dynamodb-local:
+    # https://stackoverflow.com/questions/67533058/persist-local-dynamodb-data-in-volumes-lack-permission-unable-to-open-databa
+    # We needed to add user:root to get this working.
+    user: root
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
+    image: "amazon/dynamodb-local:latest"
+    container_name: dynamodb-local
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./docker/dynamodb:/home/dynamodblocal/data"
+    working_dir: /home/dynamodblocal
+```
+
+Example of using DynamoDB local
+https://github.com/100DaysOfCloud/challenge-dynamodb-local
+
+## Volumes
+
+directory volume mapping
+
+```yaml
+volumes: 
+- "./docker/dynamodb:/home/dynamodblocal/data"
+```
+
+named volume mapping
+
+```yaml
+volumes: 
+  - db:/var/lib/postgresql/data
+
+volumes:
+  db:
+    driver: local
+```
