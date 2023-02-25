@@ -5,17 +5,9 @@ Structure:
 2. Practice/Homework
 
 
-<details><summary>## 1. Class content</summary>
+<details><summary>Class content</summary>
 <p>
 
-#### We can hide anything, even code!
-
-```ruby
-   puts "Hello World"
-```
-
-</p>
-</details>
 
 
 ## 1. Class content
@@ -86,6 +78,9 @@ Docker compose
 
 ![Docker components](assets/week1_architecture.svg)
 
+
+</p>
+</details>
 
 ## 2. Practice/Homework
 
