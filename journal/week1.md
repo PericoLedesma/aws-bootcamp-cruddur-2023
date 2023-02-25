@@ -1,9 +1,6 @@
 # Week 1 — App Containerization
 
-Structure:
-1. Class contect
-2. Practice/Homework
-
+(click to open section)
 
 <details><summary>Class content</summary>
 <p>
