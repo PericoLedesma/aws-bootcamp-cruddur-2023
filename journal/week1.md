@@ -4,8 +4,21 @@ Structure:
 1. Class contect
 2. Practice/Homework
 
-## 1. Class content
 
+<details><summary>## 1. Class content</summary>
+<p>
+
+#### We can hide anything, even code!
+
+```ruby
+   puts "Hello World"
+```
+
+</p>
+</details>
+
+
+## 1. Class content
 ### Security on Container
 
 Container security is the practice of protecting your applications hosted on compute services like containers. 
