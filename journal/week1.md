@@ -266,6 +266,14 @@ To install the postgres client into Gitpod(add to gitpod.yml file in tasks)
       sudo apt install -y postgresql-client-13 libpq-dev
 ```
 
+To access to the postgres DB:
+```
+psql -Upostgres --host localhost
+
+```
+
+
+
 ### DynamoDB Local
 
 What is DynamoDB?
