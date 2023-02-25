@@ -283,7 +283,7 @@ With the downloadable version of Amazon DynamoDB, you can develop and test appli
 
 Having this local version helps you save on throughput, data storage, and data transfer fees. In addition, you don't need an internet connection while you develop your application.
 
-[Setting up DynamoDB local](https://link-url-here.org](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html)
+[Setting up DynamoDB local](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html)
 
 [Example using DynamoDB Local: Challenge DynamoDB local](https://github.com/100DaysOfCloud/challenge-dynamodb-local)
 
