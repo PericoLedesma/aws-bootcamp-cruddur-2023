@@ -33,16 +33,16 @@ Containers security components
 > Compliance Framework
 
 Security best practices
-> Keep Host & Docker Updated to latest security patches.
-Docker Deamon & containers should run in non root user mode
-Image Vulnerability Scanning
-Trust a Private vs Public Image Registry
-No Sensitive Data in Docker Files or Images
-Use Secret Management Services to share secrets.
-Read only file system and volume for dockers
-Separate databases for long term storage
-Use DevSecOps pratices while building application security
-Ensure all code is tested for vulnerabilities before production use
+> - Keep Host & Docker Updated to latest security patches.
+> - Docker Deamon & containers should run in non root user mode
+> - Image Vulnerability Scanning
+> - Trust a Private vs Public Image Registry
+> - No Sensitive Data in Docker Files or Images
+> - Use Secret Management Services to share secrets.
+> - Read only file system and volume for dockers
+> - Separate databases for long term storage
+> - Use DevSecOps pratices while building application security
+> - Ensure all code is tested for vulnerabilities before production use
 
 ### Dockers components
 
