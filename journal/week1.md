@@ -347,6 +347,8 @@ volumes:
 [OpenAPI documentation](https://spec.openapis.org/oas/v3.1.0#responses-object)
 
 [ReadMe transforms your API docs into interactive hubs that help developers succeed](https://readme.com)
+
+[What is Clair?](https://www.redhat.com/en/topics/containers/what-is-clair)
  
 </p>
 </details>
