@@ -13,6 +13,9 @@ Container security is the practice of protecting your applications hosted on com
 Why use containers?
 
 > It is a angnostic way to run application. Most people started developing apps on container due to the simplicity to pass the package without considering requirements.
+ 
+[What is a container](https://docs.docker.com/get-started/)
+[Docker compose get start](https://docs.docker.com/compose/gettingstarted/)
 
 Managed vs unmanaged containers
 
@@ -327,6 +330,23 @@ volumes:
   db:
     driver: local
 ```
+ 
+</p>
+</details>
+
+
+<details><summary>Useful references </summary>
+<p>
+
+[What is a container](https://docs.docker.com/get-started/)
+ 
+[Docker compose get start](https://docs.docker.com/compose/gettingstarted/)
+ 
+[Rails Service Objects]( https://www.toptal.com/ruby-on-rails/rails-service-objects-tutorial)
+ 
+[OpenAPI documentation](https://spec.openapis.org/oas/v3.1.0#responses-object)
+
+[ReadMe transforms your API docs into interactive hubs that help developers succeed](https://readme.com)
  
 </p>
 </details>
