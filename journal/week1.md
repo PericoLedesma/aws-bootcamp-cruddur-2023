@@ -350,7 +350,7 @@ volumes:
 
 [What is Clair?](https://www.redhat.com/en/topics/containers/what-is-clair)
  
-[Building and maintaining community images ](https://www.linuxserver.io/)
+[linuxserver.io: Building and maintaining community images ](https://www.linuxserver.io/)
  
 </p>
 </details>
