@@ -1,6 +1,10 @@
 # Week 1 — App Containerization
 
-## Class content
+Structure:
+1. Class contect
+2. Practice/Homework
+
+## 1. Class content
 
 ### Security on Container
 
@@ -48,7 +52,7 @@ Security best practices
 
 ![Docker components](assets/week1_architecture.svg)
 
-## Practice
+## 2. Practice/Homework
 
 ### Coding the startpoint for the notifications endpoint API
 
