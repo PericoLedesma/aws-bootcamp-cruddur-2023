@@ -1,3 +1,5 @@
+# OpenAPI: The OpenAPI Specification is a standard format to define structure and syntax REST APIs. OpenAPI documents are both machine and human-readable, which enables anyone to easily determine how each API works.
+
 openapi: '3.0.2'
 info:
   title: Cruddur Backend API
@@ -148,6 +150,22 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Message'
+  /api/activities/notifications:
+    get:
+      description: 'Return a feed of activity for all those that I follow'
+      tag: # Allow us to group them. See documentation
+      - activities
+      parameters: []
+      responses:
+        '200':
+          description: Returns an array of activities
+          content:
+            application/json:
+              schema:  
+                type: array
+                items:
+                  $ref: '#/components/schemas/Activity' # Here the response structure
+
 
 components:
   schemas:
