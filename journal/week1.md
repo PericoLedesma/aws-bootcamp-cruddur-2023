@@ -76,6 +76,120 @@ Docker compose
 
 ## 2. Practice/Homework
 
+### Dockers
+
+To create the docker configuration for the backend-flask, create a file called **Dockerfile** and copy the following code
+
+```
+#Instructions about how we run our application
+
+
+#From docker hub, pyhon image does get installed in our docker. DOckers inside dockers. 
+#FROM scratch =an explicitly empty image, especially for building images "FROM scratch" as a starting point for building containers.
+
+FROM python:3.10-slim-buster
+
+
+# Inside container: make a new folder inside container
+WORKDIR /backend-flask
+
+# Outside container --> Inside container: copy from outside to inside. This file has the libraries we want to install
+COPY requirements.txt requirements.txt
+
+# Inside container: install the python libraries used for the app
+RUN pip3 install -r requirements.txt
+
+# Outside container -> Inside container
+# . means everything int eh current directory
+# First period . -/backend-flask (outside container)
+# Second period . /backend-flask (inside container)
+COPY . .
+
+
+# Enviroment variables
+ENV FLASK_ENV=development
+
+EXPOSE ${PORT}
+
+# CMD (command)
+# To run flask.  python3 -m flask run --host=0.0.0.0 --port=4567
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]
+```
+
+from the project directory type the following code to build the image
+```
+docker build -t backend-flask ./backend-flask
+```
+
+typing this command to run the image of the container
+```
+docker run --rm -p 4567:4567 -it backend-flask
+```
+
+
+this code create the 2 var env and run the container
+
+```
+docker run --rm -p 4567:4567 -it -e FRONTEND_URL='*' -e BACKEND_URL='*' backend-flask
+```
+
+#### Creating docker frontend
+move to the frontend folder and install npm
+this command will be execute every time you launch the gitpod session
+```
+cd frontend-react-js
+npm i
+```
+
+To create the docker configuration for the frontend-react-js, create a file called **Dockerfile** and copy the following code
+```
+FROM node:16.18
+
+ENV PORT=3000
+
+COPY . /frontend-react-js
+WORKDIR /frontend-react-js
+RUN npm install
+EXPOSE ${PORT}
+CMD ["npm", "start"]
+```
+
+### Create docker compose
+
+Create the file called docker-compose.yml from the main root and copy the following code.
+```
+version: "3.8"
+services:
+  backend-flask:
+    environment:
+      FRONTEND_URL: "https://3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
+      BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
+    build: ./backend-flask
+    ports:
+      - "4567:4567"
+    volumes:
+      - ./backend-flask:/backend-flask
+  frontend-react-js:
+    environment:
+      REACT_APP_BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
+    build: ./frontend-react-js
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend-react-js:/frontend-react-js
+
+# the name flag is a hack to change the default prepend folder
+# name when outputting the image names
+networks: 
+  internal-network:
+    driver: bridge
+    name: cruddur
+```
+
+
+to run the docker compose, type terminal docker compose up
+
+
 ### Coding the startpoint for the notifications endpoint API
 
 Curretly, the notifications endpoint API was not created.
