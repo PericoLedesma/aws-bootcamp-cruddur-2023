@@ -2,6 +2,23 @@
 
 ## Class content
 
+### Security on Container
+
+Container security is the practice of protecting your applications hosted on compute services like containers. 
+
+Why use containers?
+
+> - It is a angnostic way to run application. Most people started developing apps on container due to the simplicity to pass the package without considering requirements.
+
+Managed vs unmanaged containers
+
+> - Managed Containers means that the Provider like AWS managed the underlying service for the container (ECS or EKS). In this case Cloud provider will be managing the security prospective .
+
+> - Unmanaged Containers means you are running your container on your servers and you have to manage all the system (for example you will be in charged to apply security patches).
+
+### Dockers components
+
+![Docker components](assets/week1_architecture.svg)
 
 ## Practice
 
