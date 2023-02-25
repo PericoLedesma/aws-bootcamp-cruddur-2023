@@ -7,9 +7,6 @@ Structure:
 
 <details><summary>Class content</summary>
 <p>
-
-
-
 ## 1. Class content
 ### Security on Container
 
@@ -77,11 +74,12 @@ Docker compose
 ### Dockers components
 
 ![Docker components](assets/week1_architecture.svg)
-
-
 </p>
 </details>
 
+
+<details><summary>Practice/Homework</summary>
+<p>
 ## 2. Practice/Homework
 
 ### Dockers
@@ -333,3 +331,7 @@ volumes:
   db:
     driver: local
 ```
+ 
+</p>
+</details>
+
