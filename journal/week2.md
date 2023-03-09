@@ -23,13 +23,13 @@ Objetive: Distributed tracing implementation to add the functionality to easy pi
 </details>
 
 ### What is observability?
->Observability is the extent to which the internal states of a system can be inferred from externally available data. An observable software system provides the ability to understand any issue that arises. Conventionally, __the three pillars of observability data are metrics, logs and traces.__
+Observability is the extent to which the internal states of a system can be inferred from externally available data. An observable software system provides the ability to understand any issue that arises. Conventionally, __the three pillars of observability data are metrics, logs and traces.__
 
 ### What are traces?
 
 >A trace represents the entire journey of a request or action as it moves through all the nodes of a distributed system.
 
-###What are logs?
+### What are logs?
 
 >A log file is a computer-generated data file that contains information about usage patterns, activities, and operations within an operating system, application, server or another device. Log files show whether resources are performing properly and optimally.\
 >On-Premise logs: infraestructure , applications, anti-virus, Firewall..
