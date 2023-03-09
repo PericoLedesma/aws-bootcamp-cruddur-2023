@@ -46,3 +46,66 @@ So next step Adding Attributes to Spans
 Challenge:Instrument the frontend. Is dificult. 
 Had our instrumentation. What would we usefull for us
 Run custum queries.
+
+
+
+# XRAY
+
+we need a daemon to make it work. Another container it seems
+
+Image of best practices
+
+task what is npm? and sdk?
+
+link sdk and aws
+
+https://docs.aws.amazon.com/xray/latest/devguide/xray-sdk-python.html
+
+https://github.com/aws/aws-xray-sdk-python
+
+We add to requirement aws-xray-sdk 
+
+What is middleware for web applications?
+
+
+We can used middleware layers to handdle steps before the request arrieve to the application, like a security layer. 
+We are going to use it for tracing
+
+
+Task: what is flask
+
+
+
+Groups of XRAYS traces: to group traces together
+
+
+https://eu-central-1.console.aws.amazon.com/cloudwatch/home?region=eu-central-1#xray:settings/groups
+
+Next task to create a sampling rule: how much information you want to see. 
+
+
+https://eu-central-1.console.aws.amazon.com/cloudwatch/home?region=eu-central-1#xray:settings/sampling-rules
+
+Now we have to isntall xray daemon
+
+Documentation https://docs.aws.amazon.com/xray/latest/devguide/xray-daemon.html
+
+We are going to put xray tracer in 
+
+
+Next video: cloudwatch logs 
+
+watchtower library in python to handle cloudwatch logs 
+
+https://pypi.org/project/watchtower/
+
+Task: check all the options in cloudwatch what are
+
+Carefull cloudwatch cost money. Same xray. Not much. We disable it.
+
+End video
+
+
+
+
+
