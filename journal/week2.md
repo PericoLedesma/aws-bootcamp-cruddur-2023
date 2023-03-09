@@ -1,14 +1,63 @@
 # Week 2 — Distributed Tracing
 
+Note: week 2 was done with week 3 due to master examns.
+
+(click to open section)
+
+<details><summary>Week content</summary>
+<p>
+Objetive: Distributed tracing implementation to add the functionality to easy pinpoint issue when adding cloud services.
+
+        </p>
+</details>
+
+
+
+        
+        
+        
+<details><summary>Practice</summary>
+<p>
+   
+</p>
+</details>
+
+What is obnservability?
+>Observability is the extent to which the internal states of a system can be inferred from externally available data. An observable software system provides the ability to understand any issue that arises. Conventionally, __the three pillars of observability data are metrics, logs and traces.__
+
 What are traces?
-Instrumentation
 
-What are we using Honeycomb? To visualice the traces
+>A trace represents the entire journey of a request or action as it moves through all the nodes of a distributed system.
 
-How are we sending them? Usin opentelemetry
+What are logs?
 
-Link what is opentelemetry 
+>A log file is a computer-generated data file that contains information about usage patterns, activities, and operations within an operating system, application, server or another device. Log files show whether resources are performing properly and optimally.\
+>On-Premise logs: infraestructure , applications, anti-virus, Firewall..
+>Cloud Logs: infraestructure** , applications**, anti-virus, Firewall..
 
+Observability vs Monotoring
+Image 
+
+What is Observability in AWS?
+
+>Open-source solutions, giving you the ability to understand what is happening across your technology stack at any time. AWS observability lets you collect, correlate, aggregate, and analyze telemetry in your network, infrastructure, and applications in the cloud, hybrid, or on-premises environments so you can gain insights into the behavior, performance, and health of your system. 
+>These insights help you detect, investigate, and remediate problems faster; and coupled with artificial intelligence and machine learning, proactively react, predict, and prevent problems.
+
+[AWS Observability](https://aws.amazon.com/cloudops/monitoring-and-observability/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc&blog-posts-cards.sort-by=item.additionalFields.createdDate&blog-posts-cards.sort-order=desc)
+
+Image aws tools
+
+For what are we using Honeycomb? To visualice and read the data extracted.
+
+>Is a software debugging tool that can help you solve problems faster within your distributed services. Honeycomb provides full stack observability—designed for high cardinality data and collaborative problem solving, enabling engineers to deeply understand and debug production software together.
+
+[HoneyComb](https://www.honeycomb.io)
+
+How are we sending the traces, metrics and logs to HoneyComb? OpenTelemetry
+
+> Honeycomb supports OpenTelemetry, the CNCF open standard for sending traces, metrics, and logs. If your application is already instrumented for OpenTelemetry, you can send OTLP data directly to Honeycomb’s endpoint.
+
+[OpenTelemetry](https://docs.honeycomb.io/getting-data-in/opentelemetry-overview/)
 
 
 Task: Seting up opentelemetry
@@ -106,6 +155,19 @@ Carefull cloudwatch cost money. Same xray. Not much. We disable it.
 End video
 
 
+Video rollbar
+
+waht is a rollbar. https://rollbar.com
+
+Challenge: add aditional information rollbar
+
+why we need rollwbar? in production we dont see the error
+
+Here we can see https://rollbar.com/rgzledesma/all/items/?sort=%5Bobject%20Object%5D&status=active&date_from=&date_to=&environments=production&activated_to=&framework=&levels=10&levels=20&levels=30&levels=40&levels=50&activated_from=&offset=0&timezone=Europe%2FBerlin&assigned_user=&date_filtering=seen&projects=624482&query=&enc_query=
 
 
+
+XRAY subsegments
+
+https://olley.hashnode.dev/aws-free-cloud-bootcamp-instrumenting-aws-x-ray-subsegments
 
