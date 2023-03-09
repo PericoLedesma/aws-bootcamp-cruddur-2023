@@ -28,19 +28,20 @@ from opentelemetry.sdk.trace.export import SimpleSpanProcessor, ConsoleSpanExpor
 from aws_xray_sdk. core import xray_recorder 
 from aws_xray_sdk.ext. flask.middleware import XRayMiddleware
 
-# Cloudwatch logs (watchtower) --------
+# Cloudwatch logs (watchtower) -------- Carefull cost money
 import watchtower
 import logging
 from time import strftime
 
-# Configuring Logger to Use CloudWatch
-LOGGER = logging.getLogger(__name__)
-LOGGER.setLevel(logging.DEBUG)
-console_handler = logging.StreamHandler()
-cw_handler = watchtower.CloudWatchLogHandler(log_group='cruddur')
-LOGGER.addHandler(console_handler)
-LOGGER.addHandler(cw_handler)
-LOGGER.info("test log")
+# Cloudwatch logs (watchtower) -------- Carefull cost money
+# Configuring Logger to Use CloudWatch. Carefull cost money
+#LOGGER = logging.getLogger(__name__)
+#LOGGER.setLevel(logging.DEBUG)
+#console_handler = logging.StreamHandler()
+#cw_handler = watchtower.CloudWatchLogHandler(log_group='cruddur')
+#LOGGER.addHandler(console_handler)
+#LOGGER.addHandler(cw_handler)
+#LOGGER.info("test log")
 
 
 # HoneyComb ---------------
@@ -50,9 +51,9 @@ processor = BatchSpanProcessor(OTLPSpanExporter())
 provider.add_span_processor(processor)
 
 
-# X-RAY ----------------
-xray_uri = os.getenv ("AWS_XRAY_URL")
-xray_recorder.configure(service= 'backend-flask', dynamic_naming=xray_uri)
+# X-RAY ---------------- Carefull cost money
+# xray_uri = os.getenv ("AWS_XRAY_URL")
+# xray_recorder.configure(service= 'backend-flask', dynamic_naming=xray_uri)
 
 
 # Show this in the logs within the backend-flask app(STDOUT)
@@ -127,7 +128,7 @@ def data_create_message():
 
 @app.route("/api/activities/home", methods=['GET'])
 def data_home():
-  data = HomeActivities.run()
+  data = HomeActivities.run(Logger= LOGGER)
   return data, 200
 
 
