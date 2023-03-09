@@ -1,11 +1,15 @@
 from datetime import datetime, timedelta, timezone
 from opentelemetry import trace
 
+
+import logging #Cloudwatch logs
+
 # OpenTelemetry ------
 tracer = trace.get_tracer("home.activities")
 
 class HomeActivities:
   def run():
+    LOGGER.info("HomeActivities")
     # OpenTelemetry tracer setup
     with tracer.start_as_current_span("home-activities-mock-data") as segment: # Span caller
       span = trace.get_current_span() # Span attributes 
