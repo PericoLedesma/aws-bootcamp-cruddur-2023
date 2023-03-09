@@ -9,21 +9,8 @@ Extrpoints to do:
 
 <details><summary>Week content</summary>
 <p>
-Objetive: Distributed tracing implementation to add the functionality to easy pinpoint issue when adding cloud services.
+__Objetive:__ Distributed tracing implementation to add the functionality to easy pinpoint issue when adding cloud services.
 
-        </p>
-</details>
-
-
-
-        
-        
-        
-<details><summary>Practice</summary>
-<p>
-   
-</p>
-</details>
 
 ### What is observability?
 >Observability is the extent to which the internal states of a system can be inferred from externally available data. An observable software system provides the ability to understand any issue that arises. Conventionally, __the three pillars of observability data are metrics, logs and traces.__
@@ -38,7 +25,7 @@ Objetive: Distributed tracing implementation to add the functionality to easy pi
 >On-Premise logs: infraestructure , applications, anti-virus, Firewall..
 >Cloud Logs: infraestructure** , applications**, anti-virus, Firewall..
 
-###Observability vs Monotoring
+### Observability vs Monotoring
 
 ![Observability vs Monotoring](assets/week2_obsvsmonit.jpeg)
 
@@ -64,7 +51,10 @@ Objetive: Distributed tracing implementation to add the functionality to easy pi
 
 [OpenTelemetry](https://docs.honeycomb.io/getting-data-in/opentelemetry-overview/)
 
-
+What is middleware for web applications?
+        >Middleware is software that different applications use to communicate with each other. It provides functionality to connect applications intelligently and efficiently so that you can innovate faster. Middleware acts as a bridge between diverse technologies, tools, and databases so that you can integrate them seamlessly into a single system. The single system then provides a unified service to its users. For example, a Windows frontend application sends and receives data from a Linux backend server, but the application users are unaware of the difference.
+ 
+        
 What is a Daemon?
 
 >A daemon is a process that runs in the background rather than under the direct control of the user. Although you run docker commands on your host machine, these commands do none of the processing on your Docker containers and images. They are frequently also servers that accept requests from clients to perform actions for them.
@@ -91,12 +81,20 @@ What is a Daemon?
 
 
 
-We add to requirement aws-xray-sdk 
 
-What is middleware for web applications?
+        </p>
+</details>
 
 
 
+        
+        
+        
+<details><summary>Practice</summary>
+<p>
+   
+</p>
+</details>
 
 PRACTICE ---------
 
