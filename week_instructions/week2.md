@@ -59,9 +59,11 @@ Add `aws/json/xray.json`
 FLASK_ADDRESS="https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
 aws xray create-group \
    --group-name "Cruddur" \
-   --filter-expression "service(\"$FLASK_ADDRESS\") {fault OR error}"
+   --filter-expression "service(\"bacnkend-flask\")"
 ```
 
+
+Creating sampling rule:
 ```sh
 aws xray create-sampling-rule --cli-input-json file://aws/json/xray.json
 ```
@@ -70,6 +72,7 @@ aws xray create-sampling-rule --cli-input-json file://aws/json/xray.json
 
 [Github aws-xray-daemon](https://github.com/aws/aws-xray-daemon)
 [X-Ray Docker Compose example](https://github.com/marjamis/xray/blob/master/docker-compose.yml)
+
 
 
 ```sh
