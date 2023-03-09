@@ -2,6 +2,9 @@
 
 Note: week 2 was done with week 3 due to master examns.
 
+Extrpoints to do:
+-task what is npm? and sdk?
+
 (click to open section)
 
 <details><summary>Week content</summary>
@@ -23,7 +26,7 @@ Objetive: Distributed tracing implementation to add the functionality to easy pi
 </details>
 
 ### What is observability?
-Observability is the extent to which the internal states of a system can be inferred from externally available data. An observable software system provides the ability to understand any issue that arises. Conventionally, __the three pillars of observability data are metrics, logs and traces.__
+>Observability is the extent to which the internal states of a system can be inferred from externally available data. An observable software system provides the ability to understand any issue that arises. Conventionally, __the three pillars of observability data are metrics, logs and traces.__
 
 ### What are traces?
 
@@ -62,6 +65,41 @@ Observability is the extent to which the internal states of a system can be infe
 [OpenTelemetry](https://docs.honeycomb.io/getting-data-in/opentelemetry-overview/)
 
 
+What is a Daemon?
+
+>A daemon is a process that runs in the background rather than under the direct control of the user. Although you run docker commands on your host machine, these commands do none of the processing on your Docker containers and images. They are frequently also servers that accept requests from clients to perform actions for them.
+
+![Docker Daemons](assets/week2_daemons.png)
+
+### What is AWS X-RAY?
+>AWS X-Ray provides a complete view of requests as they travel through your application and filters visual data across payloads, functions, traces, services, APIs, and more with no-code and low-code motions.
+
+[AWS X-RAY](https://aws.amazon.com/xray/?nc1=h_ls)
+
+![AWS X-RAY](assets/week2_awsxray.png)
+
+[Configuring the AWS X-Ray daemon](https://docs.aws.amazon.com/xray/latest/devguide/xray-daemon-configuration.html)
+
+[What are the best practises for setting up x-ray daemon?](https://stackoverflow.com/questions/54236375/what-are-the-best-practises-for-setting-up-x-ray-daemon)
+
+![Best practices](assets/week2_xraybestpractices.png)
+
+[AWS X-RAY:SDK python](https://docs.aws.amazon.com/xray/latest/devguide/xray-sdk-python.html)
+
+[AWS X-RAY:SDK python](https://github.com/aws/aws-xray-sdk-python)
+
+
+
+
+We add to requirement aws-xray-sdk 
+
+What is middleware for web applications?
+
+
+
+
+PRACTICE ---------
+
 Task: Seting up opentelemetry
 Seting up the endpoint in Honeycomb with the api key
 Service name: how the data is span
@@ -89,7 +127,7 @@ with tracer.start_as_current_span("mock-data"): # This is the name of the span
 in HONEYCOMB, library says what did that spans
 
 We have automaticatly some fields on the right part
-Some are globnal
+Some are global
 We can add some fields for our owns. Next step. Spans because replacement for logs
 
 So next step Adding Attributes to Spans 
