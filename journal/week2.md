@@ -36,16 +36,17 @@ What are logs?
 >Cloud Logs: infraestructure** , applications**, anti-virus, Firewall..
 
 Observability vs Monotoring
-Image 
+![Observability vs Monotoring](assets/week2_obsvsmonit.jpeg)
+
 
 What is Observability in AWS?
 
 >Open-source solutions, giving you the ability to understand what is happening across your technology stack at any time. AWS observability lets you collect, correlate, aggregate, and analyze telemetry in your network, infrastructure, and applications in the cloud, hybrid, or on-premises environments so you can gain insights into the behavior, performance, and health of your system. 
 >These insights help you detect, investigate, and remediate problems faster; and coupled with artificial intelligence and machine learning, proactively react, predict, and prevent problems.
 
-[AWS Observability](https://aws.amazon.com/cloudops/monitoring-and-observability/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc&blog-posts-cards.sort-by=item.additionalFields.createdDate&blog-posts-cards.sort-order=desc)
+![Observability AWS Tools](assets/week2_aws_observabilitytools.jpeg)
 
-Image aws tools
+[AWS Observability](https://aws.amazon.com/cloudops/monitoring-and-observability/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc&blog-posts-cards.sort-by=item.additionalFields.createdDate&blog-posts-cards.sort-order=desc)
 
 For what are we using Honeycomb? To visualice and read the data extracted.
 
