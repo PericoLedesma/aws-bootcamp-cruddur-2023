@@ -5,15 +5,12 @@ from aws_xray_sdk. core import xray_recorder
 class UserActivities:
   def run(user_handle):
     #segment = xray_recorder.begin_segment('user_activities')
-
     
     model = {
       'errors': None,
       'data': None
     }
-
     now = datetime.now(timezone.utc).astimezone()
-
 
     if user_handle == None or len(user_handle) < 1:
       model['errors'] = ['blank_user_handle']
@@ -28,7 +25,6 @@ class UserActivities:
       }]
       model['data'] = results
     
-
     # XRAY ---
     #subsegment = xray_recorder.begin_subsegment('mock-data')
     #dict= {

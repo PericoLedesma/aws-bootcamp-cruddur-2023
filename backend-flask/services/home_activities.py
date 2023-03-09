@@ -8,14 +8,13 @@ import logging #Cloudwatch logs
 tracer = trace.get_tracer("home.activities")
 
 class HomeActivities:
-  def run(Logger):
+  def run(): # arg Logger
     #Logger.info("HomeActivities") #Cloudwatch logs. Carefull cost money
     # OpenTelemetry tracer setup
-    with tracer.start_as_current_span("home-activities-mock-data") as segment: # Span caller
+    with tracer.start_as_current_span("home-activities-mock-data"): # Span caller
       span = trace.get_current_span() # Span attributes 
       now = datetime.now(timezone.utc).astimezone()
       span.set_attribute("app.now", now.isoformat())
-
 
       results = [{
         'uuid': '68f126b0-1ceb-4a33-88be-d90fa7109eee',

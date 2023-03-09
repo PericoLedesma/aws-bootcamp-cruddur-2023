@@ -55,8 +55,24 @@ provider = TracerProvider()
 processor = BatchSpanProcessor(OTLPSpanExporter())
 provider.add_span_processor(processor)
 
+
 # Rollbar ----
 rollbar_access_token = os.getenv('ROLLBAR_ACCESS_TOKEN')
+
+# X-RAY ---------------- Carefull cost money
+# xray_uri = os.getenv ("AWS_XRAY_URL")
+# xray_recorder.configure(service= 'backend-flask', dynamic_naming=xray_uri)
+
+
+# Show this in the logs within the backend-flask app(STDOUT)
+#simple_processor = SimpleSpanProcessor(ConsoleSpanExporter())
+#provider.add_span_processor(simple_processor)
+trace.set_tracer_provider(provider)
+tracer = trace.get_tracer(__name__)
+
+# -----------------------------
+app = Flask(__name__)
+
 @app.before_first_request
 def init_rollbar():
     """init rollbar module"""
@@ -74,23 +90,8 @@ def init_rollbar():
     got_request_exception.connect(rollbar.contrib.flask.report_exception, app)
 
 
-# X-RAY ---------------- Carefull cost money
-# xray_uri = os.getenv ("AWS_XRAY_URL")
-# xray_recorder.configure(service= 'backend-flask', dynamic_naming=xray_uri)
-
-
-# Show this in the logs within the backend-flask app(STDOUT)
-simple_processor = SimpleSpanProcessor(ConsoleSpanExporter())
-provider.add_span_processor(simple_processor)
-trace.set_tracer_provider(provider)
-tracer = trace.get_tracer(__name__)
-
-
-
-app = Flask(__name__)
-
 # X-RAY ----------------
-XRayMiddleware(app, xray_recorder)
+#XRayMiddleware(app, xray_recorder)
 
 # HoneyComb ---------------
 # Initialize automatic instrumentation with Flask
@@ -114,6 +115,7 @@ cors = CORS(
 #    timestamp = strftime('[%Y-%b-%d %H:%M]')
 #    LOGGER.error('%s %s %s %s %s %s', timestamp, request.remote_addr, request.method, request.scheme, request.full_path, response.status)
 #    return response
+
 
 
 # Rollbar
@@ -159,7 +161,7 @@ def data_create_message():
 
 @app.route("/api/activities/home", methods=['GET'])
 def data_home():
-  data = HomeActivities.run(Logger= LOGGER)
+  data = HomeActivities.run() # arg Logger= LOGGER
   return data, 200
 
 
