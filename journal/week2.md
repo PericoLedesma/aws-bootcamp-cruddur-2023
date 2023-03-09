@@ -22,10 +22,10 @@ Objetive: Distributed tracing implementation to add the functionality to easy pi
 </p>
 </details>
 
-### What is obnservability?
+### What is observability?
 >Observability is the extent to which the internal states of a system can be inferred from externally available data. An observable software system provides the ability to understand any issue that arises. Conventionally, __the three pillars of observability data are metrics, logs and traces.__
 
-What are traces?
+#### What are traces?
 
 >A trace represents the entire journey of a request or action as it moves through all the nodes of a distributed system.
 
