@@ -25,22 +25,22 @@ Objetive: Distributed tracing implementation to add the functionality to easy pi
 ### What is observability?
 >Observability is the extent to which the internal states of a system can be inferred from externally available data. An observable software system provides the ability to understand any issue that arises. Conventionally, __the three pillars of observability data are metrics, logs and traces.__
 
-#### What are traces?
+### What are traces?
 
 >A trace represents the entire journey of a request or action as it moves through all the nodes of a distributed system.
 
-What are logs?
+###What are logs?
 
 >A log file is a computer-generated data file that contains information about usage patterns, activities, and operations within an operating system, application, server or another device. Log files show whether resources are performing properly and optimally.\
 >On-Premise logs: infraestructure , applications, anti-virus, Firewall..
 >Cloud Logs: infraestructure** , applications**, anti-virus, Firewall..
 
-Observability vs Monotoring
+###Observability vs Monotoring
 
 ![Observability vs Monotoring](assets/week2_obsvsmonit.jpeg)
 
 
-What is Observability in AWS?
+### What is Observability in AWS?
 
 >Open-source solutions, giving you the ability to understand what is happening across your technology stack at any time. AWS observability lets you collect, correlate, aggregate, and analyze telemetry in your network, infrastructure, and applications in the cloud, hybrid, or on-premises environments so you can gain insights into the behavior, performance, and health of your system. 
 >These insights help you detect, investigate, and remediate problems faster; and coupled with artificial intelligence and machine learning, proactively react, predict, and prevent problems.
@@ -49,13 +49,13 @@ What is Observability in AWS?
 
 [AWS Observability](https://aws.amazon.com/cloudops/monitoring-and-observability/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc&blog-posts-cards.sort-by=item.additionalFields.createdDate&blog-posts-cards.sort-order=desc)
 
-For what are we using Honeycomb? To visualice and read the data extracted.
+### For what are we using Honeycomb? To visualice and read the data extracted.
 
 >Is a software debugging tool that can help you solve problems faster within your distributed services. Honeycomb provides full stack observability—designed for high cardinality data and collaborative problem solving, enabling engineers to deeply understand and debug production software together.
 
 [HoneyComb](https://www.honeycomb.io)
 
-How are we sending the traces, metrics and logs to HoneyComb? OpenTelemetry
+### How are we sending the traces, metrics and logs to HoneyComb? OpenTelemetry
 
 > Honeycomb supports OpenTelemetry, the CNCF open standard for sending traces, metrics, and logs. If your application is already instrumented for OpenTelemetry, you can send OTLP data directly to Honeycomb’s endpoint.
 
