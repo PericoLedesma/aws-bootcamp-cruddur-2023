@@ -9,7 +9,7 @@ Extrpoints to do:
 
 <details><summary>Week content</summary>
 <p>
-** Objetive: ** Distributed tracing implementation to add the functionality to easy pinpoint issue when adding cloud services.
+Objetive: Distributed tracing implementation to add the functionality to easy pinpoint issue when adding cloud services.
 
 
 ### What is observability?
@@ -93,11 +93,6 @@ What is a Daemon?
 <details><summary>Practice</summary>
 <p>
    
-</p>
-</details>
-
-PRACTICE ---------
-
 Task: Seting up opentelemetry
 Seting up the endpoint in Honeycomb with the api key
 Service name: how the data is span
@@ -208,4 +203,7 @@ Here we can see https://rollbar.com/rgzledesma/all/items/?sort=%5Bobject%20Objec
 XRAY subsegments
 
 https://olley.hashnode.dev/aws-free-cloud-bootcamp-instrumenting-aws-x-ray-subsegments
+
+        </p>
+</details>
 
