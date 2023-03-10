@@ -9,7 +9,8 @@ Extrpoints to do:
 
 <details><summary>Week content</summary>
 <p>
--------------------------------------
+        
+--------------------------------------------------------------------------
         
 Objetive: Distributed tracing implementation to add the functionality to easy pinpoint issue when adding cloud services.
 
