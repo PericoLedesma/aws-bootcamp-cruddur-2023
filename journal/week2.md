@@ -146,6 +146,19 @@ Challenges
 - [ ] Run custum queries. Had our instrumentation. What would we usefull for us
 - [ ] Add aditional information rollbar
 
-
+---------------------------------
 </details>
 
+<details><summary>Pricing aspects</summary>
+
+<br/><br/> 
+        
+* 100 million monthly events are included in the Honeycomb free tier       
+* The Rollbar free tier includes up to 5,000 events per month, which can include error events, logged errors, and custom events.
+* On the AWS X-Ray free tier, you can trace up to 100,000 requests per month at no charge.
+* It's important to note that CloudWatch provides free tier for custom metrics as well, which includes up to 10 metrics, 10 custom metrics per month at no additional cost. If you exceed the free tier limit, you will be charged based on the number of unique metric dimensions per month.
+
+  
+        
+        
+</details>
