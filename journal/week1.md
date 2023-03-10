@@ -2,10 +2,10 @@
 
 (click to open section)
 
-<details><summary>Class content</summary>
+<details><summary>Week content</summary>
 <p>
  
-## 1. Class content
+
 ### Security on Container
 
 Container security is the practice of protecting your applications hosted on compute services like containers. 
@@ -79,10 +79,10 @@ Docker compose
 </details>
 
 
-<details><summary>Practice/Homework</summary>
+<details><summary>Practice</summary>
 <p>
  
-## 2. Practice/Homework
+
 
 ### Dockers
 
