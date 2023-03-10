@@ -1,8 +1,8 @@
 # Week 2 — Distributed Tracing
 
-        Note: week 2 was done with week 3 due to master exams.
-
 __Objetive:__ Distributed tracing implementation to add the functionality to easy pinpoint issue when adding cloud services.
+
+        Note: week 2 was done with week 3 due to master exams.
 
 (click to open section)
 
