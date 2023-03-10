@@ -2,7 +2,7 @@
 
         Note: week 2 was done with week 3 due to master exams.
 
-### Objetive: Distributed tracing implementation to add the functionality to easy pinpoint issue when adding cloud services.
+__Objetive:__ Distributed tracing implementation to add the functionality to easy pinpoint issue when adding cloud services.
 
 (click to open section)
 
