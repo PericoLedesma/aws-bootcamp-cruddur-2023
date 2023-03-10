@@ -160,16 +160,21 @@ What is a Daemon?
 Troubles during implementation.     
 >I had issures becuase the was a step that I miss or was not explained and I lost some days strying to fix it. We have to go to the frontend repository and install npm. Because I did not run this step i was stak for a while. I thought the npm was installed with the docker file
 
-
-
-Challenges
-- [ ] Adding Attributes to Spans 
-- [ ] Instrument the frontend. Is dificult. 
-- [ ] Run custum queries. Had our instrumentation. What would we usefull for us
-- [ ] Add aditional information rollbar
-
----------------------------------
+------------------------------------------------------------------
 </details>
+
+<details><summary>Challenges</summary>
+
+- [ ] Adding Attributes to Spans 
+- [ ] Instrument Honeycomb for the frontend-application to observe network latency between frontend and backend[HARD]
+- [ ] Add custom instrumentation to Honeycomb to add more attributes eg. UserId, Add a custom span What would we usefull for us
+- [ ] Run custom queries in Honeycomb and save them later eg. Latency by UserID, Recent Traces
+- [ ] Add aditional information rollbar
+       
+
+------------------------------------------------------------------
+</details>
+
 
 <details><summary>Pricing aspects</summary>
 
