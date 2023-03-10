@@ -1,6 +1,6 @@
 # Week 2 — Distributed Tracing
 
-        Note: week 2 was done with week 3 due to master examns.
+        Note: week 2 was done with week 3 due to master exams.
 
 (click to open section)
 
