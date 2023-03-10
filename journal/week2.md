@@ -8,7 +8,7 @@
 
 <br/><br/> 
         
-Objetive: Distributed tracing implementation to add the functionality to easy pinpoint issue when adding cloud services.
+### Objetive: Distributed tracing implementation to add the functionality to easy pinpoint issue when adding cloud services.
 
 <br/><br/> 
 
