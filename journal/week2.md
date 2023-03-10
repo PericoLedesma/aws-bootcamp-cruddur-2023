@@ -2,15 +2,6 @@
 
         Note: week 2 was done with week 3 due to master examns.
 
-----
-Extrpoints to do:
--task what is npm? and sdk?
-
-Task: check all the options in cloudwatch what are
-Task: what is flask
-why we need rollwbar? in production we dont see the error
------
-
 (click to open section)
 
 <details><summary>Week content</summary>
