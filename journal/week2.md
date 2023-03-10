@@ -114,33 +114,30 @@ What is a Daemon?
 ![Honeycomb.ai traces](assets/week2_metric2.png)
               
 3. Instrument AWS X-Ray into backend flask application
-        * [We create groups of X-RAYS traces: to group traces together](https://eu-central-1.console.aws.amazon.com/cloudwatch/home?region=eu-central-1#xray:settings/groups)
-        * [We create a sampling rule to control how much information we see.](https://eu-central-1.console.aws.amazon.com/cloudwatch/home?region=eu-central-1#xray:settings/sampling-rules)
+  * [We create groups of X-RAYS traces: to group traces together](https://eu-central-1.console.aws.amazon.com/cloudwatch/home?region=eu-central-1#xray:settings/groups)
+  * [We create a sampling rule to control how much information we see.](https://eu-central-1.console.aws.amazon.com/cloudwatch/home?region=eu-central-1#xray:settings/sampling-rules)
 
 4. Configure and provision X-Ray daemon within docker-compose and send data back to X-Ray API
 
-        * We need a docker daemon to make it work. 
+  * We need a docker daemon to make it work. 
  
-
-        * [X-RAY-SED-Python]([assets/week2_trace.png](https://docs.aws.amazon.com/xray/latest/devguide/xray-sdk-python.html))
+  * [X-RAY-SED-Python]([assets/week2_trace.png](https://docs.aws.amazon.com/xray/latest/devguide/xray-sdk-python.html))
          
-
-        * [X-RAY-SED-Python Github Repository]([assets/week2_trace.png](https://github.com/aws/aws-xray-sdk-python))        
+  * [X-RAY-SED-Python Github Repository]([assets/week2_trace.png](https://github.com/aws/aws-xray-sdk-python))        
         
-
-        * How to install daemon [Documentation](https://docs.aws.amazon.com/xray/latest/devguide/xray-daemon.html)
+  * How to install daemon [Documentation](https://docs.aws.amazon.com/xray/latest/devguide/xray-daemon.html)
         
 5. Observe X-Ray traces within the AWS Console
-        * [X-RAY subsegments](https://olley.hashnode.dev/aws-free-cloud-bootcamp-instrumenting-aws-x-ray-subsegments)
+  * [X-RAY subsegments](https://olley.hashnode.dev/aws-free-cloud-bootcamp-instrumenting-aws-x-ray-subsegments)
 
 6. Integrate Rollbar for Error Logging
-        * [Reports](https://rollbar.com/rgzledesma/all/items/?sort=%5Bobject%20Object%5D&status=active&date_from=&date_to=&environments=production&activated_to=&framework=&levels=10&levels=20&levels=30&levels=40&levels=50&activated_from=&offset=0&timezone=Europe%2FBerlin&assigned_user=&date_filtering=seen&projects=624482&query=&enc_query=)
+  * [Reports](https://rollbar.com/rgzledesma/all/items/?sort=%5Bobject%20Object%5D&status=active&date_from=&date_to=&environments=production&activated_to=&framework=&levels=10&levels=20&levels=30&levels=40&levels=50&activated_from=&offset=0&timezone=Europe%2FBerlin&assigned_user=&date_filtering=seen&projects=624482&query=&enc_query=)
         
 7. Trigger an error an observe an error with Rollbar
         
 8. Install WatchTower and write a custom logger to send application log data to CloudWatch Log group
-        * Watchtower: library in python to habdle cloudwatch logs. [Documentation](https://pypi.org/project/watchtower/)
-        * Carefull cloudwatch cost money. Same xray. Not much. We disable it.
+  * Watchtower: library in python to habdle cloudwatch logs. [Documentation](https://pypi.org/project/watchtower/)
+  * Carefull cloudwatch cost money. Same xray. Not much. We disable it.
 
 Troubles during implementation.     
 >I had issures becuase the was a step that I miss or was not explained and I lost some days strying to fix it. We have to go to the frontend repository and install npm. Because I did not run this step i was stak for a while. I thought the npm was installed with the docker file
