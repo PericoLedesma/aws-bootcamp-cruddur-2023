@@ -96,11 +96,11 @@ What is a Daemon?
 <p>
 
 1. Instrument our backend flask application to use Open Telemetry (OTEL) with Honeycomb.io as the provider
-        - Set up the endpoint in the honeycomb.ai API
-        - Service name is the name of the span
-        - Each endpoint as a service object. Each endpoint is modular and points to a service in the back in our application.
-        - To create spans we need tracers that will send the data to the API
-        - [To include tracers in other parts](https://devpress.csdn.net/python/62f4e4c27e66823466189204.html)
+        * Set up the endpoint in the honeycomb.ai API
+        * Service name is the name of the span
+        * Each endpoint as a service object. Each endpoint is modular and points to a service in the back in our application.
+        * To create spans we need tracers that will send the data to the API
+        * [To include tracers in other parts](https://devpress.csdn.net/python/62f4e4c27e66823466189204.html)
         
 2. Run queries to explore traces within Honeycomb.io
         - Right panel we can search for our tracers
