@@ -76,13 +76,14 @@ Docker compose
 
 ![Docker components](assets/week1_architecture.svg)
  
- ----------------------------------------
  
 </p>
 </details>
 
 
-<details><summary>Practice</summary>
+ --------------------------------------------------------------------------------
+ 
+<details><summary>Implementation</summary>
 <p>
  
 
@@ -334,11 +335,11 @@ volumes:
     driver: local
 ```
  
- --------------------------------------------------------------------------------
  
 </p>
 </details>
 
+--------------------------------------------------------------------------------
 
 <details><summary>Useful references </summary>
 <p>
