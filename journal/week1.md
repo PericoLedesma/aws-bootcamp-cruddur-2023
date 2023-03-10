@@ -75,6 +75,9 @@ Docker compose
 ### Dockers components
 
 ![Docker components](assets/week1_architecture.svg)
+ 
+ ----------------------------------------
+ 
 </p>
 </details>
 
@@ -330,6 +333,8 @@ volumes:
   db:
     driver: local
 ```
+ 
+ --------------------------------------------------------------------------------
  
 </p>
 </details>
