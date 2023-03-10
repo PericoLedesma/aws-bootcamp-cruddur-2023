@@ -26,6 +26,21 @@
 >Cloud Logs: infraestructure** , applications**, anti-virus, Firewall..
 
 ### Observability vs Monotoring
+        
+Problem of logging
+- Time-consuming
+- Tons of data with no context for why of the security events
+- Needles in a haystack to find things
+- Increase alert fatigue for SOC team and application team
+
+Why Observability?
+- Decreased alert fatigue
+- Visibility of end2end of logs, metrics and tracing
+- troubleshoot and resolve things quickly
+- Understand application health
+- Accelerate team collaboration
+- Reduce overall operational cost
+- Increase customer satisfaction
 
 ![Observability vs Monotoring](assets/week2_obsvsmonit.jpeg)
 
@@ -34,6 +49,13 @@
 
 >Open-source solutions, giving you the ability to understand what is happening across your technology stack at any time. AWS observability lets you collect, correlate, aggregate, and analyze telemetry in your network, infrastructure, and applications in the cloud, hybrid, or on-premises environments so you can gain insights into the behavior, performance, and health of your system. 
 >These insights help you detect, investigate, and remediate problems faster; and coupled with artificial intelligence and machine learning, proactively react, predict, and prevent problems.
+        
+Obeservability services in AWS
+- AWS Cloudwatch logs
+- AWS Cloudwatch metrics
+- AWS X Ray traces
+
+***Instrumentation*** is what helps you to create or produce logs metrics traces.
 
 ![Observability AWS Tools](assets/week2_aws_observabilitytools.jpeg)
 
@@ -156,8 +178,11 @@ Challenges
 * 100 million monthly events are included in the Honeycomb free tier       
 * The Rollbar free tier includes up to 5,000 events per month, which can include error events, logged errors, and custom events.
 * On the AWS X-Ray free tier, you can trace up to 100,000 requests per month at no charge.
-* It's important to note that CloudWatch provides free tier for custom metrics as well, which includes up to 10 metrics, 10 custom metrics per month at no additional cost. If you exceed the free tier limit, you will be charged based on the number of unique metric dimensions per month.
-
+* Cloudwatch (always free tier):
+        - 10 custom metrics and alarm
+        - 1.000.000 API request
+        - 5GB of log dataingestion and 5 GB of log Data Archive
+        - 3 Dashboards with up to 50 Metrics each per month
   
         
         
