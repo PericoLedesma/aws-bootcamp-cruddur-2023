@@ -10,6 +10,15 @@ Task: what is flask
 why we need rollwbar? in production we dont see the error
 (click to open section)
 
+
+
+1. Step 1
+2. Step 2
+3. Step 3
+    * Item 3a
+    * Item 3b
+    * Item 3c
+
 <details><summary>Week content</summary>
 <p>
         
