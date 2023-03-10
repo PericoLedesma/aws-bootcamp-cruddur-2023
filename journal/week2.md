@@ -101,11 +101,11 @@ What is a Daemon?
 2. Run queries to explore traces within Honeycomb.io
    * Right panel we can search for our tracers
         
-![Honeycomb.ai traces](assets/week2_trace.png)
+![Honeycomb.ai traces](assets/wek2_trace.png)
         
 ![Honeycomb.ai metrics](assets/week2_metrics.png)
         
-![Honeycomb.ai traces](assets/week2_metrics1.2.png)
+![Honeycomb.ai traces](assets/wee2_metrics1.2.png)
         
 ![Honeycomb.ai traces](assets/week2_metric2.png)
               
