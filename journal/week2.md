@@ -100,15 +100,12 @@ What is a Daemon?
 [AWS X-RAY:SDK python](https://github.com/aws/aws-xray-sdk-python)
 
 
---------------------------------
+
 </details>
 
+--------------------------------------------------------------------------------------------------------------------------------
 
-
-        
-        
-        
-<details><summary>Practice</summary>
+<details><summary>Implementation</summary>
 
 
 1. Instrument our backend flask application to use Open Telemetry (OTEL) with Honeycomb.io as the provider
@@ -158,8 +155,9 @@ What is a Daemon?
 Troubles during implementation.     
 >I had issures becuase the was a step that I miss or was not explained and I lost some days strying to fix it. We have to go to the frontend repository and install npm. Because I did not run this step i was stak for a while. I thought the npm was installed with the docker file
 
-------------------------------------------------------------------
+
 </details>
+--------------------------------------------------------------------------------------------------------------------------------
 
 <details><summary>Challenges</summary>
 
@@ -170,8 +168,9 @@ Troubles during implementation.
 - [ ] Add aditional information rollbar
        
 
-------------------------------------------------------------------
+
 </details>
+--------------------------------------------------------------------------------------------------------------------------------
 
 
 <details><summary>Pricing aspects</summary>
