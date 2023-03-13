@@ -2,7 +2,7 @@
 
 
 __Objetive__ \
-Practical knowledge of implementing a decentralized authentication service into a web-application with custom login and signup pages in a react application.
+* Practical knowledge of implementing a decentralized authentication service into a web-application with custom login and signup pages in a react application.
 
         
 __Week Summary__
