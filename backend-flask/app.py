@@ -2,6 +2,10 @@ from flask import Flask
 from flask import request
 from flask_cors import CORS, cross_origin
 import os
+import sys
+
+# Week3
+from flask_awscognito import AWSCognitoAuthentication
 
 from services.home_activities import *
 from services.user_activities import *
@@ -73,6 +77,12 @@ tracer = trace.get_tracer(__name__)
 # -----------------------------
 app = Flask(__name__)
 
+# Week3
+app.config['AWS_COGNITO_USER_POOL_ID'] = os.getenv('REACT_APP_AWS_USER_POOLS_ID')
+app.config['AWS_COGNITO_USER_POOL_CLIENT_ID'] = os.getenv('REACT_APP_CLIENT_ID')
+
+aws_auth = AWSCognitoAuthentication(app) 
+
 @app.before_first_request
 def init_rollbar():
     """init rollbar module"""
@@ -104,8 +114,8 @@ origins = [frontend, backend]
 cors = CORS(
   app, 
   resources={r"/api/*": {"origins": origins}},
-  expose_headers="location,link",
-  allow_headers="content-type,if-modified-since",
+  headers=['Content-Type', 'Authorization'], 
+  expose_headers='Authorization',
   methods="OPTIONS,GET,HEAD,POST"
 )
 
@@ -160,10 +170,11 @@ def data_create_message():
   return
 
 @app.route("/api/activities/home", methods=['GET'])
+@aws_auth.authentication_required
 def data_home():
+  claims = aws_auth.claims
   data = HomeActivities.run() # arg Logger= LOGGER
   return data, 200
-
 
 @app.route("/api/activities/notifications", methods=['GET'])
 def data_notifications():
