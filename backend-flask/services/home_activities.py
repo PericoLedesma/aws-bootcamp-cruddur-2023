@@ -8,7 +8,7 @@ import logging #Cloudwatch logs
 tracer = trace.get_tracer("home.activities")
 
 class HomeActivities:
-  def run(): # arg Logger
+  def run(cognito_user_id): # arg Logger
     #Logger.info("HomeActivities") #Cloudwatch logs. Carefull cost money
     # OpenTelemetry tracer setup
     with tracer.start_as_current_span("home-activities-mock-data"): # Span caller
@@ -44,17 +44,20 @@ class HomeActivities:
         'expires_at': (now + timedelta(days=9)).isoformat(),
         'likes': 0,
         'replies': []
-      },
-      {
-        'uuid': '248959df-3079-4947-b847-9e0892d1bab4',
-        'handle':  'Garek',
-        'message': 'My dear doctor, I am just simple tailor',
-        'created_at': (now - timedelta(hours=1)).isoformat(),
-        'expires_at': (now + timedelta(hours=12)).isoformat(),
-        'likes': 0,
-        'replies': []
-      }
-      ]
+      }]
+     
+      if cognito_user_id is not None:
+        extra_crud = {
+          'uuid': '248959df-3079-4947-b847-9e0892d1bab4',
+          'handle':  'SecretLord',
+          'message': 'This is a secret for authenticated people',
+          'created_at': (now - timedelta(hours=1)).isoformat(),
+          'expires_at': (now + timedelta(hours=12)).isoformat(),
+          'likes': 1234,
+          'replies': []
+        }
+        results.insert(0,extra_crud)
+      
       span.set_attribute("app.result_length", len(results))
       return results
 

@@ -5,7 +5,7 @@ import os
 import sys
 
 # Week3
-from flask_awscognito import AWSCognitoAuthentication
+from lib.cognito_jwt_token import CognitoJwtToken, extract_access_token, TokenVerifyError
 
 from services.home_activities import *
 from services.user_activities import *
@@ -78,10 +78,11 @@ tracer = trace.get_tracer(__name__)
 app = Flask(__name__)
 
 # Week3
-app.config['AWS_COGNITO_USER_POOL_ID'] = os.getenv('REACT_APP_AWS_USER_POOLS_ID')
-app.config['AWS_COGNITO_USER_POOL_CLIENT_ID'] = os.getenv('REACT_APP_CLIENT_ID')
-
-aws_auth = AWSCognitoAuthentication(app) 
+cognito_jwt_token = CognitoJwtToken(
+  user_pool_id=os.getenv('AWS_COGNITO_USER_POOL_ID'), 
+  user_pool_client_id=os.getenv('AWS_COGNITO_USER_POOL_CLIENT_ID'), 
+  region=os.getenv('AWS_DEFAULT_REGION')
+)
 
 @app.before_first_request
 def init_rollbar():
@@ -170,10 +171,22 @@ def data_create_message():
   return
 
 @app.route("/api/activities/home", methods=['GET'])
-@aws_auth.authentication_required
+#@xray_recorder.capture('activities_home')
 def data_home():
-  claims = aws_auth.claims
-  data = HomeActivities.run() # arg Logger= LOGGER
+  access_token = extract_access_token(request.headers)
+  try:
+    claims = cognito_jwt_token.verify(access_token)
+    #Authenticatied request
+    app.logger.debug('Authenticatied')
+    app.logger.debug(claims)
+    app.logger.debug(claims['username'])
+    data = HomeActivities.run(cognito_user_id=claims['username']) # arg Logger= LOGGER
+  except TokenVerifyError as e:
+    _ = request.data
+    #Unauthenticatied request
+    app.logger.debug('Unauthenticatied')
+    app.logger.debug(e)
+    data = HomeActivities.run(cognito_user_id=None) # arg Logger= LOGGER
   return data, 200
 
 @app.route("/api/activities/notifications", methods=['GET'])
