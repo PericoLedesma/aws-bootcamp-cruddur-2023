@@ -17,8 +17,8 @@ __Notes__
         
 AWS Services used:
 * AWS cognito
+* AWS Amplify
 
-* 
 
 (click to open section)
 
