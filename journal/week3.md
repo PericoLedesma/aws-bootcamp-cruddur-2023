@@ -1,7 +1,7 @@
 # Week 3 — Decentralized Authentication
 
 
-__Objetive__ 
+__Objetive__ \newline 
 Practical knowledge of implementing a decentralized authentication service into a web-application with custom login and signup pages in a react application.
 
         
