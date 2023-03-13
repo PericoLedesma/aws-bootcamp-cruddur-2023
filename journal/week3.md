@@ -33,6 +33,21 @@ Others: dependencies are libraries that are required to make the application to 
         
         
         Note: react app env varibles need to start with REACT_APP
+        
+        We have to change the status of the user with the aws terminal console 
+        
+        Users can be created in cognito directly 
+        ----
+        Backend implementation cognito
+        We have to protect our api point, we are passing out token 
+        For validating the token
+        https://github.com/cgauge/Flask-AWSCognito/blob/master/flask_awscognito/services/token_service.py
+        
+        We have the authentification client side
+        
+        We are going to use the library=-- we truy but we reach limitation
+        
+        
 </details>
 
 --------------------------------------------------------------------------------------------------------------------------------
