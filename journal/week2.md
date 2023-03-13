@@ -17,9 +17,8 @@ __Notes__
 * week 2 was done with week 3 due to master exams.
         
 AWS Services used:
-* AWS cognito
-* AWS Amplify
-
+* AWS X-Ray
+* AWS CloudWatch
 
 (click to open section)
 
