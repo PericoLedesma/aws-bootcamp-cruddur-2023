@@ -1,19 +1,19 @@
 # Week 3 — Decentralized Authentication
 
 
-__Objetive__ \
+__Objetive__ 
 * Practical knowledge of implementing a decentralized authentication service into a web-application with custom login and signup pages in a react application.
 
         
 __Week Summary__
-   * Provision via ClickOps a Amazon Cognito User Pool
-   * Install and configure Amplify client-side library for Amazon Cognito
-   * Implement API calls to Amazon Cognito for custom login, signup, recovery and forgot password page
-   * Show conditional elements and data based on logged in or logged out
-   * Verify JWT Token server side to serve authenticated API endpoints in Flask Application
+* Provision via ClickOps a Amazon Cognito User Pool
+* Install and configure Amplify client-side library for Amazon Cognito
+* Implement API calls to Amazon Cognito for custom login, signup, recovery and forgot password page
+* Show conditional elements and data based on logged in or logged out
+* Verify JWT Token server side to serve authenticated API endpoints in Flask Application
 
 __Notes__ 
-Need a basic jc tutorial
+* Need a basic jc tutorial
         
 AWS Services used:
 * AWS cognito
