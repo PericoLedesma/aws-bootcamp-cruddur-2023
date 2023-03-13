@@ -49,8 +49,16 @@ AWS Services used:
         > Sidecar containers are containers that are needed to run alongside the main container. The two containers share resources like pod storage and network interfaces. The sidecar containers can also share storage volumes with the main containers, allowing the main containers to access the data in the sidecars.
         [ What is a sidecar container?](https://www.containiq.com/post/kubernetes-sidecar-container#:~:text=Sidecar%20containers%20are%20containers%20that,the%20data%20in%20the%20sidecars.)
         
+        Which additional AWS service should be enabled and monitored alongside Cognito to help detect malicious Cognito user behavior?
         
-  
+        > AWS CloudTrail: This service provides a record of AWS API calls made by a user or a resource in your account. By enabling CloudTrail, you can track who is accessing your Cognito user pools and identify any unauthorized access attempts or suspicious behavior.
+        
+        When it comes to single-sign-on, what does the acronym SAML stand for?
+        
+        > SAML stands for Security Assertion Markup Language. It is an XML-based standard used for exchanging authentication and authorization data between parties, in particular, between an identity provider (IdP) and a service provider (SP). SAML enables single sign-on (SSO) and provides a way to authenticate users across multiple applications or domains without requiring them to enter their credentials separately for each one.
+        
+        Your Cognito deployment should only be in the AWS region which you are legally allowed to hold user data in
+        
 </details>
 
 --------------------------------------------------------------------------------------------------------------------------------
@@ -78,8 +86,10 @@ AWS Services used:
 
 <details><summary>Challenges</summary>
         
-        - [x] Made sure Resend Activation Code works in the Confirmation Page after sign up. 
+- [x] Made sure Resend Activation Code works in the Confirmation Page after sign up. 
 </details>
   
+  
+ 
   
 
