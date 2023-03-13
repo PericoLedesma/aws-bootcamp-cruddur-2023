@@ -5,11 +5,11 @@ __Objetive:__ Practical knowledge of implementing a decentralized authentication
 
         
 __Week Summary:__
-  * Provision via ClickOps a Amazon Cognito User Pool
-  * Install and configure Amplify client-side library for Amazon Cognito
-  * Implement API calls to Amazon Cognito for custom login, signup, recovery and forgot password page
-  * Show conditional elements and data based on logged in or logged out
-  * Verify JWT Token server side to serve authenticated API endpoints in Flask Application
+   * Provision via ClickOps a Amazon Cognito User Pool
+   * Install and configure Amplify client-side library for Amazon Cognito
+   * Implement API calls to Amazon Cognito for custom login, signup, recovery and forgot password page
+   * Show conditional elements and data based on logged in or logged out
+   * Verify JWT Token server side to serve authenticated API endpoints in Flask Application
 
 __Notes:__ Need a basic jc tutorial
         
