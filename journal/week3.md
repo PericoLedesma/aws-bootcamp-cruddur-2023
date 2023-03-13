@@ -2,8 +2,17 @@
 
 
 __Objetive:__ Practical knowledge of implementing a decentralized authentication service into a web-application with custom login and signup pages in a react application.
-        Note: Need a basic jc tutorial
 
+        
+__Week Summary:__
+        * Provision via ClickOps a Amazon Cognito User Pool
+        * Install and configure Amplify client-side library for Amazon Cognito
+        * Implement API calls to Amazon Cognito for custom login, signup, recovery and forgot password page
+        * Show conditional elements and data based on logged in or logged out
+        * Verify JWT Token server side to serve authenticated API endpoints in Flask Application
+
+__Notes:__ Need a basic jc tutorial
+        
 AWS Services used:
 * AWS cognito
 
@@ -47,7 +56,16 @@ Others: dependencies are libraries that are required to make the application to 
         
         We are going to use the library=-- we truy but we reach limitation
         
+        access token. we haved to decoded to extract information 
         
+        exploring JWT solution for verifu an access toke from cognito and returns claims 
+        
+        sidecar - 
+Sidecar containers are containers that are needed to run alongside the main container. The two containers share resources like pod storage and network interfaces. The sidecar containers can also share storage volumes with the main containers, allowing the main containers to access the data in the sidecars.
+        
+        https://jwt.io/introduction
+        
+        Frontend. Stablish general varaibles for the frontend and changed some color to have moer constrast
 </details>
 
 --------------------------------------------------------------------------------------------------------------------------------
