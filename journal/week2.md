@@ -14,7 +14,7 @@ __Week Summary__
 * Install WatchTower and write a custom logger to send application log data to - CloudWatch Log group
 
 __Notes__ 
-* week 2 was done with week 3 due to master exams.
+* Week 2 was done with week 3 due to master exams.
         
 AWS Services used:
 * AWS X-Ray
