@@ -69,6 +69,8 @@ Your Cognito deployment should only be in the AWS region which you are legally a
 <details><summary>Implementation</summary>
 <br></br>
 
+[Implementation code](https://github.com/PericoLedesma/aws-bootcamp-cruddur-2023/blob/main/week_instructions/week3.md)
+
 1. Provision Amazon Cognito User Pool using AWS UI (Console) -> easier
     * Just follow instructions. Really clear. Options of recover password and register. 
     * We have to change the status of the user with the AWS console.
