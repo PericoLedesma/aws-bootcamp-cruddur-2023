@@ -122,6 +122,9 @@ What is a Daemon?
 --------------------------------------------------------------------------------------------------------------------------------
 
 <details><summary>Implementation</summary>
+        
+
+[Implementation code](https://github.com/PericoLedesma/aws-bootcamp-cruddur-2023/blob/main/week_instructions/week2.md)
 
 
 1. Instrument our backend flask application to use Open Telemetry (OTEL) with Honeycomb.io as the provider
