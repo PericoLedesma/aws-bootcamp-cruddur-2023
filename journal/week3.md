@@ -25,7 +25,7 @@ AWS Services used:
 --------------------------------------------------------------------------------------------------------------------------------
 
 <details><summary>Week content</summary>
-<br>
+<p>
 ### What is AWS Cognito?<br>
 
 > With Amazon Cognito, you can add user sign-up and sign-in features and control access to your web and mobile applications. Amazon Cognito provides an identity store that scales to millions of users, supports social and enterprise identity federation, and offers advanced security features to protect your consumers and business.
@@ -61,7 +61,7 @@ When it comes to single-sign-on, what does the acronym SAML stand for?
 
 Your Cognito deployment should only be in the AWS region which you are legally allowed to hold user data in
 
-</details>
+</p></details>
 
 --------------------------------------------------------------------------------------------------------------------------------
 
