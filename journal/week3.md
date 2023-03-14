@@ -26,12 +26,12 @@ AWS Services used:
 
 <details><summary>Week content</summary>
 <br>
-What is AWS Cognito? 
+What is AWS Cognito?<br>
 
 > With Amazon Cognito, you can add user sign-up and sign-in features and control access to your web and mobile applications. Amazon Cognito provides an identity store that scales to millions of users, supports social and enterprise identity federation, and offers advanced security features to protect your consumers and business.
 [AWS Cognito](https://aws.amazon.com/cognito/)
 
-What is AWS Amplify and why to use it?
+What is AWS Amplify and why to use it?<br>
 
 > AWS Amplify is an end-to-end solution that enables mobile and front-end web developers to build and deploy secure, scalable full stack applications, powered by AWS.
 > Amplify uses Amazon Cognito as the main authentication provider. We use AWS Amplify library to use AWS Cognito. Frontend-javascript library. 
