@@ -90,7 +90,7 @@ Your Cognito deployment should only be in the AWS region which you are legally a
 --------------------------------------------------------------------------------------------------------------------------------
 
 <details><summary>Challenges</summary>
-        
+<br></br>   
 - [x] Made sure Resend Activation Code works in the Confirmation Page after sign up. 
 </details>
   
