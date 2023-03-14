@@ -24,7 +24,9 @@ __Week Summary:__
    * Work with PSQL json functions to directly return json from the database
    * Correctly sanitize parameters passed to SQL to execute
         
-__Notes:__
+__AWS Services used:__
+   * [RDS](https://eu-central-1.console.aws.amazon.com/rds/home?region=eu-central-1#)
+
 
 (click to open section)
 
@@ -32,7 +34,7 @@ __Notes:__
 
 <details><summary>Week content</summary>
 
-
+  
 </details>
 
 --------------------------------------------------------------------------------------------------------------------------------
@@ -41,8 +43,14 @@ __Notes:__
 <br></br>
   
   RDS Instance
+    RDS is much easier to use with the cli command, not with the ui
+ task: check all the choice while creating a postdb database by the UI
+  Public access true - Security group keeps protected
+    
+  VPC security we use the default
+  Typical port 5432 -bEST PRACTICE TO change it so it not knwo what is
   
-  
+  https://docs.aws.amazon.com/cli/latest/reference/rds/
   
 </details>
 
