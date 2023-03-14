@@ -27,7 +27,7 @@ __Week Summary:__
 __AWS Services used:__
    * [RDS](https://eu-central-1.console.aws.amazon.com/rds/home?region=eu-central-1#)
 
-
+Tutorial sql and postgress
 (click to open section)
 
 --------------------------------------------------------------------------------------------------------------------------------
@@ -51,6 +51,43 @@ __AWS Services used:__
   Typical port 5432 -bEST PRACTICE TO change it so it not knwo what is
   
   https://docs.aws.amazon.com/cli/latest/reference/rds/
+  
+  https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html
+  
+  https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.Enabling.html
+  
+  
+  Instance can get stop started or terminated
+  
+  Important to stop it. It is stoped and will turn on in 7 days REMINDER
+  
+  we create cruddur DB locally too. /l to check in postgress the databases
+  
+ we have to septup some tables
+ 
+ schema we are going to write the map schema . backend/db/schema.sql
+ 
+ postgress comes with some extension and we have to check that are available compatible with 
+ 
+  psql cruddur < db/schema.sql -h localhost -U postgres
+  
+  This is really teadious, is easy with a cONECSIOn URL string : a way to provide all the detail to authenticate to the server 
+  
+  https://stackoverflow.com/questions/3582552/what-is-the-format-for-the-postgresql-connection-string-url
+  
+  postgresql://[user[:password]@][netloc][:port][/dbname][?param1=value1&...]
+  
+  export CONNECTION_URL="postgresql://postgres:password@localhost:5432/cruddur"
+  gp env CONNECTION_URL="postgresql://postgres:password@localhost:5432/cruddur"
+  
+  export PROD_CONNECTION_URL=**
+    gp env PROD_CONNECTION_URL=**
+  
+  to run and log in directly
+  
+  psql $CONNECTION_URL
+  
+  We now the structure of the data from the open api that 
   
 </details>
 
@@ -416,7 +453,7 @@ from lib.db import pool, query_wrap_array
       return json[0]
 ```
 
-## Provision RDS Instance
+## 1. Provision RDS Instance
 
 ```sh
 aws rds create-db-instance \
