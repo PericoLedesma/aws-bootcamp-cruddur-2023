@@ -34,6 +34,12 @@ Tutorial sql and postgress
 
 <details><summary>Week content</summary>
 
+    ### What is a AWS RDS instance?
+  
+   > Amazon Relational Database Service (Amazon RDS) is a collection of managed services that makes it simple to set up, operate, and scale databases in the cloud. 
+   > Choose from seven popular engines — Amazon Aurora with MySQL compatibility, Amazon Aurora with PostgreSQL compatibility, MySQL, MariaDB, PostgreSQL, Oracle, and SQL Server — and deploy on-premises with Amazon RDS on AWS Outposts.
+   
+  [AWS RDS](https://aws.amazon.com/rds/)
   
 </details>
 
@@ -42,78 +48,82 @@ Tutorial sql and postgress
 <details><summary>Implementation notes</summary>
 <br></br>
   
-  RDS Instance
-    RDS is much easier to use with the cli command, not with the ui
- task: check all the choice while creating a postdb database by the UI
-  Public access true - Security group keeps protected
-    
-  VPC security we use the default
-  Typical port 5432 -bEST PRACTICE TO change it so it not knwo what is
+  RDS postgres implementation
+     * RDS is much easto to use with the CLI command
+     * However, to check the option check UI
+     * We are using public access. We will have a security layer with the groups
+     * VPC security we use the default
+     * Typical port 5432. Best practice to change it so it is not easy to know what is there.
+     * Important: instance can get stop, started and terminated. We stop it to recude cost. In 7 days turns on
+     
+   [RDS CLI](https://docs.aws.amazon.com/cli/latest/reference/rds/)
+   
+   [Amazon RDS User monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html)
+   
+   [Amazon RDS User monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.Enabling.html)
+   
   
-  https://docs.aws.amazon.com/cli/latest/reference/rds/
-  
-  https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html
-  
-  https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.Enabling.html
-  
-  
-  Instance can get stop started or terminated
-  
-  Important to stop it. It is stoped and will turn on in 7 days REMINDER
-  
-  we create cruddur DB locally too. /l to check in postgress the databases
-  
- we have to septup some tables
+  We create a cruddur DB locally meanwhile. We setup tables and schemas,
+     * Schema -> ./backend/db/schema.sql
+     * The struture is the same as the APIs that we already have
+
+ Postgress comes with some extensions and we have to check that they are available and are compatible with AWS
  
- schema we are going to write the map schema . backend/db/schema.sql
- 
- postgress comes with some extension and we have to check that are available compatible with 
- 
+ To start postgres locally:
+ ```
   psql cruddur < db/schema.sql -h localhost -U postgres
+ ```
+ or 
+ ``` 
+   psql -Upostgres --host localhost
+  ```
   
-  To connect local host
-  
-  psql -Upostgres --host localhost
-  
-  To connect dirrectly we are going to use a conection url with user and password
-  
-  This is really teadious, is easy with a cONECSIOn URL string : a way to provide all the detail to authenticate to the server 
-  
-  https://stackoverflow.com/questions/3582552/what-is-the-format-for-the-postgresql-connection-string-url
+ This is really teadious to have to introduce password everytime. We are going to automate the process. 
+ 
+ We can connect directly using a CONNECTION_URL, where we include user, password, localtion, url and database name. Thefore, a way to provide all the detail to authenticate to the server.
+ 
+ Format:  "postgresql://[user[:password]@][netloc][:port][/dbname][?param1=value1&...]"
+
+ [Connection URL format](https://stackoverflow.com/questions/3582552/what-is-the-format-for-the-postgresql-connection-string-url)
   
   
-  
-  postgresql://[user[:password]@][netloc][:port][/dbname][?param1=value1&...]
-  
+ We store it locally:
+ 
+  ```
   export CONNECTION_URL="postgresql://postgres:password@localhost:5432/cruddur"
   gp env CONNECTION_URL="postgresql://postgres:password@localhost:5432/ "
+  ```
   
+  And for production(AWS):
+  
+  ```
   export PROD_CONNECTION_URL=**
     gp env PROD_CONNECTION_URL=**
+   ```
   
-  to run and log in directly
+  Thefore, we can use it:
   
+  ```
   psql $CONNECTION_URL
+  ```
+
+  We create some bash file to automate all the process we need to start and stop postgres.
   
-  We now the structure of the data from the open api that 
+  We can see the tables we created.
   
-  We use bash file to automate process and make them easier
-  To create the db we run the shema.sql were were the structure is stablish
+  ![Tables display](assets/week4/week4_tables.png)
   
-  TO SELECT A TABLE AND see SELECT * FROM tablename;
+  Note: 
+     * to select a table and see ```SELECT * FROM tablename;```
+     *  use ```\x on``` command to expand records and ```\x auto``` to autochange
+ 
+  Alternative to connect to the database
   
-  Important in sql to end with ;
+  ![Tables display](assets/week4/week4_alternative.png)
   
-  Sheatsheet 
+  ![Tables display](assets/week4/week4_Struc.png)
   
-  use \x on command to expand records 
-  \x auto to autochange
-  
-  Lets write a query
-  
-  The schema are namespaces
-  
-  image of schema 
+
   
   We create another bash to see processes running. We can not drop if ther are seessions running. Image of processes
   
