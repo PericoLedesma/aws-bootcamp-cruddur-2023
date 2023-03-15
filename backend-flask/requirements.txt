@@ -20,3 +20,7 @@ rollbar
 
 # Week3
 Flask-AWSCognito
+
+# Week 3 Postgres - python
+psycopg[binary]
+psycopg[pool]
