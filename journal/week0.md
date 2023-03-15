@@ -1,7 +1,7 @@
 # Week 0 — Billing and Architecture
 
 
-## Required Homework
+## Required Implementation
 
 I completed all the task of the week.
 - I register in all the required services
