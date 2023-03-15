@@ -117,6 +117,17 @@ Tutorial sql and postgress
   
   We create another bash to see processes running. We can not drop if ther are seessions running. Image of processes
   
+  we have to get installed the driver of the postgres 
+  every langueage have a driver 
+  
+  https://www.psycopg.org/
+  
+  https://www.psycopg.org/psycopg3/docs/
+  
+  POOLING CONNECTIONS 
+  
+  https://www.psycopg.org/psycopg3/docs/api/cursors.html
+  
 </details>
 
 --------------------------------------------------------------------------------------------------------------------------------
