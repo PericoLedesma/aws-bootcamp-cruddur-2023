@@ -71,14 +71,22 @@ Tutorial sql and postgress
  
   psql cruddur < db/schema.sql -h localhost -U postgres
   
+  To connect local host
+  
+  psql -Upostgres --host localhost
+  
+  To connect dirrectly we are going to use a conection url with user and password
+  
   This is really teadious, is easy with a cONECSIOn URL string : a way to provide all the detail to authenticate to the server 
   
   https://stackoverflow.com/questions/3582552/what-is-the-format-for-the-postgresql-connection-string-url
   
+  
+  
   postgresql://[user[:password]@][netloc][:port][/dbname][?param1=value1&...]
   
   export CONNECTION_URL="postgresql://postgres:password@localhost:5432/cruddur"
-  gp env CONNECTION_URL="postgresql://postgres:password@localhost:5432/cruddur"
+  gp env CONNECTION_URL="postgresql://postgres:password@localhost:5432/ "
   
   export PROD_CONNECTION_URL=**
     gp env PROD_CONNECTION_URL=**
@@ -88,6 +96,26 @@ Tutorial sql and postgress
   psql $CONNECTION_URL
   
   We now the structure of the data from the open api that 
+  
+  We use bash file to automate process and make them easier
+  To create the db we run the shema.sql were were the structure is stablish
+  
+  TO SELECT A TABLE AND see SELECT * FROM tablename;
+  
+  Important in sql to end with ;
+  
+  Sheatsheet 
+  
+  use \x on command to expand records 
+  \x auto to autochange
+  
+  Lets write a query
+  
+  The schema are namespaces
+  
+  image of schema 
+  
+  We create another bash to see processes running. We can not drop if ther are seessions running. Image of processes
   
 </details>
 
@@ -105,6 +133,7 @@ Tutorial sql and postgress
 <details><summary>Implementation instructions</summary>
 <br></br>
   
+# Postgres
 
 To connect to psql via the psql client cli tool remember to use the host flag to specific localhost.
 
@@ -346,7 +375,7 @@ psql $CONNECTION_URL cruddur < $schema_path
 
 ```sh
 #! /usr/bin/bash
--e # stop if it fails at any point
+ 
 
 #echo "==== db-setup"
 
