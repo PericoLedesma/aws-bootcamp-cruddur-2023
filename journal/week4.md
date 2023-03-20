@@ -48,12 +48,12 @@ __AWS Services used:__
 <br></br>
   
   RDS postgres implementation
-     * RDS is much easy to use with the CLI command
-     * However, to check the option check UI
-     * We are using public access. We will have a security layer with the groups
-     * VPC security we use the default
-     * Typical port 5432. Best practice to change it so it is not easy to know what is there.
-     * Important: instance can get stop, started and terminated. We stop it to recude cost. In 7 days turns on
+   * RDS is much easy to use with the CLI command
+   * However, to check the option check UI
+   * We are using public access. We will have a security layer with the groups
+   * VPC security we use the default
+   * Typical port 5432. Best practice to change it so it is not easy to know what is there.
+   * Important: instance can get stop, started and terminated. We stop it to recude cost. In 7 days turns on
      
    [RDS CLI](https://docs.aws.amazon.com/cli/latest/reference/rds/)
    
@@ -64,8 +64,8 @@ __AWS Services used:__
   ### Postgres local
   
   We create a cruddur DB locally meanwhile. We setup tables and schemas,
-     * Schema -> ./backend/db/schema.sql
-     * The struture is the same as the APIs that we already have
+   * Schema -> ./backend/db/schema.sql
+   * The struture is the same as the APIs that we already have
 
  Postgress comes with some extensions and we have to check that they are available and are compatible with AWS
  
