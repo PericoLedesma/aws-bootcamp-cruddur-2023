@@ -113,8 +113,8 @@ __AWS Services used:__
   ![Tables display](assets/week4/week4_tables.png)
   
   Note: 
-     * to select a table and see ```SELECT * FROM tablename;```
-     *  use ```\x on``` command to expand records and ```\x auto``` to autochange
+    * to select a table and see ```SELECT * FROM tablename;```
+    *  use ```\x on``` command to expand records and ```\x auto``` to autochange
  
   Alternative to connect to the database in gitpod:
   
@@ -125,7 +125,7 @@ __AWS Services used:__
   
   ### RDS with Postgres
   
-   For production(AWS) we created other connection URL:
+  For production(AWS) we created other connection URL:
   
   ```
   export PROD_CONNECTION_URL=**
