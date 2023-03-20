@@ -84,6 +84,7 @@ Your Cognito deployment should only be in the AWS region which you are legally a
 4. Implement API Calls to Amazon Coginto for Custom Login, Signup, Recovery and Forgot Password Page   
 
 5. Authenticating Server Side     
+    * Included authentication check on the home page
 
 6. Frontend. Stablish general variables for the frontend and changed some color to have more constrast
         
