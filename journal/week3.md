@@ -12,8 +12,6 @@ __Week Summary__
 * Show conditional elements and data based on logged in or logged out
 * Verify JWT Token server side to serve authenticated API endpoints in Flask Application
 
-__Notes__ 
-* Need a basic jc tutorial
         
 AWS Services used:
 * AWS cognito
