@@ -47,7 +47,8 @@ __AWS Services used:__
 <details><summary>Implementation notes</summary>
 <br></br>
   
-  RDS postgres implementation
+  # RDS postgres implementation
+  
    * RDS is much easy to use with the CLI command
    * However, to check the option check UI
    * We are using public access. We will have a security layer with the groups
