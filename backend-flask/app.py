@@ -76,6 +76,8 @@ tracer = trace.get_tracer(__name__)
 
 # -----------------------------
 app = Flask(__name__)
+print(" ")
+print("Running app flask...")
 
 # Week3
 cognito_jwt_token = CognitoJwtToken(
@@ -173,13 +175,15 @@ def data_create_message():
 @app.route("/api/activities/home", methods=['GET'])
 #@xray_recorder.capture('activities_home')
 def data_home():
+  #Week3: Decentralized Authentication
   access_token = extract_access_token(request.headers)
+  print("Home-> authenticated??")
   try:
     claims = cognito_jwt_token.verify(access_token)
     #Authenticatied request
     app.logger.debug('Authenticatied')
-    app.logger.debug(claims)
-    app.logger.debug(claims['username'])
+    #app.logger.debug(claims)
+    #app.logger.debug(claims['username'])
     data = HomeActivities.run(cognito_user_id=claims['username']) # arg Logger= LOGGER
   except TokenVerifyError as e:
     _ = request.data
