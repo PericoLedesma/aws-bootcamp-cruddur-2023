@@ -1,8 +1,7 @@
 from datetime import datetime, timedelta, timezone
 from opentelemetry import trace
 
-from lib.db import pool, query_wrap_array
-
+from lib.db import *
 import logging #Cloudwatch logs
 
 # OpenTelemetry ------
@@ -17,6 +16,12 @@ class HomeActivities:
       #now = datetime.now(timezone.utc).astimezone()
       #span.set_attribute("app.now", now.isoformat())
 
+
+    sql = db.template('activities','home')
+    results = db.query_array_json(sql)
+    return results
+
+    '''
       sql = query_wrap_array("""
       SELECT
         activities.uuid,
@@ -46,4 +51,5 @@ class HomeActivities:
     
       return json[0]
       return results
+      '''
 
