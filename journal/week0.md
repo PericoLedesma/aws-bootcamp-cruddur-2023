@@ -70,7 +70,6 @@ This is a tool where you want to estimate the cost of one or more services. Usef
 Note: Important to have the json files necesarries with the configs
 
 
-
 ## Billing alarm
 
 First we have to create SNS topic
@@ -138,7 +137,7 @@ so we'll proceed to installing this account.
 - The bash commands we are using are the same as the [AWS CLI Install Instructions]https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 
 
-Update our `.gitpod.yml` to include the following task.
+Update our `.gitpod.yml` to include the following task. __Note__ this file run when we launch the gitpod env and we use it to install packages and stablichs env variables.
 
 ```sh
 tasks:
