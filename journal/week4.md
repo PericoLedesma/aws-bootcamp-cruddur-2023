@@ -27,7 +27,6 @@ __Week Summary:__
 __AWS Services used:__
    * [RDS](https://eu-central-1.console.aws.amazon.com/rds/home?region=eu-central-1#)
 
-Tutorial sql and postgress
 (click to open section)
 
 --------------------------------------------------------------------------------------------------------------------------------
@@ -49,7 +48,7 @@ Tutorial sql and postgress
 <br></br>
   
   RDS postgres implementation
-     * RDS is much easto to use with the CLI command
+     * RDS is much easy to use with the CLI command
      * However, to check the option check UI
      * We are using public access. We will have a security layer with the groups
      * VPC security we use the default
@@ -62,6 +61,7 @@ Tutorial sql and postgress
    
    [Amazon RDS User monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.Enabling.html)
    
+  ### Postgres local
   
   We create a cruddur DB locally meanwhile. We setup tables and schemas,
      * Schema -> ./backend/db/schema.sql
@@ -78,7 +78,7 @@ Tutorial sql and postgress
    psql -Upostgres --host localhost
   ```
   
- This is really teadious to have to introduce password everytime. We are going to automate the process. 
+ This is really teadious to have to introduce password everytime. We are going to automate the process with bash files(backend/bin). 
  
  We can connect directly using a CONNECTION_URL, where we include user, password, localtion, url and database name. Thefore, a way to provide all the detail to authenticate to the server.
  
@@ -93,21 +93,20 @@ Tutorial sql and postgress
   export CONNECTION_URL="postgresql://postgres:password@localhost:5432/cruddur"
   gp env CONNECTION_URL="postgresql://postgres:password@localhost:5432/ "
   ```
-  
-  And for production(AWS):
-  
-  ```
-  export PROD_CONNECTION_URL=**
-    gp env PROD_CONNECTION_URL=**
-   ```
-  
-  Thefore, we can use it:
+
+  Thefore, we can use it to connect directly to the local DB:
   
   ```
   psql $CONNECTION_URL
   ```
 
   We create some bash file to automate all the process we need to start and stop postgres.
+  
+  ![Bash files](assets/week4/week4_bashfiles.png)
+  
+  One of the task is the upload of the __schema:__ A database schema defines how data is organized within a relational database; this is inclusive of logical constraints such as, table names, fields, data types, and the relationships between these entities.
+  
+  [Postgres defining schema](https://www.postgresqltutorial.com/postgresql-administration/postgresql-schema/)
   
   We can see the tables we created.
   
@@ -117,27 +116,72 @@ Tutorial sql and postgress
      * to select a table and see ```SELECT * FROM tablename;```
      *  use ```\x on``` command to expand records and ```\x auto``` to autochange
  
-  Alternative to connect to the database
+  Alternative to connect to the database in gitpod:
   
   ![Tables display](assets/week4/week4_alternative.png)
   
   ![Tables display](assets/week4/week4_Struc.png)
+ 
   
+  ### RDS with Postgres
+  
+   For production(AWS) we created other connection URL:
+  
+  ```
+  export PROD_CONNECTION_URL=**
+  gp env PROD_CONNECTION_URL=**
+   ```
+  
+  We can use it by adding prod:
+  
+  ```
+  psql $CONNECTION_URL prod
+  ```
 
+  ### Psycopg
   
-  We create another bash to see processes running. We can not drop if ther are seessions running. Image of processes
+  Psycopg is the most popular PostgreSQL adapter for the Python programming language.
   
-  we have to get installed the driver of the postgres 
-  every langueage have a driver 
+  [Documentation](https://www.psycopg.org/)
   
-  https://www.psycopg.org/
   
-  https://www.psycopg.org/psycopg3/docs/
+  [Pooling connections](https://www.psycopg.org/psycopg3/docs/api/cursors.html)
   
-  POOLING CONNECTIONS 
   
-  https://www.psycopg.org/psycopg3/docs/api/cursors.html
+  [Postgres json transformation functions](https://www.postgresql.org/docs/9.5/functions-json.html)
+
+
+ 
+ RDS UI we create a inbound rule for the connexion of gitpod -> Connect to RDS via Gitpod --> VPC Security groups
+     * The inbound IP has to be stored
+ 
+ To see our current Gitpod ID curl ifconfig.me
+     * We store it as env varible
+ ```GITPOD_IP=$(curl ifconfig.me)```
+     * We will have to update the IP on the security group everytime we launch the env.
+     [Security group modify](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-security-group-rules.html)
+ 
+  Other variables needed for the connection:
+
+  ```
+  export DB_SG_ID="sg-**"
+  gp env DB_SG_ID="sg-**"
+
+  export DB_SG_RULE_ID="sgr-**"
+  gp env DB_SG_RULE_ID="sgr-**"
   
+  ```
+  And commendas for the CLI of AWS to update security rules:
+  
+  ```
+   aws ec2 modify-security-group-rules \
+    --group-id $DB_SG_ID \
+    --security-group-rules "SecurityGroupRuleId=$DB_SG_RULE_ID,SecurityGroupRule={Description=GIDPOD,IpProtocol=tcp,FromPort=5432,ToPort=5432,CidrIpv4=$GITPOD_IP/32}"
+    
+   ```
+    
+   We update process witht the bas file rds-update-sg-rule
+
 </details>
 
 --------------------------------------------------------------------------------------------------------------------------------
@@ -145,7 +189,9 @@ Tutorial sql and postgress
 <details><summary>Challenges</summary>
 <br></br>
 
+No challenges
 
+ 
 
 </details>
 
