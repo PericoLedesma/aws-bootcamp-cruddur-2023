@@ -102,7 +102,7 @@ __AWS Services used:__
 
   We create some bash file to automate all the process we need to start and stop postgres.
   
-  ![Bash files](assets/week4/week4_bashfiles.png)
+  ![Bash files](assets/week4/week4_bashfile.png)
   
   One of the task is the upload of the __schema:__ A database schema defines how data is organized within a relational database; this is inclusive of logical constraints such as, table names, fields, data types, and the relationships between these entities.
   
