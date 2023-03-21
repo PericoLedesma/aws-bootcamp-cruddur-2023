@@ -1,4 +1,7 @@
 -- this file was manually created
+
+--The INSERT INTO statement is used to insert new records in a table.
+
 INSERT INTO public.users (display_name, handle, cognito_user_id)
 
 VALUES

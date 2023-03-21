@@ -1,4 +1,9 @@
+-- Here we declare the schema of our database
+
+
 -- https://www.postgresql.org/docs/current/uuid-ossp.html
+
+
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 -- forcefully drop our tables if they already exist
