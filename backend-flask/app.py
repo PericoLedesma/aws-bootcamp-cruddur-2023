@@ -175,21 +175,23 @@ def data_create_message():
 @app.route("/api/activities/home", methods=['GET'])
 #@xray_recorder.capture('activities_home')
 def data_home():
+  app.logger.debug("== Run .app /api/activities/home")
   #Week3: Decentralized Authentication
   access_token = extract_access_token(request.headers)
-  print("Home-> authenticated??")
+  print("\tHome-> authenticated??")
   try:
     claims = cognito_jwt_token.verify(access_token)
     #Authenticatied request
-    app.logger.debug('Authenticatied')
+    app.logger.debug('\tAuthenticatied')
     #app.logger.debug(claims)
     #app.logger.debug(claims['username'])
     data = HomeActivities.run(cognito_user_id=claims['username']) # arg Logger= LOGGER
   except TokenVerifyError as e:
     _ = request.data
     #Unauthenticatied request
-    app.logger.debug('Unauthenticatied')
-    app.logger.debug(e)
+    app.logger.debug('\tUnauthenticatied')
+    #app.logger.debug(e)
+    app.logger.debug('\tKeeps running')
     data = HomeActivities.run(cognito_user_id=None) # arg Logger= LOGGER
   return data, 200
 

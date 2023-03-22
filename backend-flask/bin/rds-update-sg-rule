@@ -1,5 +1,8 @@
 #! /usr/bin/bash
 
+# File to update the IP address of the security groups 
+#that stores the inbound rules for the RDS postgress DB
+
 CYAN='\033[1;36m'
 NO_COLOR='\033[0m'
 LABEL="rds-update-sg-rule"
