@@ -1,5 +1,8 @@
 import uuid
 from datetime import datetime, timedelta, timezone
+
+from lib.db import Db
+
 class CreateActivity:
   def run(message, user_handle, ttl):
     model = {
@@ -60,7 +63,8 @@ class CreateActivity:
     VALUES(
       "{user_uuid}",
       "{message}",
-      "{expires_at}
+      "{expires_at}"
     )
     """
+    #query_commit(sql)
 

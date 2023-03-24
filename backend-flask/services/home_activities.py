@@ -1,7 +1,8 @@
 from datetime import datetime, timedelta, timezone
 from opentelemetry import trace
 
-from lib.db import *
+from lib.db import Db
+
 import logging #Cloudwatch logs
 
 # OpenTelemetry ------
@@ -42,6 +43,6 @@ class HomeActivities:
         json = cur.fetchone()
     print("Pool Connections success")
 
-    print(json[0])
+    print(json[0])  
   
     return json[0]
