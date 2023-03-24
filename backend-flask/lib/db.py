@@ -8,11 +8,30 @@ class Db:
     self.init_pool()
 
 
-  def init_pool():
+  def init_pool(self):
     connection_url = os.getenv("CONNECTION_URL")
     self.pool = ConnectionPool(connection_url)
+    
+  def query_commit_returning_id(self, sql, *kwargs):
+    print("-----SQL STATEMENT [array]-------")
+    print(sql)
+    print("---------------")
+    try:
+      conn = self.pool.connection()
+      cur = conn.cursor()
+      cur.execute(sql, kvargs)
+      returning_id = cur.fetchone()[0]
+      conn.commit()
+      return returning_id
+    except Exception as err:
+      print_sql_error(err)
+      #conn.rollback()
 
-  def query_commit():
+
+  def query_commit(self, sql, *args): # When we want to commit data such as an insert
+    print("-----SQL STATEMENT [commit]-------")
+    print(sql)
+    print("---------------")
     try:
       conn = self.pool.connection()
       cur = conn.cursor()
@@ -21,8 +40,34 @@ class Db:
     except Exception as err:
       print_sql_error(err)
       #conn.rollback()
+  
+  def query_array_json(self, sql): #When we want to return a json object
+    print("-----SQL STATEMENT [array]-------")
+    print(sql)
+    print("---------------")
 
-  def query_wrap_object(template):
+    wrapeed_sql  = self.query_wrap_array(sql)
+
+    with self.pool.connection() as conn:
+      with conn.cursor() as cur:
+        cur.execute(wrapeed_sql)
+        json = cur.fetchone()
+        return json[0]
+
+  def query_object_json(self): #When we want to return a array of json object
+    print("-----SQL STATEMENT [object]-------")
+    print(sql)
+    print("---------------")
+
+    wrapeed_sql  = self.query_wrap_object(sql)
+
+    with self.pool.connection() as conn:
+      with conn.cursor() as cur:
+        cur.execute(wrapeed_sql)
+        json = cur.fetchone()
+        return json[0]
+
+  def query_wrap_object(self, template):
     sql = f"""
     (SELECT COALESCE(row_to_json(object_row),'{{}}'::json) FROM (
     {template}
@@ -30,7 +75,7 @@ class Db:
     """
     return sql
 
-  def query_wrap_array(template):
+  def query_wrap_array(self, template):
     sql = f"""
     (SELECT COALESCE(array_to_json(array_agg(row_to_json(array_row))),'[]'::json) FROM (
     {template}
@@ -52,6 +97,9 @@ class Db:
     # print the pgcode and pgerror exceptions
     print ("pgerror:", err.pgerror)
     print ("pgcode:", err.pgcode, "\n")
+
+
+# --------------------------------------------------------------------------
 
 db = Db()
 
