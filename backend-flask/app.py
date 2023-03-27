@@ -178,7 +178,7 @@ def data_home():
   app.logger.debug("== Run .app /api/activities/home")
   #Week3: Decentralized Authentication
   access_token = extract_access_token(request.headers)
-  print("\tHome-> authenticated??")
+  app.logger.debug("\tHome-> authenticated??")
   try:
     claims = cognito_jwt_token.verify(access_token)
     #Authenticatied request
