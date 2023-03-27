@@ -7,12 +7,11 @@ from flask import current_app as app
 
 class Db:
   def __init__(self):
-    print(("== Run db class"))
+    print(("===>Starting db class.."))
     self.init_pool()
   
- 
   def template(self,*args):
-    print('==   Calling template..')
+    print('===>Calling template..')
     pathing = list((app.root_path,'db','sql',) + args)
     pathing[-1] = pathing[-1] + ".sql"
 
@@ -21,7 +20,7 @@ class Db:
     green = '\033[92m'
     no_color = '\033[0m'
     print("\n")
-    print(f'{green} Load SQL Template: {template_path} {no_color}')
+    print(f'{green}===>Load SQL Template: {template_path} {no_color}')
 
     with open(template_path, 'r') as f:
       template_content = f.read()
@@ -29,9 +28,9 @@ class Db:
 
 
   def init_pool(self):
+    print(("===>Run db class: init pool using psycopg_pool... "))
     connection_url = os.getenv("CONNECTION_URL")
     self.pool = ConnectionPool(connection_url)
-
 
   def print_params(self,params):
     blue = '\033[94m'
@@ -47,8 +46,6 @@ class Db:
     print(sql)
     print(f'{cyan} --------------{no_color}')
 
-
-    
   def query_commit(self,sql,params={}):
     self.print_sql('commit with returning',sql)
 
@@ -56,34 +53,21 @@ class Db:
     is_returning_id=re.search(pattern, sql)
 
     try:
-      conn = self.pool.connection()
-      cur = conn.cursor()
-      cur.execute(sql, kvargs)
-      if is_returning_id: 
-        returning_id = cur.fetchone()[0]
-      conn.commit()
-      if is_returning_id: 
-        return returning_id
+      with self.pool.connection() as conn:
+        cur =  conn.cursor()
+        cur.execute(sql,params)
+        if is_returning_id:
+          returning_id = cur.fetchone()[0]
+        conn.commit() 
+        if is_returning_id:
+          return returning_id
     except Exception as err:
-      print_sql_error(err)
+      self.print_sql_err(err)
       #conn.rollback()
 
-
-  def query_commit_id(self, sql, *args): # When we want to commit data such as an insert
-    print("-----SQL STATEMENT [commit]-------")
-    print(sql)
-    print("---------------")
-    try:
-      conn = self.pool.connection()
-      cur = conn.cursor()
-      cur.execute(sql)
-      conn.commit()
-    except Exception as err:
-      print_sql_error(err)
-      #conn.rollback()
 
   def query_array_json(self,sql,params={}):   # when we want to return a json object
-    print(("====\tRunning db.query_array_json"))
+    print(("===>\tRunning db.query_array_json"))
     self.print_sql('array',sql)
 
     wrapped_sql = self.query_wrap_array(sql)
@@ -93,12 +77,13 @@ class Db:
         json = cur.fetchone()
         return json[0]
 
-  
   def query_object_json(self,sql,params={}): # When we want to return an array of json objects
-    print(("====\tRunning db.query_object_json"))
+    print(("===>\tRunning db.query_object_json"))
     self.print_sql('json',sql)
     self.print_params(params)
     wrapped_sql = self.query_wrap_object(sql)
+
+    print(("===>\tPool Connection"))
 
     with self.pool.connection() as conn:
       with conn.cursor() as cur:
@@ -110,6 +95,7 @@ class Db:
           return json[0]
 
   def query_wrap_object(self, template):
+    print(("\t\tRunning db.query_wrap_object"))
     sql = f"""
     (SELECT COALESCE(row_to_json(object_row),'{{}}'::json) FROM (
     {template}
@@ -118,6 +104,7 @@ class Db:
     return sql
 
   def query_wrap_array(self, template):
+    print(("\t\tRunning db.query_wrap_array"))
     sql = f"""
     (SELECT COALESCE(array_to_json(array_agg(row_to_json(array_row))),'[]'::json) FROM (
     {template}

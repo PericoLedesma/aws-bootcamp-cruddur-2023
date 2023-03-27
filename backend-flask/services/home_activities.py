@@ -10,7 +10,7 @@ tracer = trace.get_tracer("home.activities")
 
 class HomeActivities:
   def run(cognito_user_id): # arg Logger
-    print('== Running HomeActivities')
+    print('== Running HomeActivities.run')
     #Logger.info("HomeActivities") #Cloudwatch logs. Carefull cost money
     # OpenTelemetry tracer setup
     #with tracer.start_as_current_span("home-activities-mock-data"): # Span caller
@@ -20,6 +20,8 @@ class HomeActivities:
     
     sql = db.template('activities','home')
 
+    print('== Back HomeActivities.run')
+    
     results = db.query_array_json(sql)
 
     return results

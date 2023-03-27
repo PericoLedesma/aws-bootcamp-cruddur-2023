@@ -185,13 +185,14 @@ def data_home():
     app.logger.debug('\tAuthenticatied')
     #app.logger.debug(claims)
     #app.logger.debug(claims['username'])
+    app.logger.debug('\tKeeps running => HomeActivities.run')
     data = HomeActivities.run(cognito_user_id=claims['username']) # arg Logger= LOGGER
   except TokenVerifyError as e:
     _ = request.data
     #Unauthenticatied request
     app.logger.debug('\tUnauthenticatied')
     #app.logger.debug(e)
-    app.logger.debug('\tKeeps running')
+    app.logger.debug('\tKeeps running => HomeActivities.run')
     data = HomeActivities.run(cognito_user_id=None) # arg Logger= LOGGER
   return data, 200
 
@@ -223,6 +224,7 @@ def data_search():
 @app.route("/api/activities", methods=['POST','OPTIONS'])
 @cross_origin()
 def data_activities():
+  app.logger.debug("== Run .app /api/activities")
   user_handle  = 'andrewbrown'
   message = request.json['message']
   ttl = request.json['ttl']
