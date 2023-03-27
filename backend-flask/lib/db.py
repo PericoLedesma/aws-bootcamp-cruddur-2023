@@ -13,6 +13,7 @@ class Db:
   def template(self,*args):
     print('===>Calling template..')
     pathing = list((app.root_path,'db','sql',) + args)
+    print(pathing)
     pathing[-1] = pathing[-1] + ".sql"
 
     template_path = os.path.join(*pathing)
@@ -124,8 +125,8 @@ class Db:
     print ("psycopg traceback:", traceback, "-- type:", err_type)
 
     # print the pgcode and pgerror exceptions
-    print ("pgerror:", err.pgerror)
-    print ("pgcode:", err.pgcode, "\n")
+    #print ("pgerror:", err.pgerror)
+    #print ("pgcode:", err.pgcode, "\n")
 
 
 # --------------------------------------------------------------------------

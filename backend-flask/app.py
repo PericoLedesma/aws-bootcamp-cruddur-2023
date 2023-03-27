@@ -228,13 +228,13 @@ def data_activities():
   user_handle  = 'andrewbrown'
   message = request.json['message']
   ttl = request.json['ttl']
-  print("****calling CreateActivity***")
+  app.logger.debug("****calling CreateActivity***")
   model = CreateActivity.run(message, user_handle, ttl)
   if model['errors'] is not None:
     return model['errors'], 422
   else:
     return model['data'], 200
-  return
+  return 
 
 @app.route("/api/activities/<string:activity_uuid>", methods=['GET'])
 def data_show_activity(activity_uuid):
