@@ -114,7 +114,7 @@
   
   ![Bash files](assets/week4/week4_bashfile.png)
   
-  Extra bash file create to display the data of the DBs in prod and locally.
+  __Extra bash__ file create to display the data of the DBs in prod and locally.
   
   One of the task is the upload of the __schema:__ A database schema defines how data is organized within a relational database; this is inclusive of logical constraints such as, table names, fields, data types, and the relationships between these entities.
   
