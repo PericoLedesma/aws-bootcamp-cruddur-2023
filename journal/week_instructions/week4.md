@@ -1,4 +1,7 @@
-  
+# Week 4 — Postgres and RDS
+
+[Back to journal](https://github.com/PericoLedesma/aws-bootcamp-cruddur-2023/blob/main/journal/week4.md)
+
 ## Postgres
 
 To connect to psql via the psql client cli tool remember to use the host flag to specific localhost.
