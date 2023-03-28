@@ -6,6 +6,9 @@
 2. Week summary
 3. AWS Services used
 4. [Week content](#1-Week-content)
+5. [Implementation notes(homework)](#2-Implementation-notes)
+6. [Challenges](#3-Challenges)
+7. [
 
 
 # Objetives
@@ -40,7 +43,7 @@
 
 
 
---------------------------------------------------------------------------------------------------------------------------------
+
 
 # 1 Week content
 [Back index](#index)
@@ -54,10 +57,10 @@
   
 
 
---------------------------------------------------------------------------------------------------------------------------------
 
-<details><summary>Implementation notes</summary>
-<br></br>
+
+# 2 Implementation notes
+[Back index](#index)
   
   # RDS postgres implementation
   
@@ -195,23 +198,16 @@
     
    We update process witht the bas file rds-update-sg-rule
 
-</details>
 
---------------------------------------------------------------------------------------------------------------------------------
 
-<details><summary>Challenges</summary>
-<br></br>
+# 3 Challenges
+[Back index](#index)
 
 No challenges
 
- 
 
-</details>
-
---------------------------------------------------------------------------------------------------------------------------------
-  
-<details><summary>Implementation instructions</summary>
-<br></br>
+# 4 Implementation instructions
+[Back index](#index)
   
 # Postgres
 
