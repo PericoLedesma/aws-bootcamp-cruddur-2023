@@ -1,14 +1,20 @@
 # Week 4 — Postgres and RDS
-# 1 Week content
+
+### Structure__  
+
+1. [Objetives](#Objetives)
+2. Week summary
+3. AWS Services used
+4. [Week content](#Week-content)
 
 
-__Objetive:__  
+# Objetives
    * Be able to data model using 3rd normal forms
    * Practical working knowledge of utilizing a Postgres database
    * Basic knowledge of working with an Online Analytical Processing (OLAP)
 
 
-__Week Summary:__
+# Week Summary
 
    * Provision an RDS instance
    * Temporarily stop an RDS instance
@@ -24,44 +30,10 @@ __Week Summary:__
    * Work with PSQL json functions to directly return json from the database
    * Correctly sanitize parameters passed to SQL to execute
         
-__AWS Services used:__
+# AWS Services used
    * [RDS](https://eu-central-1.console.aws.amazon.com/rds/home?region=eu-central-1#)
 
 (click to open section)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
