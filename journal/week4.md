@@ -3,21 +3,21 @@
 ### Index  
 
 1. [Objetives](#Objetives)
-2. Week summary
-3. AWS Services used
+2. [Week summary](#Week-summary]
+3. [AWS Services used](#AWS-Services-used)
 4. [Week content](#1-Week-content)
 5. [Implementation notes(homework)](#2-Implementation-notes)
 6. [Challenges](#3-Challenges)
-7. [
+7. [Implementation instructions](#4-Implementation-instructions)
 
 
-# Objetives
+### Objetives
    * Be able to data model using 3rd normal forms
    * Practical working knowledge of utilizing a Postgres database
    * Basic knowledge of working with an Online Analytical Processing (OLAP)
 
 
-# Week Summary
+### Week Summary
 
    * Provision an RDS instance
    * Temporarily stop an RDS instance
@@ -33,7 +33,7 @@
    * Work with PSQL json functions to directly return json from the database
    * Correctly sanitize parameters passed to SQL to execute
         
-# AWS Services used
+### AWS Services used
    * [RDS](https://eu-central-1.console.aws.amazon.com/rds/home?region=eu-central-1#)
 
 (click to open section)
@@ -209,7 +209,7 @@ No challenges
 # 4 Implementation instructions
 [Back index](#index)
   
-# Postgres
+## Postgres
 
 To connect to psql via the psql client cli tool remember to use the host flag to specific localhost.
 
@@ -316,7 +316,7 @@ DROP TABLE IF EXISTS public.users;
 DROP TABLE IF EXISTS public.activities;
 ```
 
-# https://aviyadav231.medium.com/automatically-updating-a-timestamp-column-in-postgresql-using-triggers-98766e3b47a0
+ https://aviyadav231.medium.com/automatically-updating-a-timestamp-column-in-postgresql-using-triggers-98766e3b47a0
 
 ```sql
 DROP FUNCTION IF EXISTS func_updated_at();
