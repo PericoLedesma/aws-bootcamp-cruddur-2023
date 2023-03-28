@@ -48,6 +48,7 @@
    
   [AWS RDS](https://aws.amazon.com/rds/)
   
+  DynamoDB is not available as an option on the AWS RDS service. While DynamoDB is a database service provided by AWS, it is not a relational database like the others listed (Postgres, MySQL, and Aurora) that are available on RDS. DynamoDB is a NoSQL database and is available on AWS as a separate service called Amazon DynamoDB.
   
 
 # 2 Implementation notes
