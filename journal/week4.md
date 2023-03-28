@@ -50,9 +50,6 @@
   
   
 
-
-
-
 # 2 Implementation notes
 [Back index](#index)
   
@@ -134,7 +131,14 @@
   
   ![Tables display](assets/week4/week4_Struc.png)
  
+  We seed it with data with the seed file:
   
+  ![Seed File](assets/week4/week4_seed.png)
+  
+  We can see the data with the display data. The user Pedro was create with cognito(lamdba function, next section)
+  
+  ![RDS database](assets/week4/week4_displaydata.png)
+    
   ### RDS with Postgres
   
   For production(AWS) we created other connection URL:
@@ -201,13 +205,17 @@
   
   The postgres connection url was stored as a env variable.
   
+  ![Lambda function](assets/week4/week4_lambda2.png)
+  
+  ![Lambda function](assets/week4/week4_lambda.png)
+  
   ### Create new activities with a database insert
   
-  We had to 
+  We modified the services create_activity and home_activities to store the created activity in the home page in the database
   
 
 # 3 Challenges
 [Back index](#index)
 
-No challenges
+A new bash file and sql file was created to automate the process of displaying the data of the databases.
 
