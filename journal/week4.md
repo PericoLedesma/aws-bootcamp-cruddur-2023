@@ -1,5 +1,5 @@
 # Week 4 — Postgres and RDS
-
+# 1 Week content
 
 
 __Objetive:__  
@@ -30,7 +30,6 @@ __AWS Services used:__
 (click to open section)
 
 
-# 1.Week content
 
 
 
@@ -66,7 +65,8 @@ __AWS Services used:__
 
 
 
-[Week content](#1.Week-content)
+
+[Week content](#1-Week-content)
 
 --------------------------------------------------------------------------------------------------------------------------------
 
