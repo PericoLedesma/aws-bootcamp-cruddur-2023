@@ -56,7 +56,7 @@
 # 2 Implementation notes
 [Back index](#index)
   
-  ## RDS postgres implementation
+  ### RDS postgres implementation
   
    * RDS is much easy to use with the CLI command
    * However, to check the option check UI
@@ -194,14 +194,14 @@
     
    We update process witht the bash file rds-update-sg-rule
 
-  ## Create AWS Cognito trigger to insert user into database
+  ### Create AWS Cognito trigger to insert user into database
   
   We create a lambda that gets trigger every time a user confirm the email. The lamdba function connects to the RDS database and stores the users data. 
   I had a issue while connecting. Had to change the inbound rules of the RDS db to accept the lamdba function API. I will have to change the inbound at some point.
   
   The postgres connection url was stored as a env variable.
   
-  ## Create new activities with a database insert
+  ### Create new activities with a database insert
   
   We had to 
   
