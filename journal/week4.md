@@ -1,11 +1,11 @@
 # Week 4 — Postgres and RDS
 
-### Structure__  
+### Index  
 
 1. [Objetives](#Objetives)
 2. Week summary
 3. AWS Services used
-4. [Week content](#Week-content)
+4. [Week content](#1-Week-content)
 
 
 # Objetives
@@ -38,11 +38,12 @@
 
 
 
-[Week content](#1-Week-content)
+
 
 --------------------------------------------------------------------------------------------------------------------------------
 
-# Week content
+# 1 Week content
+[Back index](#index)
 
    ### What is a AWS RDS instance?
   
@@ -51,7 +52,7 @@
    
   [AWS RDS](https://aws.amazon.com/rds/)
   
-</details>
+
 
 --------------------------------------------------------------------------------------------------------------------------------
 
