@@ -5,8 +5,9 @@
 INSERT INTO public.users (display_name, handle, email, cognito_user_id)
 
 VALUES
-  ('El Cid', 'elcidesguapo','elcidsiempregana@gmail.com' ,'MOCK123'),
-  ('Andrew Bayko', 'bayko', 'bayko@polla.es','MOCK456');
+  ('El Cid', 'elcidesguapo','elcidsiempregana@gmail.com' ,'CREADOconseedFile'),
+  ('Andrew Brown','andrew@exampro.co' , 'andrewbrown' ,'MOCK'),
+  ('Andrew Bayko','bayko@exampro.co' , 'bayko' ,'MOCK');
 
 
 INSERT INTO public.activities (user_uuid, message, expires_at)
