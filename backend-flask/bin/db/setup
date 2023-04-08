@@ -13,16 +13,16 @@ bin_path="$(realpath .)/bin"
 if [ "$1" = "prod" ]; then
     echo "Running in production mode"
     # We dont create database from here, we have to create a instance throught aws(other way)
-    source "$bin_path/db-schema-load" "prod"
-    source "$bin_path/db-seed" "prod"
-    source "$bin_path/db-displaydata" "prod"
+    source "$bin_path/db/schema-load" "prod"
+    source "$bin_path/db/seed" "prod"
+    source "$bin_path/db/displaydata" "prod"
 else
     echo "Running in local mode"
-    source "$bin_path/db-drop"
-    source "$bin_path/db-create"
-    source "$bin_path/db-schema-load"
-    source "$bin_path/db-seed"
-    source "$bin_path/db-displaydata"
+    source "$bin_path/db/drop"
+    source "$bin_path/db/create"
+    source "$bin_path/db/schema-load"
+    source "$bin_path/db/seed"
+    source "$bin_path/db/displaydata"
 fi
 
 
