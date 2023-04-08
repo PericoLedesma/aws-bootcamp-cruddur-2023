@@ -51,3 +51,4 @@ response = ddb.create_table(
 )
 
 print(response)
+print("----lossing schema load...----")
