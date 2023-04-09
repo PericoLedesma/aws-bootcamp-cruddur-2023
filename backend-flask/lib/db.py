@@ -50,6 +50,7 @@ class Db:
     print(f'{cyan} --------------{no_color}')
 
   def query_commit(self,sql,params={}):
+    print("Running db/query_commit")
     self.print_sql('commit with returning',sql, params)
 
     pattern = r"\bRETURNING\b"
@@ -81,24 +82,26 @@ class Db:
         return json[0]
 
   def query_object_json(self,sql,params={}): # When we want to return an array of json objects
-    print(("===>\tRunning db.query_object_json"))
-    self.print_sql('json',sql, params)
+    app.logger.debug(("===>\tRunning db.query_object_json"))
+    self.print_sql('json',sql,params)
     self.print_params(params)
     wrapped_sql = self.query_wrap_object(sql)
-
-    print(("===>\tPool Connection"))
+    app.logger.debug("HERE3")
 
     with self.pool.connection() as conn:
       with conn.cursor() as cur:
+        app.logger.debug("HERE4")
         cur.execute(wrapped_sql,params)
+        app.logger.debug("HERE5")
         json = cur.fetchone()
+        app.logger.debug("HERE5")
         if json == None:
           "{}"
         else:
           return json[0]
 
   def query_wrap_object(self, template):
-    print(("\t\tRunning db.query_wrap_object"))
+    app.logger.debug(("\t\tRunning db.query_wrap_object"))
     sql = f"""
     (SELECT COALESCE(row_to_json(object_row),'{{}}'::json) FROM (
     {template}

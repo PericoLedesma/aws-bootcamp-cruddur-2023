@@ -1,5 +1,11 @@
 #! /usr/bin/bash   
 
+
+# Parameters
+mydatabase='cruddur'
+
+# Code
+
 CYAN='\033[1;36m'
 NO_COLOR='\033[0m'
 LABEL="run db-displaydata"
@@ -14,8 +20,20 @@ else
   URL=$CONNECTION_URL
 fi
 
-
 seed_path="$(realpath .)/db/displaydata.sql"
 
+NO_DB_CONNECTION_URL=$(sed 's/\/cruddur//g' <<<"$CONNECTION_URL")
+databases=$(psql $NO_DB_CONNECTION_URL  -c "SELECT datname FROM pg_database;")
 
-psql $URL cruddur < $seed_path
+# Print the list of databases
+echo "List of databases:"
+echo "$databases"
+echo "--------"
+
+# Check if 'mydatabase' is in the list of databases
+if [[ "$databases" == *"$mydatabase"* ]]; then
+    echo "->Database 'cruddur' found! -> Displaying tables"
+    psql $URL $mydatabase < $seed_path
+else
+    echo "Database 'cruddur' not found."
+fi

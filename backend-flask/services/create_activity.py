@@ -3,9 +3,11 @@ from datetime import datetime, timedelta, timezone
 
 from lib.db import db
 
+from flask import current_app as app
+
 class CreateActivity:
   def run(message, user_handle, ttl):
-    print('=>>Running CreateActivity.run')
+    print('=>>HERRREEEEERunning CreateActivity.run')
     model = {
       'errors': None,
       'data': None
@@ -45,16 +47,32 @@ class CreateActivity:
       }   
 
     else:
+      '''
+      model['data'] = {
+        'uuid': uuid.uuid4(),
+        'display_name': 'Andrew Brown',
+        'handle':  user_handle,
+        'message': message,
+        'created_at': now.isoformat(),
+        'expires_at': (now + ttl_offset).isoformat()
+      }
+      '''
+      app.logger.debug("HERE")
       expires_at = (now + ttl_offset)
       uudi = CreateActivity.create_activity(user_handle, message, expires_at)
+      app.logger.debug(uudi)
+      app.logger.debug("HERE2")
+
       object_json = CreateActivity.query_object_activity(uuid)
+      app.logger.debug(object_json)
       model['data'] = object_json
+
+
     return model
     
 
 
   def create_activity(handle, message, expires_at):
-    print('=>>Running CreateActivity.create_activity')
     sql = db.template('activities','create')
     uuid = db.query_commit(sql,{
       'handle': handle,
@@ -64,8 +82,9 @@ class CreateActivity:
     return uuid
 
   def query_object_activity(uuid):
-    print('=>>Running CreateActivity.query_object_activity')
+    app.logger.debug('=>>Running CreateActivity.query_object_activity')
     sql = db.template('activities','object')
+
     return db.query_object_json(sql,{
       'uuid': uuid
     })
