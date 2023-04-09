@@ -41,12 +41,14 @@ def get_user_uuids():
     'other_handle': 'bayko'
   })
   my_user    = next((item for item in users if item["handle"] == 'andrewbrown'), None)
+  print("====== USERS")
+  print(users)
   other_user = next((item for item in users if item["handle"] == 'bayko'), None)
   results = {
     'my_user': my_user,
     'other_user': other_user
   }
-  print('get_user_uuids')
+  print("====== Results")
   print(results)
   return results
 
@@ -88,11 +90,14 @@ def create_message(client,message_group_uuid, created_at, message, my_user_uuid,
   # print the response
   print(response)
 
+
+
+# -------------------------------------------------------------
+
 message_group_uuid = "5ae290ed-55d1-47a0-bc6d-fe2bc2700399" #str(uuid.uuid4())
 users = get_user_uuids()
 
 now = datetime.now(timezone.utc).astimezone()
-
 
 create_message_group(
   client=ddb,
@@ -113,7 +118,7 @@ create_message_group(
   other_user_handle=users['my_user']['handle'],
   other_user_display_name=users['my_user']['display_name'],
   last_message_at=now.isoformat(),
-  message="this is a filler message"
+  message="this is a filler message2"
 )
 
 conversation = """
@@ -235,17 +240,15 @@ for i in range(len(lines)):
   else:
     print(lines[i])
     raise 'invalid line'
-
-
-created_at = (now + timedelta(minutes=i)).isoformat()
-create_message(
-    client=ddb,
-    message_group_uuid= message_group_uuid,
-    created_at=created_at,
-    message=message,
-    my_user_uuid=users[key]['uuid'],
-    my_user_display_name=users[key]['display_name'],
-    my_user_handle=users[key]['handle']
-)
+  created_at = (now + timedelta(minutes=i)).isoformat()
+  create_message(
+      client=ddb,
+      message_group_uuid= message_group_uuid,
+      created_at=created_at,
+      message=message,
+      my_user_uuid=users[key]['uuid'],
+      my_user_display_name=users[key]['display_name'],
+      my_user_handle=users[key]['handle']
+  )
 
 

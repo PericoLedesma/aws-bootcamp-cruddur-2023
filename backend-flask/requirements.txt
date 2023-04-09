@@ -1,5 +1,6 @@
 flask
 flask-cors
+boto3
 
 # Honeycomb - Opentelemetry
 opentelemetry-api 
@@ -26,5 +27,5 @@ psycopg[binary]
 psycopg[pool]
 
 # Week5 
-boto3
+
 

@@ -2,10 +2,10 @@
 
 --The INSERT INTO statement is used to insert new records in a table.
 
-INSERT INTO public.users (display_name, handle, email, cognito_user_id)
+INSERT INTO public.users (display_name, email, handle, cognito_user_id)
 
 VALUES
-  ('El Cid', 'elcidesguapo','elcidsiempregana@gmail.com' ,'CREADOconseedFile'),
+  ('El Cid','elcidsiempregana@gmail.com', 'elcidesguapo' ,'CREADOconseedFile'),
   ('Andrew Brown','andrew@exampro.co' , 'andrewbrown' ,'MOCK'),
   ('Andrew Bayko','bayko@exampro.co' , 'bayko' ,'MOCK');
 

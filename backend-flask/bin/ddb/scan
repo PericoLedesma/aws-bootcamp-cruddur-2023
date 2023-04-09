@@ -19,12 +19,8 @@ table_name = 'cruddur-messages'
 table = ddb.Table(table_name)
 response = table.scan()
 
-print("=======")
-
 items = response['Items']
 for item in items:
   print(item)
 
-
-
-print("---- Closing scan....---")
+print("---- Closing scan---")

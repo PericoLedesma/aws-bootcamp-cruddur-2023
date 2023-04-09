@@ -49,6 +49,6 @@ response = ddb.create_table(
     #TableClass='STANDARD'|'STANDARD_INFREQUENT_ACCESS',
     #DeletionProtectionEnabled=True|False
 )
-
+print("----Print reponse----")
 print(response)
-print("----lossing schema load...----")
+print("----Clossing schema load----")
