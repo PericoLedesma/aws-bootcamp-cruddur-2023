@@ -40,3 +40,5 @@ ports: # To open the ports automatically
   - name: xray-daemon
     port: 2000
     visibility: public
+  - port: 5432
+    visibility: public
