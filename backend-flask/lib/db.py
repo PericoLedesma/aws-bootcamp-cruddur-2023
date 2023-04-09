@@ -11,7 +11,7 @@ class Db:
     self.init_pool()
   
   def template(self,*args):
-    print('===>Calling template..')
+    print('========>Calling template..')
     pathing = list((app.root_path,'db','sql',) + args)
     print(pathing)
     pathing[-1] = pathing[-1] + ".sql"
@@ -31,7 +31,9 @@ class Db:
   def init_pool(self):
     print(("===>Run db class: init pool using psycopg_pool... "))
     connection_url = os.getenv("CONNECTION_URL")
+    print("===>Run db class: Connection to > ", connection_url)
     self.pool = ConnectionPool(connection_url)
+    print(("===>Run db class: init pool sucessful"))
 
   def print_params(self,params):
     blue = '\033[94m'
