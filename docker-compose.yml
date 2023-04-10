@@ -70,7 +70,6 @@ services:
     volumes: 
       - db:/var/lib/postgresql/data #Here we are refeing the volume that is down
  
-
 # the name flag is a hack to change the default prepend folder
 # name when outputting the image names
 networks: 

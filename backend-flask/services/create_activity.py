@@ -57,17 +57,11 @@ class CreateActivity:
         'expires_at': (now + ttl_offset).isoformat()
       }
       '''
-      app.logger.debug("HERE")
       expires_at = (now + ttl_offset)
-      uudi = CreateActivity.create_activity(user_handle, message, expires_at)
-      app.logger.debug(uudi)
-      app.logger.debug("HERE2")
+      uuid = CreateActivity.create_activity(user_handle,message,expires_at)
 
       object_json = CreateActivity.query_object_activity(uuid)
-      app.logger.debug(object_json)
       model['data'] = object_json
-
-
     return model
     
 
@@ -84,7 +78,6 @@ class CreateActivity:
   def query_object_activity(uuid):
     app.logger.debug('=>>Running CreateActivity.query_object_activity')
     sql = db.template('activities','object')
-
     return db.query_object_json(sql,{
       'uuid': uuid
     })

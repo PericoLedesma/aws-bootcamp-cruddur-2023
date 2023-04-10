@@ -6,6 +6,7 @@ INSERT INTO public.users (display_name, email, handle, cognito_user_id)
 
 VALUES
   ('El Cid','elcidsiempregana@gmail.com', 'elcidesguapo' ,'CREADOconseedFile'),
+  ('Pedro','rgzledesma@gmail.com', 'pedro_user' ,'TIENEQUEACTUALIZARSE'),
   ('Andrew Brown','andrew@exampro.co' , 'andrewbrown' ,'MOCK'),
   ('Andrew Bayko','bayko@exampro.co' , 'bayko' ,'MOCK');
 

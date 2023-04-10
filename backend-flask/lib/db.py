@@ -50,7 +50,6 @@ class Db:
     print(f'{cyan} --------------{no_color}')
 
   def query_commit(self,sql,params={}):
-    print("Running db/query_commit")
     self.print_sql('commit with returning',sql, params)
 
     pattern = r"\bRETURNING\b"
@@ -71,7 +70,6 @@ class Db:
 
 
   def query_array_json(self,sql,params={}):   # when we want to return a json object
-    print(("===>\tRunning db.query_array_json"))
     self.print_sql('array',sql, params)
 
     wrapped_sql = self.query_wrap_array(sql)
@@ -100,8 +98,7 @@ class Db:
         else:
           return json[0]
 
-  def query_wrap_object(self, template):
-    app.logger.debug(("\t\tRunning db.query_wrap_object"))
+  def query_wrap_object(self,template):
     sql = f"""
     (SELECT COALESCE(row_to_json(object_row),'{{}}'::json) FROM (
     {template}
@@ -110,7 +107,6 @@ class Db:
     return sql
 
   def query_wrap_array(self, template):
-    print(("\t\tRunning db.query_wrap_array"))
     sql = f"""
     (SELECT COALESCE(array_to_json(array_agg(row_to_json(array_row))),'[]'::json) FROM (
     {template}

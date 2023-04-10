@@ -16,6 +16,7 @@ class TokenVerifyError(Exception):
     pass
 
 def extract_access_token(request_headers):
+    print("<<<<Extracting access tokens>>>>")
     access_token = None
     auth_header = request_headers.get("Authorization")
     if auth_header and " " in auth_header:

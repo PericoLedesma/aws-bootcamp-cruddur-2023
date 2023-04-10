@@ -139,22 +139,20 @@ def rollbar_test():
 
 @app.route("/api/message_groups", methods=['GET'])
 def data_message_groups():
-  app.logger.debug("== Run .app /api/message_groups")
   access_token = extract_access_token(request.headers)
   try:
     claims = cognito_jwt_token.verify(access_token)
     app.logger.debug('\tAuthenticatied')
-    app.logger.debug(claims)
+    #app.logger.debug(claims)
     cognito_user_id = claims['sub']
-    model = MessageGroups.run(user_handle=cognito_user_id)
+    model = MessageGroups.run(cognito_user_id=cognito_user_id)
     if model['errors'] is not None:
       return model['errors'], 422
     else:
       return model['data'], 200
 
-  except TokenVerifyError as e:
+  except TokenVerifyError as e:#Unauthenticatied request
     _ = request.data
-    #Unauthenticatied request
     app.logger.debug('\tUnauthenticatied')
     data = HomeActivities.run(cognito_user_id=None)
     return {}, 401
@@ -162,17 +160,27 @@ def data_message_groups():
 
 
 
-@app.route("/api/messages/@<string:handle>", methods=['GET'])
-def data_messages(handle):
-  user_sender_handle = 'andrewbrown'
-  user_receiver_handle = request.args.get('user_reciever_handle')
 
-  model = Messages.run(user_sender_handle=user_sender_handle, user_receiver_handle=user_receiver_handle)
-  if model['errors'] is not None:
-    return model['errors'], 422
-  else:
-    return model['data'], 200
-  return
+@app.route("/api/messages/<string:message_group_uuid>", methods=['GET'])
+def data_messages(message_group_uuid):
+  access_token = extract_access_token(request.headers)
+  try:
+    claims = cognito_jwt_token.verify(access_token)
+    app.logger.debug('\tAuthenticatied')
+    cognito_user_id = claims['sub']
+    model = Messages.run(message_group_uuid=message_group_uuid, cognito_user_id=cognito_user_id)
+    if model['errors'] is not None:
+      return model['errors'], 422
+    else:
+      return model['data'], 200
+
+  except TokenVerifyError as e:#Unauthenticatied request
+    _ = request.data
+    app.logger.debug('\tUnauthenticatied')
+    data = HomeActivities.run(cognito_user_id=None)
+    return {}, 401
+
+  
 
 @app.route("/api/messages", methods=['POST','OPTIONS'])
 @cross_origin()
@@ -191,24 +199,21 @@ def data_create_message():
 @app.route("/api/activities/home", methods=['GET'])
 #@xray_recorder.capture('activities_home')
 def data_home():
-  app.logger.debug("== Run .app /api/activities/home")
+  #app.logger.debug("== Run .app /api/activities/home")
   #Week3: Decentralized Authentication
   access_token = extract_access_token(request.headers)
-  app.logger.debug("\tHome-> authenticated??")
   try:
     claims = cognito_jwt_token.verify(access_token)
     #Authenticatied request
     app.logger.debug('\tAuthenticatied')
     #app.logger.debug(claims)
     #app.logger.debug(claims['username'])
-    app.logger.debug('\tKeeps running => HomeActivities.run')
     data = HomeActivities.run(cognito_user_id=claims['username']) # arg Logger= LOGGER
   except TokenVerifyError as e:
     _ = request.data
     #Unauthenticatied request
     app.logger.debug('\tUnauthenticatied')
     #app.logger.debug(e)
-    app.logger.debug('\tKeeps running => HomeActivities.run')
     data = HomeActivities.run(cognito_user_id=None) # arg Logger= LOGGER
   return data, 200
 
