@@ -5,7 +5,6 @@ from datetime import datetime, timedelta, timezone
 import uuid
 import os
 
-from flask import current_app as app
 
 class Ddb:
     def client():
@@ -18,6 +17,9 @@ class Ddb:
         return dynamodb  
 
     def list_message_groups(client,my_user_uuid):
+
+        print("Searching with list_message_groups the message groups...", flush=True)
+
         current_year = str(datetime.now().year)
         table_name = 'cruddur-messages' #ToDo not hardcooding the tables
         query_params = {
@@ -29,7 +31,7 @@ class Ddb:
                 ':year': {'S': current_year},
                 ':pk': {'S': f"GRP#{my_user_uuid}"}
             }
-        }
+        }        
 
         # query the table
         response = client.query(**query_params)
@@ -44,12 +46,14 @@ class Ddb:
                 'message': item['message']['S'],
                 'created_at': last_sent_at
             })
+
         return results
 
 
 
     def list_messages(client,message_group_uuid):
-        app.logger.debug("STARTING LIST MESSAGES")
+        message_group_uuid = message_group_uuid.replace("@", "") #CARE 
+        
         current_year = str(datetime.now().year)
         table_name = 'cruddur-messages'
         query_params = {
@@ -66,8 +70,6 @@ class Ddb:
         response = client.query(**query_params)
         items = response['Items']
         items.reverse()
-        app.logger.debug("items::")
-        app.logger.debug(items)
 
         results = []
         for item in items:
@@ -79,4 +81,5 @@ class Ddb:
                 'message': item['message']['S'],
                 'created_at': created_at
             })
+
         return results

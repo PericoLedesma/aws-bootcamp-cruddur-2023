@@ -5,7 +5,7 @@ from flask import current_app as app
 
 class Messages:
   def run(message_group_uuid, cognito_user_id):
-    app.logger.debug("STARTING MESSAGES")
+    
     model = {
       'errors': None,
       'data': None
@@ -16,10 +16,6 @@ class Messages:
     })
     ddb = Ddb.client()
     data = Ddb.list_messages(ddb, message_group_uuid)
-    app.logger.debug("list_messages")
-    app.logger.debug(data)
 
     model['data'] = data
-    app.logger.debug("END MESSAGES")
-    app.logger.debug(model)
     return model

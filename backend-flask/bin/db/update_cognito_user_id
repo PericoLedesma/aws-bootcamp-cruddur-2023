@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Script used to update the cognito_user_id in our users table
 
 import boto3
 import os

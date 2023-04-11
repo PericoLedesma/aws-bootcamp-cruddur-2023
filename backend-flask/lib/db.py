@@ -2,8 +2,8 @@ from psycopg_pool import ConnectionPool
 import os
 import re
 import sys
-from flask import current_app as app
 
+from flask import current_app as app
 
 class Db:
   def __init__(self):
@@ -80,19 +80,19 @@ class Db:
         return json[0]
 
   def query_object_json(self,sql,params={}): # When we want to return an array of json objects
-    app.logger.debug(("===>\tRunning db.query_object_json"))
+    print(("===>\tRunning db.query_object_json"))
     self.print_sql('json',sql,params)
     self.print_params(params)
     wrapped_sql = self.query_wrap_object(sql)
-    app.logger.debug("HERE3")
+    print("HERE3")
 
     with self.pool.connection() as conn:
       with conn.cursor() as cur:
-        app.logger.debug("HERE4")
+        print("HERE4")
         cur.execute(wrapped_sql,params)
-        app.logger.debug("HERE5")
+        print("HERE5")
         json = cur.fetchone()
-        app.logger.debug("HERE5")
+        print("HERE5")
         if json == None:
           "{}"
         else:
