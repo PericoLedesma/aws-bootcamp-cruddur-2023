@@ -8,7 +8,8 @@ VALUES
   ('El Cid','elcidsiempregana@gmail.com', 'elcidesguapo' ,'CREADOconseedFile'),
   ('Pedro','rgzledesma@gmail.com', 'pedro_user' ,'TIENEQUEACTUALIZARSE'),
   ('Andrew Brown','andrew@exampro.co' , 'andrewbrown' ,'MOCK'),
-  ('Andrew Bayko','bayko@exampro.co' , 'bayko' ,'MOCK');
+  ('Andrew Bayko','bayko@exampro.co' , 'bayko' ,'MOCK'),
+  ('Londo Mollari', 'lmollari@centari.com','londo','MOCK');
 
 
 INSERT INTO public.activities (user_uuid, message, expires_at)
