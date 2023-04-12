@@ -52,7 +52,6 @@
 
 PartiQL provides SQL-compatible query access across multiple data stores containing structured data, semistructured data, and nested data. It is widely used within Amazon and is now available as part of many AWS services, including DynamoDB.
 
-https://docs.aws.amazon.com/es_es/amazondynamodb/latest/developerguide/ql-reference.html
 
 
 #### [NoSQL Workbench for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/workbench.html)
