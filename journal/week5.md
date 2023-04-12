@@ -9,7 +9,7 @@
 3. [AWS Services used](#AWS-Services-used)
 4. [Week content](#Week-content)
 5. [Implementation notes](#Implementation-notes)
-    - [Backend Preparation](##Backend-Preparation)
+    - [Backend Preparation](#Backend-Preparation)
     - [DynamoDB Utility Scripts](##DynamoDB-Utility-Scripts)
     - [Implement Conversations with DynamoDB Local}(##Implement-Conversations-with-DynamoDB-Local)
     - [Implement DynamoDB Stream with AWS Lambda](##Implement-DynamoDB-Stream-with-AWS-Lambda)
