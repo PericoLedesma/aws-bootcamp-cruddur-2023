@@ -5,14 +5,31 @@
 1. [Objetives](#Objetives)
 2. [Week summary](#Week-summary)
 3. [AWS Services used](#AWS-Services-used)
-4. [Week content](#1-Week-content)
+4. [Week content](#Week-content)
 5. [Implementation notes(homework)](#2-Implementation-notes)
 6. [Challenges](#3-Challenges)
 7. [Implementation instructions](https://github.com/PericoLedesma/aws-bootcamp-cruddur-2023/blob/main/journal/week_instructions/week4.md)
 
+# Objetives
+- Gain practical knowledge working with common docker command and running container images for the purpose of local development
+- Gain practical knowledge of working within a Cloud Development environment
+- Be able to navigate a backend and front web-application and generally understand how they work 
 
+# Week summary 
 
-# 1 Week content
+- Create a new GitHub repo
+- Launch the repo within a Gitpod workspace
+- Configure Gitpod.yml configuration, eg. VSCode Extensions
+- Clone the frontend and backend repo
+- Explore the codebases
+- Ensure we can get the apps running locally
+- Write a Dockerfile for each app
+- Ensure we get the apps running via individual container
+- Create a docker-compose file
+- Ensure we can orchestrate multiple containers to run side by side
+- Mount directories so we can make changes while we code
+
+# Week content
  
 
 ### Security on Container
