@@ -28,11 +28,13 @@ databases=$(psql $NO_DB_CONNECTION_URL  -c "SELECT datname FROM pg_database;")
 # Print the list of databases
 echo "List of databases:"
 echo "$databases"
-echo "--------"
+
+echo " "
 
 # Check if 'mydatabase' is in the list of databases
 if [[ "$databases" == *"$mydatabase"* ]]; then
     echo "->Database 'cruddur' found! -> Displaying tables"
+    echo " "
     psql $URL $mydatabase < $seed_path
 else
     echo "Database 'cruddur' not found."
