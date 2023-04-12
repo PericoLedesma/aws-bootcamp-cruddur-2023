@@ -8,8 +8,7 @@
 3. [AWS Services used](#AWS-Services-used)
 4. [Week content](#Week-content)
 5. [Implementation notes](#Implementation-notes)
-6. [Useful references](#Useful-references )
-7. [Implementation instructions](https://github.com/PericoLedesma/aws-bootcamp-cruddur-2023/blob/main/journal/week_instructions/week1.md)
+6. [Implementation instructions](https://github.com/PericoLedesma/aws-bootcamp-cruddur-2023/blob/main/journal/week_instructions/week2.md)
 
 # Objetives
 - Distributed tracing implementation to add the functionality to easy pinpoint issue when adding cloud services.
