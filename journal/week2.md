@@ -7,8 +7,8 @@
 2. [Week summary](#Week-summary)
 3. [AWS Services used](#AWS-Services-used)
 4. [Week content](#Week-content)
-5. [Implementation notes](#Implementation-notes)
-6. [Implementation instructions](https://github.com/PericoLedesma/aws-bootcamp-cruddur-2023/blob/main/journal/week_instructions/week2.md)
+6. [Useful references](#Useful-references)
+7. [Implementation instructions](https://github.com/PericoLedesma/aws-bootcamp-cruddur-2023/blob/main/journal/week_instructions/week2.md)
 
 # Objetives
 - Distributed tracing implementation to add the functionality to easy pinpoint issue when adding cloud services.
@@ -189,4 +189,9 @@ Troubles during implementation.
         - 3 Dashboards with up to 50 Metrics each per month
   
         
-  
+# Useful references 
+[(Back to index)](#content)
+
+- AWS Developer Guide for AWS X-Ray daemon ([link](https://docs.aws.amazon.com/xray/latest/devguide/xray-daemon.html))
+- How to add custom X-Ray Segments for Containerised Flask Application ([link](https://olley.hashnode.dev/aws-free-cloud-bootcamp-instrumenting-aws-x-ray-subsegments))
+- Rollbar Flask Example ([link](https://github.com/rollbar/rollbar-flask-example/blob/master/hello.py))
