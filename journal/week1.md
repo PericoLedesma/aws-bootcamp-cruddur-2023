@@ -6,7 +6,7 @@
 2. [Week summary](#Week-summary)
 3. [AWS Services used](#AWS-Services-used)
 4. [Week content](#Week-content)
-5. [Implementation notes](#2-Implementation-notes)
+5. [Implementation notes](#Implementation-notes)
 6. [Useful references](#Useful-references )
 7. [Implementation instructions](https://github.com/PericoLedesma/aws-bootcamp-cruddur-2023/blob/main/journal/week_instructions/week1.md)
 
@@ -35,7 +35,7 @@ None
 
 # Week content
 
-[Back index](#content)
+[(Back to index)](#content)
 
 ### Security on Container
 
@@ -109,7 +109,7 @@ Docker compose
  
 
 # Implementation notes
-[Back index](#content)
+[(Back to index)](#content)
 
 ### Coding Flask Backend endpoint for notifications
 
@@ -246,7 +246,7 @@ volumes:
  
  
 # Useful references 
-[Back index](#content)
+[(Back to index)](#content)
 
 [What is a container](https://docs.docker.com/get-started/)
  
