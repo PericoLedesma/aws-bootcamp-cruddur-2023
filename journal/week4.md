@@ -1,6 +1,6 @@
 # Week 4 — Postgres and RDS
 
-### Index  
+### Contente
 
 1. [Objetives](#Objetives)
 2. [Week summary](#Week-summary)
