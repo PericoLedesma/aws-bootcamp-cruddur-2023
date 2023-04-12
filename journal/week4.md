@@ -5,9 +5,9 @@
 1. [Objetives](#Objetives)
 2. [Week summary](#Week-summary)
 3. [AWS Services used](#AWS-Services-used)
-4. [Week content](#1-Week-content)
-5. [Implementation notes(homework)](#2-Implementation-notes)
-6. [Challenges](#3-Challenges)
+4. [Week content](#Week-content)
+5. [Implementation notes(homework)](#Implementation-notes)
+6. [Challenges](#Challenges)
 7. [Implementation instructions](https://github.com/PericoLedesma/aws-bootcamp-cruddur-2023/blob/main/journal/week_instructions/week4.md)
 
 
@@ -38,8 +38,8 @@
 
 
 
-# 1 Week content
-[Back index](#index)
+# Week content
+[Back index](#content)
 
    ### What is a AWS RDS instance?
   
@@ -51,8 +51,8 @@
   DynamoDB is not available as an option on the AWS RDS service. While DynamoDB is a database service provided by AWS, it is not a relational database like the others listed (Postgres, MySQL, and Aurora) that are available on RDS. DynamoDB is a NoSQL database and is available on AWS as a separate service called Amazon DynamoDB.
   
 
-# 2 Implementation notes
-[Back index](#index)
+# Implementation notes
+[Back index](#content)
   
   ### RDS postgres implementation
   
@@ -215,8 +215,8 @@
   We modified the services create_activity and home_activities to store the created activity in the home page in the database
   
 
-# 3 Challenges
-[Back index](#index)
+# Challenges
+[Back index](#content)
 
 A new bash file and sql file was created to automate the process of displaying the data of the databases.
 
