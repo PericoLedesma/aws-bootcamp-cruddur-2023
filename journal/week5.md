@@ -10,9 +10,9 @@
 4. [Week content](#Week-content)
 5. [Implementation notes](#Implementation-notes)
     - [Backend Preparation](#Backend-Preparation)
-    - [DynamoDB Utility Scripts](##DynamoDB-Utility-Scripts)
-    - [Implement Conversations with DynamoDB Local}(##Implement-Conversations-with-DynamoDB-Local)
-    - [Implement DynamoDB Stream with AWS Lambda](##Implement-DynamoDB-Stream-with-AWS-Lambda)
+    - [DynamoDB Utility Scripts](#DynamoDB-Utility-Scripts)
+    - [Implement Conversations with DynamoDB Local](#Implement-Conversations-with-DynamoDB-Local)
+    - [Implement DynamoDB Stream with AWS Lambda](#Implement-DynamoDB-Stream-with-AWS-Lambda)
 7. [Implementation instructions](https://github.com/PericoLedesma/aws-bootcamp-cruddur-2023/blob/main/journal/week_instructions/week4.md)
 
 
