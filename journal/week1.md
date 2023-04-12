@@ -1,9 +1,18 @@
 # Week 1 — App Containerization
 
-(click to open section)
+### Content
 
-<details><summary>Week content</summary>
-<p>
+1. [Objetives](#Objetives)
+2. [Week summary](#Week-summary)
+3. [AWS Services used](#AWS-Services-used)
+4. [Week content](#1-Week-content)
+5. [Implementation notes(homework)](#2-Implementation-notes)
+6. [Challenges](#3-Challenges)
+7. [Implementation instructions](https://github.com/PericoLedesma/aws-bootcamp-cruddur-2023/blob/main/journal/week_instructions/week4.md)
+
+
+
+# 1 Week content
  
 
 ### Security on Container
