@@ -216,7 +216,7 @@
   
 
 # Challenges
-[Back index](#content)
+[(Back to index)](#content)
 
 A new bash file and sql file was created to automate the process of displaying the data of the databases.
 
