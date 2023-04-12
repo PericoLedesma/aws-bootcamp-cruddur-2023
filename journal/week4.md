@@ -6,7 +6,7 @@
 2. [Week summary](#Week-summary)
 3. [AWS Services used](#AWS-Services-used)
 4. [Week content](#Week-content)
-5. [Implementation notes(homework)](#Implementation-notes)
+5. [Implementation notes](#Implementation-notes)
 6. [Challenges](#Challenges)
 7. [Implementation instructions](https://github.com/PericoLedesma/aws-bootcamp-cruddur-2023/blob/main/journal/week_instructions/week4.md)
 
@@ -39,7 +39,7 @@
 
 
 # Week content
-[Back index](#content)
+[(Back to index)](#content)
 
    ### What is a AWS RDS instance?
   
@@ -52,7 +52,7 @@
   
 
 # Implementation notes
-[Back index](#content)
+[(Back to index)](#content)
   
   ### RDS postgres implementation
   
