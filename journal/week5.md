@@ -193,15 +193,11 @@ Implementation for extra pages, which mainly uses `create_message_group` of the 
 - Update `frontend-react-js/src/components/MessageGroupFeed.js`
 - Update `frontend-react-js/src/components/MessageForm.js`
 
-After completing the above steps, compose up and go to the frontend, sign in and visit the messages tab, it shows the seed data. If I send a direct message to Bayko, the message will be presented in the bottom of the current message group:
+After completing the above steps, compose up and go to the frontend, sign in and visit the messages tab, it shows the seed data. 
+Here the data is stored locally in the dynamodb container.
 
-![Proof of working messages]()
+![Proof of working messages](assets/week5/dynamodb-local.png)
 
-We can visit url `https://<frontend_address>/messages/new/<handle>` to create and update new messages in a new message group with Bayko (set the url handle to `bayko`), or start a conversation with Londo (set the url handle to `londo`) as seen in the screenshots below.
-
-![Proof of messages with bayko])
-
-![Proof of messages with londo]()
 
 ## Implement DynamoDB Stream with AWS Lambda
 
@@ -216,11 +212,17 @@ We can work with the DynamoDB on the AWS, and add a trigger to execute a Lambda 
 
 Now if we compose up, visit the frontend and sign in, it's empty under the messages tab, because there is no data in our AWS DynamoDB. To create a new message in a new message group with Bayko, visit `https://<frontend_address>/messages/new/bayko`, messages can be created and updated as seen in the screenshot below.
 
-![Proof of seed dynamodb]()
 
-If everything works, there is no error observed on AWS in CloudWatch > Log groups > /aws/lambda/cruddur-messaging-stream as shown in the screenshots below.
+![Proof of messages with bayko](assets/week5/dynamodb-aws-creating-message.png)
 
-![Proof of seed dynamodb]()
+![Proof of messages with bayko](assets/week5/dynamodb-created.png)
+
+And we can see the data stored in AWS dynamoDB exploring the content:
+
+![Proof of messages with bayko](assets/week5/dynamodo-aws-table.png)
+
+![Proof of messages with bayko](assets/week5/dynamodb-aws.png)
+
 
 
 
