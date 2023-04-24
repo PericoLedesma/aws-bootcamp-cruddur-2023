@@ -51,10 +51,12 @@ query_params = {
   },
   'ReturnConsumedCapacity': 'TOTAL'
 }
-print("Query-params: ")
+print("-----Query-params ----")
 print(query_params)
 # query the table
 response = dynamodb.query(**query_params)
 
 # print the items returned by the query
+print("-----Query results ----")
 print(json.dumps(response, sort_keys=True, indent=2))
+

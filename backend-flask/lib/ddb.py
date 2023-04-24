@@ -8,10 +8,13 @@ import os
 
 class Ddb:
     def client():
-        endpoint_url = os.getenv("AWS_ENDPOINT_URL")
+        print('----Connecting to Ddb.....---', flush=True)
+        endpoint_url = os.getenv('AWS_ENDPOINT_URL')
         if endpoint_url:
+            print('Connecting to ', endpoint_url, flush=True)
             attrs = { 'endpoint_url': endpoint_url }
         else:
+            print('Connecting to prod', flush=True)
             attrs = {}
         dynamodb = boto3.client('dynamodb',**attrs)
         return dynamodb  

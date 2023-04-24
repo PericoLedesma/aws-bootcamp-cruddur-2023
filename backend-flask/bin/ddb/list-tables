@@ -1,13 +1,24 @@
 #! /usr/bin/bash   
 set -e # stop if it fails at any point
 
+CYAN='\033[1;36m'
+NO_COLOR='\033[0m'
+LABEL="run ddb-list tables "
+printf "${CYAN}== ${LABEL}${NO_COLOR}\n"\
+
+
 if [ "$1" = "prod" ]; then
-    ENDPOINT_URL=""
+    ENDPOINT_URL="" # Sino le damos el endpoint parece que se conecta a la cuenta actual de AWS
+    echo '-->PROD'
 else
     ENDPOINT_URL="--endpoint-url=http://localhost:8000"
+    echo '-->LOCAL'
 fi
 
 # This is a CLI command. Check documentation
 aws dynamodb list-tables $ENDPOINT_URL \
  --query TableNames \
  --output table
+
+
+ # Command: aws dynamodb list-tables
