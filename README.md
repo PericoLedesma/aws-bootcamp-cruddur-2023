@@ -5,7 +5,7 @@
 - Codebase: this repo was created from [this template](https://github.com/ExamProCo/aws-bootcamp-cruddur-2023)
 - Cohort: 2023-A1 ([bootcamp website](https://aws.cloudprojectbootcamp.com/))
 
-## Journaling Homework
+## Journaling
 
 The `/journal` directory contains:
 
