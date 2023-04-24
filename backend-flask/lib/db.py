@@ -98,6 +98,7 @@ class Db:
         else:
           return json[0]
 
+
   def query_wrap_object(self,template):
     sql = f"""
     (SELECT COALESCE(row_to_json(object_row),'{{}}'::json) FROM (
@@ -106,14 +107,14 @@ class Db:
     """
     return sql
 
-  def query_wrap_array(self, template):
+  def query_wrap_array(self,template):
     sql = f"""
     (SELECT COALESCE(array_to_json(array_agg(row_to_json(array_row))),'[]'::json) FROM (
     {template}
     ) array_row);
     """
     return sql
-
+    
   def query_value(self,sql,params={}):#Week5
     self.print_sql('value',sql,params)
     with self.pool.connection() as conn:

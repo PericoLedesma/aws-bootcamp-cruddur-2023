@@ -3,6 +3,8 @@
 import boto3
 import sys
 
+print("===>Running ddb/scan...")
+
 attrs = {
     'endpoint_url':'http://localhost:8000'
     }
