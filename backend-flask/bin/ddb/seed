@@ -122,12 +122,22 @@ create_message_group(
 )
 
 conversation = """
+Person 1: Hey Andrew!
+Person 2: Hey Pedro!
+Person 1: How are you doing Andrew!
+Person 2: Fine, you are doing a great job with this bootcamp
+Person 1: I know, thanks!
+"""
+
+'''
+conversation = """
 Person 1: Hola Guio
 Person 2: Que tal guapeton
 Person 1: Aqui estoy
 Person 2: Te he echado mucho de menos
 Person 1: Lo se guio lo se...
 """
+'''
 
 lines = conversation.lstrip('\n').rstrip('\n').split('\n') # We divided in line the text
 
