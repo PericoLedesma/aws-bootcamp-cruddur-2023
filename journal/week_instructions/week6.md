@@ -1,5 +1,23 @@
 # Week 6 — Deploying Containers
 
+## Defaults
+
+```sh
+export DEFAULT_VPC_ID=$(aws ec2 describe-vpcs \
+--filters "Name=isDefault, Values=true" \
+--query "Vpcs[0].VpcId" \
+--output text)
+echo $DEFAULT_VPC_ID
+```
+
+```sh
+export DEFAULT_SUBNET_IDS=$(aws ec2 describe-subnets  \
+ --filters Name=vpc-id,Values=$DEFAULT_VPC_ID \
+ --query 'Subnets[*].SubnetId' \
+ --output json | jq -r 'join(",")')
+echo $DEFAULT_SUBNET_IDS
+```
+
 ## Test RDS Connecetion
 
 Add this `test` script into `db` so we can easily check our connection from our container.
@@ -48,80 +66,6 @@ else:
   print("Flask server is not running")
 ```
 
-### NAT Instance
-
-VNS3 NATe Free (NAT Gateway Appliance)
-
-https://aws.amazon.com/marketplace/pp/prodview-wf7yma4f6mdw4#pdp-usage
-
-
-### Create a subnet just for the NAT
-
-Lets see all the avaliable AZs
-```sh
-aws ec2 describe-availability-zones \
-  --region $AWS_DEFAULT_REGION \
-  --query 'AvailabilityZones[].ZoneName' \
-  --output table
-```
-
-```sh
-aws ec2 create-subnet \
---vpc-id $DEFAULT_VPC_ID \
---cidr-block 172.31.48.0/20 \
---availability-zone ca-central-1a \
---tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=subnet-nat-main}]'
-```
-
-### Create three new subnets for the NAT
-
-```sh
-export SUBNET_NAT_A=$(aws ec2 create-subnet \
---vpc-id $DEFAULT_VPC_ID \
---cidr-block '172.31.64.0/20' \
---availability-zone ca-central-1a \
---tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=subnet-nat-a}]' \
---query 'Subnet.SubnetId' \
---output text)
-echo $SUBNET_NAT_A
-```
-
-```sh
-export SUBNET_NAT_B=$(aws ec2 create-subnet \
---vpc-id $DEFAULT_VPC_ID \
---cidr-block '172.31.80.0/20' \
---availability-zone ca-central-1b \
---tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=subnet-nat-b}]' \
---query 'Subnet.SubnetId' \
---output text)
-echo $SUBNET_NAT_B
-```
-
-```sh
-export SUBNET_NAT_D=$(aws ec2 create-subnet \
---vpc-id $DEFAULT_VPC_ID \
---cidr-block '172.31.96.0/20' \
---availability-zone ca-central-1d \
---tag-specifications 'ResourceType=subnet,Tags=[{Key=Name,Value=subnet-nat-d}]' \
---query 'Subnet.SubnetId' \
---output text)
-echo $SUBNET_NAT_D
-```
-
-> probably don't need these
-```sh
-aws ec2 modify-subnet-attribute --subnet-id $SUBNET_NAT_A --map-public-ip-on-launch
-aws ec2 modify-subnet-attribute --subnet-id $SUBNET_NAT_B --map-public-ip-on-launch
-aws ec2 modify-subnet-attribute --subnet-id $SUBNET_NAT_D --map-public-ip-on-launch
-```
-
-### Create the NAT Instance
-
-We'll need to create a NAT Instance for the EC2 Marketplace for the
-VNS3 NATe Free (NAT Gateway Appliance)
-
-Once created we need to get its ENI, and we'll create a Route Table that sends `0.0.0.0/0` to that Appliance ENI 
-
 ## Create CloudWatch Log Group
 
 ```sh
@@ -137,78 +81,6 @@ aws ecs create-cluster \
 --service-connect-defaults namespace=cruddur
 ```
 
-## Create Launch Template
-
-### Get ECS Opitmized EC2 AMI
-
-Get the ECS-optimized AMI for my default region
-
-```sh
-export ECS_OPTIMIZED_AMI=$(aws ec2 describe-images \
---owner amazon \
---filters "Name=description,Values=\"*Amazon Linux AMI 2.0.20230109 x86_64 ECS HVM GP2*\"" \
---query "Images[?ImageLocation=='amazon/amzn2-ami-ecs-hvm-2.0.20230109-x86_64-ebs'].ImageId" \
---output text)
-```
-
-### Create UserData script that will configure ECS
-Base64 encode launching the cluster
-
-```sh
-echo '#!/bin/bash\necho "ECS_CLUSTER=cruddur" >> /etc/ecs/ecs.config' | base64 -w 0
-```
-
-
-### Create Instance Profile
-
-We want to be able to shell into the EC2 instance incase for debugging
-so we'll want to do this via Sessions Manager.
-
-We'll create an Instance Profile with the needed permissions.
-
-```sh
-aws iam create-role --role-name session-manager-role --assume-role-policy-document "{
-    \"Version\": \"2012-10-17\",
-    \"Statement\": [
-        {
-            \"Effect\": \"Allow\",
-            \"Principal\": {
-                \"Service\": \"ec2.amazonaws.com\"
-            },
-            \"Action\": \"sts:AssumeRole\"
-        }
-    ]
-}"
-```
-
-```sh
-aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role --role-name session-manager-role
-aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AmazonEC2ContainerServiceforEC2Role --role-name session-manager-role
-export ECS_INSTANCE_PROFILE_ARN=$(aws iam create-instance-profile --instance-profile-name cruddur-instance-profile --query InstanceProfile.Arn)
-aws iam add-role-to-instance-profile --instance-profile-name cruddur-instance-profile --role-name session-manager-role
-```
-
-Get instance profile arn after creation
-```sh
-export ECS_INSTANCE_PROFILE_ARN=$(aws iam get-instance-profile \
---instance-profile-name cruddur-instance-profile \
---query 'InstanceProfile.Arn' \
---output text)
-```
-
-
-### Create Launch Template Security Group
-
-We need the default VPC ID
-```sh
-export DEFAULT_VPC_ID=$(aws ec2 describe-vpcs \
---filters "Name=isDefault, Values=true" \
---query "Vpcs[0].VpcId" \
---output text)
-echo $DEFAULT_VPC_ID
-```
-
-Create 
 ```sh
 export CRUD_CLUSTER_SG=$(aws ec2 create-security-group \
   --group-name cruddur-ecs-cluster-sg \
@@ -227,72 +99,7 @@ export CRUD_CLUSTER_SG=$(aws ec2 describe-security-groups \
 --output text)
 ```
 
-### Create Launch Template
-
-WE NEED TO HAVE A KEY PAIR SET.
-We can using Sessions Manager without incurring cost when we use the NAT instance.
-
-```sh
-aws ec2 create-launch-template \
---launch-template-name cruddur-lt \
---version-description "Launch Template for Cruddur ECS EC2 Cluster" \
---launch-template-data "{
-    \"ImageId\": \"$ECS_OPTIMIZED_AMI\",
-    \"InstanceType\": \"t3.micro\",
-    \"SecurityGroupIds\": [\"$CRUD_CLUSTER_SG\"],
-    \"IamInstanceProfile\": {
-        \"Arn\": \"$ECS_INSTANCE_PROFILE_ARN\"
-    },
-    \"UserData\": \"$(printf '#!/bin/bash\necho "ECS_CLUSTER=cruddur" >> /etc/ecs/ecs.config' | base64 -w 0)\"
-}"
-```
-
-## Create ASG
-
-We need an Auto Scaling Group so that if we need to add more EC2 instance we have the capacity to run them.
-
-
-### Get Subnet Ids as commans
-
-We need the subnet ids for both when we launch the container service but for the ASG
-
-```sh
-export DEFAULT_SUBNET_IDS=$(aws ec2 describe-subnets  \
- --filters Name=vpc-id,Values=$DEFAULT_VPC_ID \
- --query 'Subnets[*].SubnetId' \
- --output json | jq -r 'join(",")')
-echo $DEFAULT_SUBNET_IDS
-```
-
-### Create the ASG
-```sh
-aws autoscaling create-auto-scaling-group \
---auto-scaling-group-name cruddur-asg \
---launch-template "LaunchTemplateName=cruddur-lt,Version=\$Latest" \
---min-size 1 \
---max-size 1 \
---desired-capacity 1 \
---vpc-zone-identifier $DEFAULT_SUBNET_IDS
-```
-
-## Debugging association of EC2 Instance with Cluster (optional)
-
-If we don't see out EC2 instance associated with our cluster.
-We can use sessions manger to login.
-
-```sh
-sudo su - ec2-user
-/etc/ecs/ecs.config
-cat /etc/ecs/ecs.config
-systemctl status ecs
-```
-
-Consider that we have access to docker and we can see any running containers or shell into them eg:
-
-```
-docker ps
-docker exec -it <container name> /bin/bash
-```
+## Gaining Access to ECS Fargate Container
 
 ## Create ECR repo and push image
 
@@ -457,6 +264,26 @@ aws iam create-role \
 }"
 ```
 
+```sh
+aws iam create-role \    
+--role-name CruddurServiceExecutionPolicy  \   
+--assume-role-policy-document file://aws/policies/service-assume-role-execution-policy.json
+```
+
+```sh
+aws iam put-role-policy \
+  --policy-name CruddurServiceExecutionPolicy \
+  --role-name CruddurServiceExecutionRole \
+  --policy-document file://aws/policies/service-execution-policy.json
+"
+```
+
+```sh
+aws iam attach-role-policy --policy-arn POLICY_ARN --role-name CruddurServiceExecutionRole
+```
+
+
+
 ```json
 
        {
@@ -618,12 +445,12 @@ Create a new folder called `aws/task-defintions` and place the following files i
 ### Register Task Defintion
 
 ```sh
-aws ecs register-task-definition --cli-input-json file://aws/task-defintions/backend-flask.json
+aws ecs register-task-definition --cli-input-json file://aws/task-definitions/backend-flask.json
 ```
 
 
 ```sh
-aws ecs register-task-definition --cli-input-json file://aws/task-defintions/frontend-react-js.json
+aws ecs register-task-definition --cli-input-json file://aws/task-definitions/frontend-react-js.json
 ```
 
 ### Create Security Group
@@ -670,11 +497,11 @@ aws ec2 authorize-security-group-ingress \
 ### Create Services
 
 ```sh
-aws ecs create-service --cli-input-json file://aws/json/backend-flask-serv.json
+aws ecs create-service --cli-input-json file://aws/json/service-backend-flask.json
 ```
 
 ```sh
-aws ecs create-service --cli-input-json file://aws/json/frontend-react-js-serv.json
+aws ecs create-service --cli-input-json file://aws/json/service-frontend-react-js.json
 ```
 
 > Auto Assign is not supported by EC2 launch type for services
@@ -732,3 +559,51 @@ The CLI will do a forceful shutdown after a period of time if graceful shutdown 
 ```sh
 aws ec2 reboot-instances --instance-ids i-0d15aef0618733b6d
 ```
+ 
+ ### Connection via Sessions Manaager (Fargate)
+ 
+ https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html#install-plugin-linux
+ https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html#install-plugin-verify
+ 
+ Install for Ubuntu
+ ```sh
+ curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"
+ sudo dpkg -i session-manager-plugin.deb
+ ```
+ 
+ Verify its working
+ ```sh
+ session-manager-plugin
+ ```
+ 
+Connect to the container
+ ```sh
+aws ecs execute-command  \
+--region $AWS_DEFAULT_REGION \
+--cluster cruddur \
+--task dceb2ebdc11c49caadd64e6521c6b0c7 \
+--container backend-flask \
+--command "/bin/bash" \
+--interactive
+```
+
+ ```sh
+docker run -rm \
+-p 4567:4567 \
+-e AWS_ENDPOINT_URL="http://dynamodb-local:8000" \
+-e CONNECTION_URL="postgresql://postgres:password@db:5432/cruddur" \
+-e FRONTEND_URL="https://3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}" \
+-e BACKEND_URL="https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}" \
+-e OTEL_SERVICE_NAME='backend-flask' \
+-e OTEL_EXPORTER_OTLP_ENDPOINT="https://api.honeycomb.io" \
+-e OTEL_EXPORTER_OTLP_HEADERS="x-honeycomb-team=${HONEYCOMB_API_KEY}" \
+-e AWS_XRAY_URL="*4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}*" \
+-e AWS_XRAY_DAEMON_ADDRESS="xray-daemon:2000" \
+-e AWS_DEFAULT_REGION="${AWS_DEFAULT_REGION}" \
+-e AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}" \
+-e AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}" \
+-e ROLLBAR_ACCESS_TOKEN="${ROLLBAR_ACCESS_TOKEN}" \
+-e AWS_COGNITO_USER_POOL_ID="${AWS_COGNITO_USER_POOL_ID}" \
+-e AWS_COGNITO_USER_POOL_CLIENT_ID="5b6ro31g97urk767adrbrdj1g5" \   
+-it backend-flask-prod
+ ```
