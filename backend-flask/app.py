@@ -77,8 +77,6 @@ tracer = trace.get_tracer(__name__)
 
 # -----------------------------
 app = Flask(__name__)
-print(" ")
-print("Running app flask...")
 
 # Week3
 cognito_jwt_token = CognitoJwtToken(
@@ -147,8 +145,6 @@ def data_message_groups():
   access_token = extract_access_token(request.headers)
   try:
     claims = cognito_jwt_token.verify(access_token)
-    app.logger.debug('\tAuthenticatied')
-    #app.logger.debug(claims)
     cognito_user_id = claims['sub']
     model = MessageGroups.run(cognito_user_id=cognito_user_id)
     if model['errors'] is not None:
@@ -158,7 +154,6 @@ def data_message_groups():
 
   except TokenVerifyError as e:#Unauthenticatied request
     _ = request.data
-    app.logger.debug('\tUnauthenticatied')
     data = HomeActivities.run(cognito_user_id=None)
     return {}, 401
 
@@ -171,7 +166,7 @@ def data_messages(message_group_uuid):
   access_token = extract_access_token(request.headers)
   try:
     claims = cognito_jwt_token.verify(access_token)
-    app.logger.debug('\tAuthenticatied')
+    #app.logger.debug('\tAuthenticatied')
     cognito_user_id = claims['sub']
     model = Messages.run(message_group_uuid=message_group_uuid, cognito_user_id=cognito_user_id)
     if model['errors'] is not None:
@@ -181,7 +176,7 @@ def data_messages(message_group_uuid):
 
   except TokenVerifyError as e:#Unauthenticatied request
     _ = request.data
-    app.logger.debug('\tUnauthenticatied')
+    #app.logger.debug('\tUnauthenticatied')
     data = HomeActivities.run(cognito_user_id=None)
     return {}, 401
 
@@ -233,14 +228,14 @@ def data_home():
   try:
     claims = cognito_jwt_token.verify(access_token)
     #Authenticatied request
-    app.logger.debug('\tAuthenticatied')
+    #app.logger.debug('\tAuthenticatied')
     #app.logger.debug(claims)
     #app.logger.debug(claims['username'])
     data = HomeActivities.run(cognito_user_id=claims['username']) # arg Logger= LOGGER
   except TokenVerifyError as e:
     _ = request.data
     #Unauthenticatied request
-    app.logger.debug('\tUnauthenticatied')
+    #app.logger.debug('\tUnauthenticatied')
     #app.logger.debug(e)
     data = HomeActivities.run(cognito_user_id=None) # arg Logger= LOGGER
   return data, 200
@@ -273,11 +268,9 @@ def data_search():
 @app.route("/api/activities", methods=['POST','OPTIONS'])
 @cross_origin()
 def data_activities():
-  app.logger.debug("== Run .app /api/activities")
   user_handle  = 'andrewbrown'
   message = request.json['message']
   ttl = request.json['ttl']
-  app.logger.debug("== Run .app /api/activities > calling CreateActivity***")
   model = CreateActivity.run(message, user_handle, ttl)
   if model['errors'] is not None:
     return model['errors'], 422

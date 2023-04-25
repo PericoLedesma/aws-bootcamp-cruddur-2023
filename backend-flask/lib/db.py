@@ -7,11 +7,9 @@ from flask import current_app as app
 
 class Db:
   def __init__(self):
-    print(("===>Starting db class.."))
     self.init_pool()
   
   def template(self,*args):
-    print('========>Calling template..')
     pathing = list((app.root_path,'db','sql',) + args)
     print(pathing)
     pathing[-1] = pathing[-1] + ".sql"
@@ -31,7 +29,6 @@ class Db:
   def init_pool(self):
     print(("===>Run db class: init pool using psycopg_pool... "))
     connection_url = os.getenv("CONNECTION_URL")
-    print("===>Run db class: Connection to > ", connection_url)
     self.pool = ConnectionPool(connection_url)
     print(("===>Run db class: init pool sucessful"))
 
@@ -80,19 +77,13 @@ class Db:
         return json[0]
 
   def query_object_json(self,sql,params={}): # When we want to return an array of json objects
-    print(("===>\tRunning db.query_object_json"))
     self.print_sql('json',sql,params)
     self.print_params(params)
     wrapped_sql = self.query_wrap_object(sql)
-    print("HERE3")
-
     with self.pool.connection() as conn:
       with conn.cursor() as cur:
-        print("HERE4")
         cur.execute(wrapped_sql,params)
-        print("HERE5")
         json = cur.fetchone()
-        print("HERE5")
         if json == None:
           "{}"
         else:
