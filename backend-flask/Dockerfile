@@ -6,7 +6,7 @@
 #From docker hub, pyhon image does get installed in our docker. DOckers inside dockers. 
 #FROM scratch =an explicitly empty image, especially for building images "FROM scratch" as a starting point for building containers.
 
-FROM python:3.10-slim-buster
+FROM 528963888625.dkr.ecr.eu-central-1.amazonaws.com/cruddur-python:3.10-slim-buster
 
 
 # Inside container: make a new folder inside container
@@ -26,7 +26,7 @@ COPY . .
 
 
 # Enviroment variables
-ENV FLASK_ENV=development
+ENV FLASK_DEBUG=1
 
 EXPOSE ${PORT}
 
