@@ -19,7 +19,16 @@
 - Practical knowledge of deploying, configuring and updating a serverless container
 - Basic knowledge of working with a cloud CLI
 
+### Elastic Container Repository (ECR)
 
+- Amazon Elastic Container Registry (ECR) is a fully-managed container registry service provided by Amazon Web Services (AWS). It allows developers to store, manage, and deploy Docker container images in a highly available and secure manner.
+
+[Pushing a Docker image](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html)
+
+### Amazon Elastic Container Service (ECS) 
+- Amazon Elastic Container Service (ECS) is a fully-managed container orchestration service provided by Amazon Web Services (AWS). ECS enables developers to easily deploy, manage, and scale containerized applications using Docker containers and Kubernetes.
+
+With ECS, developers can define and run containerized applications on a cluster of EC2 instances or using AWS Fargate, a serverless compute engine for containers.
 
 ### Week Summary
 
