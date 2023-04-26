@@ -1,6 +1,39 @@
 # Week 6 — Deploying Containers
 
+### Content
 
+1. [Objetives](#Objetives)
+2. [Week summary](#Week-summary)
+3. [AWS Services used](#AWS-Services-used)
+4. [Week content](#Week-content)
+5. [Implementation notes](#Implementation-notes)
+    - [Backend Preparation](#Backend-Preparation)
+    - [DynamoDB Utility Scripts](#DynamoDB-Utility-Scripts)
+    - [Implement Conversations with DynamoDB Local](#Implement-Conversations-with-DynamoDB-Local)
+    - [Implement DynamoDB Stream with AWS Lambda](#Implement-DynamoDB-Stream-with-AWS-Lambda)
+7. [Implementation instructions](https://github.com/PericoLedesma/aws-bootcamp-cruddur-2023/blob/main/journal/week_instructions/week4.md)
+
+
+### Objetives
+- Being able to push and tag container images to remote repository 
+- Practical knowledge of deploying, configuring and updating a serverless container
+- Basic knowledge of working with a cloud CLI
+
+
+
+### Week Summary
+
+- Create an Elastic Container Repository (ECR) 
+- Push our container images to ECR
+- Write an ECS Task Definition file for Fargate
+- Launch our Fargate services via CLI
+- Test that our services individually work
+- Play around with Fargate desired capacity
+- How to push new updates to your code update Fargate running tasks
+- Test that we have a Cross-origin Resource Sharing (CORS) issue
+
+# Week content
+[(Back to index)](#content)
 
 
 Passing sensitive data to AWS for running backend-flask later:
