@@ -19,17 +19,6 @@
 - Practical knowledge of deploying, configuring and updating a serverless container
 - Basic knowledge of working with a cloud CLI
 
-### Elastic Container Repository (ECR)
-
-- Amazon Elastic Container Registry (ECR) is a fully-managed container registry service provided by Amazon Web Services (AWS). It allows developers to store, manage, and deploy Docker container images in a highly available and secure manner.
-
-[Pushing a Docker image](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html)
-
-### Amazon Elastic Container Service (ECS) 
-- Amazon Elastic Container Service (ECS) is a fully-managed container orchestration service provided by Amazon Web Services (AWS). ECS enables developers to easily deploy, manage, and scale containerized applications using Docker containers and Kubernetes.
-
-With ECS, developers can define and run containerized applications on a cluster of EC2 instances or using AWS Fargate, a serverless compute engine for containers.
-
 ### Week Summary
 
 - Create an Elastic Container Repository (ECR) 
@@ -44,6 +33,37 @@ With ECS, developers can define and run containerized applications on a cluster 
 # Week content
 [(Back to index)](#content)
 
+
+### [Elastic Container Repository (ECR)](https://aws.amazon.com/ecr/)
+
+- Amazon Elastic Container Registry (ECR) is a fully-managed container registry service provided by Amazon Web Services (AWS). It allows developers to store, manage, and deploy Docker container images in a highly available and secure manner.
+
+[Pushing a Docker image](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html)
+
+![Proof of work](assets/week6/ecr_repositories.png)
+
+### [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/) 
+
+- Amazon Elastic Container Service (ECS) is a fully-managed container orchestration service provided by Amazon Web Services (AWS). ECS enables developers to easily deploy, manage, and scale containerized applications using Docker containers and Kubernetes.
+
+With ECS, developers can define and run containerized applications on a cluster of EC2 instances or using AWS Fargate, a serverless compute engine for containers.
+
+A __cluster__ is a logical grouping of EC2 instances or AWS Fargate tasks that are used to run and manage containerized applications. A cluster is essentially a pool of resources that can be used to run containers.
+
+When you create a cluster in ECS, you specify the type and size of EC2 instances or Fargate tasks that you want to use to run your containers. You can also configure auto scaling policies to automatically add or remove instances or tasks based on the resource utilization of your containers.
+
+![Proof of work](assets/week6/ecs_cluster.png)
+
+
+![Proof of work](assets/week6/ecs_cluster.png)
+
+
+
+
+-------------------------------
+
+# Implementation notes
+[(Back to index)](#content)
 
 Passing sensitive data to AWS for running backend-flask later:
 
