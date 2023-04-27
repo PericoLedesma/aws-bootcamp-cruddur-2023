@@ -54,11 +54,28 @@ When you create a cluster in ECS, you specify the type and size of EC2 instances
 
 ![Proof of work](assets/week6/ecs_cluster.png)
 
+A task definition is a blueprint that defines how a Docker container should be launched and run within an ECS cluster. It specifies important details about the container, such as which Docker image to use, how much CPU and memory to allocate, which ports to expose, and what environment variables to set.
+
 
 ![Proof of work](assets/week6/ecs_cluster.png)
 
 
+![Proof of work](assets/week6/ecs_cluster.png)
 
+We used the [json file](https://github.com/PericoLedesma/aws-bootcamp-cruddur-2023/blob/main/aws/task-definitions/backend-flask.json) to created and define the backend-flask task. 
+
+
+### [Amazon EC2](https://aws.amazon.com/ec2/)
+
+- Is a web service provided by Amazon Web Services (AWS) that allows users to rent virtual servers, also known as instances, on which they can run their own applications. EC2 instances can be customized to meet specific computing requirements, including CPU, memory, storage, and networking capacity.
+
+
+
+### [Elastic Load Balancing](https://aws.amazon.com/elasticloadbalancing/)
+
+Elastic Load Balancing (ELB) automatically distributes incoming application traffic across multiple targets and virtual appliances in one or more Availability Zones (AZs).
+
+![Proof of work](assets/week6/ecs_cluster.png)
 
 -------------------------------
 
