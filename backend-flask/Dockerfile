@@ -26,7 +26,7 @@ COPY . .
 
 
 # Enviroment variables
-ENV FLASK_DEBUG=1
+#ENV FLASK_DEBUG=1
 
 EXPOSE ${PORT}
 

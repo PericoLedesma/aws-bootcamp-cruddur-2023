@@ -191,7 +191,6 @@ def data_create_message():
   access_token = extract_access_token(request.headers)
   try:
     claims = cognito_jwt_token.verify(access_token)
-    app.logger.debug('\tAuthenticatied')
     cognito_user_id = claims['sub']
     if message_group_uuid == None:
       # Create for the first time

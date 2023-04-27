@@ -1,5 +1,5 @@
 #! /usr/bin/bash   
-#To go inside de container
+#To go inside de container in AWS
 
 
 if [ -z "$1" ]; then
