@@ -12,10 +12,10 @@
 
 ----------------------------------------------------------------
 
-# Objetives
+### Objetives
 - Distributed tracing implementation to add the functionality to easy pinpoint issue when adding cloud services.
 
-# Week summary 
+### Week summary 
 - Instrument our backend flask application to use Open Telemetry (OTEL) with Honeycomb.io as the provider
 - Run queries to explore traces within Honeycomb.io
 - Instrument AWS X-Ray into backend flask application
@@ -26,7 +26,7 @@
 - Install WatchTower and write a custom logger to send application log data to - CloudWatch Log group
 
         
-# AWS Services used
+### AWS Services used
 - AWS X-Ray
 - AWS CloudWatch
 
