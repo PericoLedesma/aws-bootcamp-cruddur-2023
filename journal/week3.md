@@ -11,10 +11,10 @@
 
 ----------------------------------------------------------------
 
-# Objetives
+### Objetives
 - Practical knowledge of implementing a decentralized authentication service into a web-application with custom login and signup pages in a react application.
 
-# Week summary 
+### Week summary 
 * Provision via ClickOps a Amazon Cognito User Pool
 * Install and configure Amplify client-side library for Amazon Cognito
 * Implement API calls to Amazon Cognito for custom login, signup, recovery and forgot password page
@@ -22,7 +22,7 @@
 * Verify JWT Token server side to serve authenticated API endpoints in Flask Application
 
         
-# AWS Services used:
+### AWS Services used:
 * AWS cognito
 * AWS Amplify
 
