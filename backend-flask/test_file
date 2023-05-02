@@ -1,6 +1,0 @@
-#! /usr/bin/bash   python3
-
-from lib.db import db
-
-
-sql = db.template('users','uuid_from_cognito_user_id')
