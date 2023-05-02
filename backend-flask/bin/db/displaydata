@@ -1,10 +1,5 @@
 #! /usr/bin/bash   
 
-# Parameters
-mydatabase='cruddur'
-
-# Code
-
 CYAN='\033[1;36m'
 NO_COLOR='\033[0m'
 LABEL="run db-displaydata"
@@ -14,7 +9,6 @@ ABS_PATH=$(readlink -f "$0")
 DB_PATH=$(dirname $ABS_PATH)
 BIN_PATH=$(dirname $DB_PATH)
 BACKEND_FLASK_PATH=$(dirname $BIN_PATH)
-PROJECT_PATH=$(dirname $BACKEND_FLASK_PATH)
 
 
 if [ "$1" = "prod" ]; then
@@ -25,28 +19,15 @@ else
   URL=$CONNECTION_URL
 fi
 
-seed_path="$PROJECT_PATH/bin/db/displaydata.sql"
 
-<<comment
+echo "List of tables:"
 
-NO_DB_CONNECTION_URL=$(sed 's/\/cruddur//g' <<<"$URL")
-databases=$(psql $NO_DB_CONNECTION_URL  -c "SELECT datname FROM pg_database;")
+seed_path="$BACKEND_FLASK_PATH/db/displaydata.sql"
+mydatabase='cruddur'
+
+psql $URL $mydatabase < $seed_path
 
 
-<<comment
-# Print the list of databases
-echo "List of databases:"
-echo "$databases"
 
-echo " "
 
-# Check if 'mydatabase' is in the list of databases
-if [[ "$databases" == *"$mydatabase"* ]]; then
-    echo "->Database 'cruddur' found! -> Displaying tables"
-    echo " "
-    psql $URL $mydatabase < $seed_path
-else
-    echo "Database 'cruddur' not found."
-fi
 
-comment

@@ -27,10 +27,8 @@ class Db:
 
 
   def init_pool(self):
-    print(("===>Run db class: init pool using psycopg_pool... "))
     connection_url = os.getenv("CONNECTION_URL")
     self.pool = ConnectionPool(connection_url)
-    print(("===>Run db class: init pool sucessful"))
 
   def print_params(self,params):
     blue = '\033[94m'
