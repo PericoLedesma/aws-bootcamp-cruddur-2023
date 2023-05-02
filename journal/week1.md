@@ -12,12 +12,12 @@
 
 ----------------------------------------------------------------
 
-# Objetives
+### Objetives
 - Gain practical knowledge working with common docker command and running container images for the purpose of local development
 - Gain practical knowledge of working within a Cloud Development environment
 - Be able to navigate a backend and front web-application and generally understand how they work 
 
-# Week summary 
+### Week summary 
 
 - Create a new GitHub repo
 - Launch the repo within a Gitpod workspace
@@ -31,7 +31,7 @@
 - Ensure we can orchestrate multiple containers to run side by side
 - Mount directories so we can make changes while we code
 
-# AWS Services used
+### AWS Services used
 
 None
 
