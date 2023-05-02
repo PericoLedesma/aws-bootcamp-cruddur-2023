@@ -10,6 +10,8 @@
 6. [Useful references](#Useful-references )
 7. [Implementation instructions](https://github.com/PericoLedesma/aws-bootcamp-cruddur-2023/blob/main/journal/week_instructions/week1.md)
 
+----------------------------------------------------------------
+
 # Objetives
 - Gain practical knowledge working with common docker command and running container images for the purpose of local development
 - Gain practical knowledge of working within a Cloud Development environment
