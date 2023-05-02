@@ -1,9 +1,7 @@
 #! /usr/bin/bash
 
-
-
  docker build \
- --build-arg REACT_APP_BACKEND_URL="http://cruder-alb-1341597399.eu-central-1.elb.amazonaws.com:4567" \
+ --build-arg REACT_APP_BACKEND_URL="http://api.myappcruddur.com" \
  --build-arg REACT_APP_AWS_PROJECT_REGION="$AWS_DEFAULT_REGION" \
  --build-arg REACT_APP_AWS_COGNITO_REGION="$AWS_DEFAULT_REGION" \
  --build-arg REACT_APP_AWS_USER_POOLS_ID="$AWS_USER_POOLS_ID" \
