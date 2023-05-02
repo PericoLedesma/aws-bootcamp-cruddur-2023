@@ -8,6 +8,13 @@ LABEL="run db-schema-load"
 printf "${CYAN}== ${LABEL}${NO_COLOR}\n"\
 
 
+ABS_PATH=$(readlink -f "$0")
+DB_PATH=$(dirname $ABS_PATH)
+BIN_PATH=$(dirname $DB_PATH)
+BACKEND_FLASK_PATH=$(dirname $BIN_PATH)
+PROJECT_PATH=$(dirname $BACKEND_FLASK_PATH)
+
+
 if [ "$1" = "prod" ]; then
   echo "Running in production mode"
   URL=$PROD_CONNECTION_URL
@@ -16,7 +23,7 @@ else
   URL=$CONNECTION_URL
 fi
 
-schema_path="$(realpath .)/db/schema.sql"
+cd "$PROJECT_PATH/backend-flask"
+schema_path="db/schema.sql"
 
 psql $URL cruddur < $schema_path
-

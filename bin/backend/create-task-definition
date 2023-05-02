@@ -12,4 +12,3 @@ echo $TASK_DEF_PATH
 aws ecs register-task-definition \
 --cli-input-json "file://$TASK_DEF_PATH"
 
-aws ecs register-task-definition --cli-input-json file://aws/task-definitions/backend-flask.json

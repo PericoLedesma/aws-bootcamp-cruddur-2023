@@ -1,6 +1,5 @@
 #! /usr/bin/bash   
 
-
 # Parameters
 mydatabase='cruddur'
 
@@ -11,6 +10,12 @@ NO_COLOR='\033[0m'
 LABEL="run db-displaydata"
 printf "${CYAN}== ${LABEL}${NO_COLOR}\n"
 
+ABS_PATH=$(readlink -f "$0")
+DB_PATH=$(dirname $ABS_PATH)
+BIN_PATH=$(dirname $DB_PATH)
+BACKEND_FLASK_PATH=$(dirname $BIN_PATH)
+PROJECT_PATH=$(dirname $BACKEND_FLASK_PATH)
+
 
 if [ "$1" = "prod" ]; then
   echo "Running in production mode"
@@ -20,11 +25,15 @@ else
   URL=$CONNECTION_URL
 fi
 
-seed_path="$(realpath .)/db/displaydata.sql"
+seed_path="$PROJECT_PATH/bin/db/displaydata.sql"
 
-NO_DB_CONNECTION_URL=$(sed 's/\/cruddur//g' <<<"$CONNECTION_URL")
+<<comment
+
+NO_DB_CONNECTION_URL=$(sed 's/\/cruddur//g' <<<"$URL")
 databases=$(psql $NO_DB_CONNECTION_URL  -c "SELECT datname FROM pg_database;")
 
+
+<<comment
 # Print the list of databases
 echo "List of databases:"
 echo "$databases"
@@ -39,3 +48,5 @@ if [[ "$databases" == *"$mydatabase"* ]]; then
 else
     echo "Database 'cruddur' not found."
 fi
+
+comment

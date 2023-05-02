@@ -1,14 +1,18 @@
 #! /usr/bin/bash
 
+aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin "$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com"
+
 ABS_PATH=$(readlink -f "$0")
 BACKEND_PATH=$(dirname $ABS_PATH)
 BIN_PATH=$(dirname $BACKEND_PATH)
 PROJECT_PATH=$(dirname $BIN_PATH)
 BACKEND_FLASK_PATH="$PROJECT_PATH/frontend-react-js"
 
-source "$BACKEND_FLASK_PATH/build_bash"
+cd $BACKEND_FLASK_PATH
+source "build-image"
 
-export ECR_FRONTEND_REACT_URL="$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/frontend-react-js"
+export ECR_FRONTEND_REACT_URL="$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/frontend-react-js" 
 echo $ECR_FRONTEND_REACT_URL
+
 docker tag frontend-react-js:latest $ECR_FRONTEND_REACT_URL:latest
 docker push $ECR_FRONTEND_REACT_URL:latest

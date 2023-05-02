@@ -8,7 +8,6 @@ TASK_DEF_PATH="$PROJECT_PATH/aws-bootcamp-cruddur-2023/aws/json"
 
 echo $TASK_DEF_PATH
 
-
 aws ecs create-service --cli-input-json file://$TASK_DEF_PATH/service-backend-flask.json
 aws ecs create-service --cli-input-json file://$TASK_DEF_PATH/service-frontend-react-js.json
 

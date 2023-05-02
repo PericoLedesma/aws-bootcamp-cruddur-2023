@@ -1,5 +1,7 @@
 #! /usr/bin/bash
 
+# Dont know why this command just works like this.
+
  docker build \
  --build-arg REACT_APP_BACKEND_URL="http://api.myappcruddur.com" \
  --build-arg REACT_APP_AWS_PROJECT_REGION="$AWS_DEFAULT_REGION" \
