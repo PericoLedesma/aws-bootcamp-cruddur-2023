@@ -8,7 +8,7 @@ if [ -z "$1" ]; then
 fi
 TASK_ID=$1 
 
-$CONTAINER_NAME = "backend-flask"
+CONTAINER_NAME="backend-flask"
 
 echo "TASK_ID: $TASK_ID"
 echo "CONTAINER_NAME: $CONTAINER_NAME"
