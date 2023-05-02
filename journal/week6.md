@@ -15,6 +15,7 @@
     - Fargate Services and Tasks
 7. [Implementation instructions](https://github.com/PericoLedesma/aws-bootcamp-cruddur-2023/blob/main/journal/week_instructions/week6.md)
 
+----------------------------------------------------------------
 
 ### Objetives
 - Being able to push and tag container images to remote repository 
