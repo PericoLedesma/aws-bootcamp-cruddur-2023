@@ -10,6 +10,7 @@
 6. [Challenges](#Challenges)
 7. [Implementation instructions](https://github.com/PericoLedesma/aws-bootcamp-cruddur-2023/blob/main/journal/week_instructions/week4.md)
 
+----------------------------------------------------------------
 
 ### Objetives
    * Be able to data model using 3rd normal forms
