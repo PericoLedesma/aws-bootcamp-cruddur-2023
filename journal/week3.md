@@ -9,6 +9,8 @@
 5. [Implementation notes](#Implementation-notes)
 6. [Implementation instructions](https://github.com/PericoLedesma/aws-bootcamp-cruddur-2023/blob/main/journal/week_instructions/week3.md)
 
+----------------------------------------------------------------
+
 # Objetives
 - Practical knowledge of implementing a decentralized authentication service into a web-application with custom login and signup pages in a react application.
 
