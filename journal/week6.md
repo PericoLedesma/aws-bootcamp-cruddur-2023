@@ -33,6 +33,8 @@
 - How to push new updates to your code update Fargate running tasks
 - Test that we have a Cross-origin Resource Sharing (CORS) issue
 
+### AWS Services used
+
 # Week content
 [(Back to index)](#content)
 
