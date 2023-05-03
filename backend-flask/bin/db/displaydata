@@ -20,11 +20,11 @@ else
 fi
 
 
-echo "List of tables:"
-
 seed_path="$BACKEND_FLASK_PATH/db/displaydata.sql"
 mydatabase='cruddur'
 
+
+echo "List of tables:"
 psql $URL $mydatabase < $seed_path
 
 
