@@ -6,25 +6,25 @@ NO_COLOR='\033[0m'
 LABEL="run db-setup"
 printf "${CYAN}==== ${LABEL}${NO_COLOR}\n"\
 
-
-bin_path="$(realpath .)/bin"
+ABS_PATH=$(readlink -f "$0")
+db_path=$(dirname $ABS_PATH)
 
 
 if [ "$1" = "prod" ]; then
     echo "Running in production mode"
     # We dont create database from here, we have to create a instance throught aws(other way)
-    source "$bin_path/db/schema-load" "prod"
-    source "$bin_path/db/seed" "prod"
-    #source "$bin_path/db/update_cognito_user_id" 
-    source "$bin_path/db/displaydata" "prod"
+    source "$db_path/schema-load" "prod"
+    source "$db_path/seed" "prod"
+    #source "$db_path/update_cognito_user_id" 
+    source "$db_path/displaydata" "prod"
 else
     echo "Running in local mode"
-    source "$bin_path/db/drop"
-    source "$bin_path/db/create"
-    source "$bin_path/db/schema-load"
-    source "$bin_path/db/seed"
-    python $bin_path/db/update_cognito_user_id
-    source "$bin_path/db/displaydata"
+    source "$db_path/drop"
+    source "$db_path/create"
+    source "$db_path/schema-load"
+    source "$db_path/seed"
+    python $db_path/update_cognito_user_id
+    source "$db_path/displaydata"
 fi
 
 
