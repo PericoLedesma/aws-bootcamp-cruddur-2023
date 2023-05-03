@@ -6,6 +6,8 @@ services:
     build: ./backend-flask
     ports:
       - "4567:4567"
+    networks:
+      - cruddur-net
     volumes:
       - ./backend-flask:/backend-flask
   frontend-react-js:
@@ -14,6 +16,8 @@ services:
     build: ./frontend-react-js
     ports:
       - "3000:3000"
+    networks:
+      - cruddur-net
     volumes:
       - ./frontend-react-js:/frontend-react-js
   xray-daemon:
