@@ -11,12 +11,12 @@ BACKEND_FLASK_PATH="$PROJECT_PATH/backend-flask"
 cd $BACKEND_FLASK_PATH
 
 # Build the image
-docker build -t backend-flask .
+docker build -t backend-flask-prod .
 
 # URL of the repository where we are going to push it
 ECR_BACKEND_FLASK_URL="$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/backend-flask"
 echo $ECR_BACKEND_FLASK_URL
 
 # Tag and push
-docker tag backend-flask:latest $ECR_BACKEND_FLASK_URL:latest
+docker tag backend-flask-prod:latest $ECR_BACKEND_FLASK_URL:latest
 docker push $ECR_BACKEND_FLASK_URL:latest
