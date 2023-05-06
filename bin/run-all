@@ -1,0 +1,16 @@
+#! /usr/bin/bash
+
+
+./backend/generate-env
+./backend/image-build
+./backend/image-push
+
+
+./frontend/generate-env
+./frontend/image-build
+./frontend/image-push
+
+./backend/task-definition-register
+./frontend/task-definition-register
+
+./create-services
