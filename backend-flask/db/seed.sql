@@ -17,6 +17,15 @@ INSERT INTO public.activities (user_uuid, message, expires_at)
 VALUES
   (
     (SELECT uuid from public.users WHERE users.handle = 'elcidesguapo' LIMIT 1),
-    'Este tuit ha sido cargado mediante el fichero seed.sql. Puede estar de forma local o en la nube/',
+    'Este tuit ha sido cargado mediante el fichero seed.sql. Puede estar de forma local o en la nube',
     current_timestamp + interval '10 day'
-  )
+  );
+
+INSERT INTO public.activities (user_uuid, message, expires_at)
+
+VALUES
+  (
+    (SELECT uuid from public.users WHERE users.handle = 'pedro_user' LIMIT 1),
+    'Este tuit ha sido cargado mediante el fichero seed.sql y es de pedro_user',
+    current_timestamp + interval '30 day'
+  );

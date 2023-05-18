@@ -5,6 +5,11 @@ NO_COLOR='\033[0m'
 LABEL="run db-seed"
 printf "${CYAN}== ${LABEL}${NO_COLOR}\n"
 
+ABS_PATH=$(readlink -f "$0")
+DB_PATH=$(dirname $ABS_PATH)
+BIN_PATH=$(dirname $DB_PATH)
+BACKEND_FLASK_PATH=$(dirname $BIN_PATH)
+PROJECT_PATH=$(dirname $BACKEND_FLASK_PATH)
 
 if [ "$1" = "prod" ]; then
   echo "Running in production mode"
@@ -14,7 +19,9 @@ else
   URL=$CONNECTION_URL
 fi
 
+cd "$PROJECT_PATH/backend-flask"
 
-seed_path="$(realpath .)/db/seed.sql"
 
-psql $URL cruddur < $seed_path
+schema_path="db/seed.sql"
+
+psql $URL cruddur < $schema_path
