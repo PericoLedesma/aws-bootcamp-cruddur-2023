@@ -270,15 +270,16 @@ Provision and configure Application Load Balancer along with target groups via A
 - Security groups: create a new security group named `cruddur-alb-sg`, set inbound rules of HTTP and HTTPS from anywhere, and Custom TCP of 4567 and 3000 from anywhere (set description as TMP1 and TMP2); In addition, edit inbound rules of security group `crud-srv-sg`, instead of anywhere, set port source from `cruddur-alb-sg`, set description of port 4567 as ALBbackend, and port 3000 as ALBfrontend;
 - Listeners and routing: HTTP:4567 with a new target group named `cruddur-backend-flask-tg`, select type as IP addresses, set HTTP:4567, set health check as `/api/health-check` with 3 healthy threshold, get its arn to put in `aws/json/service-backend-flask.json`; Add another listener HTTP:3000 with another target group created named `cruddur-frontend-react-js`, don't care about health check, set 3 healthy threshold, get its arn to put in `aws/json/service-frontend-react-js.json`.
 
+![Proof of work](assets/week6/alb.png)
 
 ## Domain Configuration
 
-I've registered a domain name `myappcruddur.com` for this bootcamp via [strato](https://www.strato.de/appstratos/CustomerService/#skl). We can manage the domain using Route53 via hosted zone, create an SSL certificate via ACM, setup a record set for naked domain to point to frontend-react-js, and setup a record set for api subdomain to point to the backend-flask:
+I've registered a domain name `social.mycruddurapp.es` for this bootcamp via [strato](https://www.strato.es). We can manage the domain using Route53 via hosted zone, create an SSL certificate via ACM, setup a record set for naked domain to point to frontend-react-js, and setup a record set for api subdomain to point to the backend-flask:
 
 - At Route 53 > Hosted zones, create a new one with the registered domain name and the public type; Copy the values presented in the NS record type, and paste them into the porkbun nameservers (changes to your authoritative nameservers may take up to a couple of hours to propagate worldwide).
-- At Certificate Manger, request a public certificate, add domain names of `myappcruddur.com` and `*.myappcruddur.com`, then enter the created certificate and click "Create records in Route 53", finally Route 53 will show two CNAME records.
-- At Load Balancers, add a listener to make HTTP:80 redirect to HTTPS:443, and another one to make HTTPS:443 forward to frontend with certificate we created; edit rules for HTTPS:443 to add a new IF which sets Host Header as `xxx` and sets THEN forward to `cruddur-backend-flask-tg`.
-- At Route 53 > Hosted zones > myappcruddur.com, create a record without a record name, set type as "A - Route Traffic to an IPv4 address and some AWS resources", set route traffic as "Alias to Application and Classic Load Balancer" with the right region and load balancer, set routing policy as simple routing; do it again with record name `xxx`.
+- At Certificate Manger, request a public certificate, add domain names of `social.mycruddurapp.es` and `*.social.mycruddurapp.es`, then enter the created certificate and click "Create records in Route 53", finally Route 53 will show two CNAME records.
+- At Load Balancers, add a listener to make HTTP:80 redirect to HTTPS:443, and another one to make HTTPS:443 forward to frontend with certificate we created; edit rules for HTTPS:443 to add a new IF which sets Host Header as `api.social.mycruddurapp.es` and sets THEN forward to `cruddur-backend-flask-tg`.
+- At Route 53 > Hosted zones > mycruddurapp.es, create a record without a record name, set type as "A - Route Traffic to an IPv4 address and some AWS resources", set route traffic as "Alias to Application and Classic Load Balancer" with the right region and load balancer, set routing policy as simple routing; do it again with record name `social.mycruddurapp.e`.
 
 
-
+![Proof of work](assets/week6/create_dns_records.png)
