@@ -7,12 +7,11 @@
 3. [AWS Services used](#AWS-Services-used)
 4. [Week content](#Week-content)
 5. [Implementation notes](#Implementation-notes)
-    - ECS Cluster and ECR Repo
-    - Images of Backend and Frontend
-    - AWS Roles and Security Groups
-    - Application Load Balancer
-    - Domain Configuration
-    - Fargate Services and Tasks
+    - [ECS Cluster and ECR Repo](#ECS-Cluster-and-ECR-Repo)
+    - [Images of Backend and Frontend](#Images-oF-Backend0-and-Frontend)
+    - [AWS Roles and Security Groups](#AWS-Roles-and-Security-Groups)
+    - [Application Load Balancer](#Application-Load-Balancer)
+    - [Domain Configuration](#Domain-Configuration)
 7. [Implementation instructions](https://github.com/PericoLedesma/aws-bootcamp-cruddur-2023/blob/main/journal/week_instructions/week6.md)
 
 ----------------------------------------------------------------
