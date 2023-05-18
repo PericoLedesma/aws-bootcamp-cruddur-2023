@@ -1,0 +1,7 @@
+#! /usr/bin/bash   
+
+
+./db/setup
+./ddb/schema-load
+./ddb/seed
+./ddb/scan
