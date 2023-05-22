@@ -19,7 +19,7 @@ Double Check Environment Variables
 7. [Implementation instructions](https://github.com/PericoLedesma/aws-bootcamp-cruddur-2023/blob/main/journal/week_instructions/week8.md)
 
 ----------------------------------------------------------------
-
+s
 ### Objetives
 - Basic knowledge of writing, deploying and logging serverless functions
 - Basic knowledge of working with serverless object storage
@@ -38,10 +38,26 @@ Double Check Environment Variables
 
 
 ### AWS Services used
-
+S3
+Budgets
+SDK
 
 # Week content
-[(Back to index)](#content)
+[(Back to index)](#content)k content
+
+SDK with typescript
+Layers or constract of SDK AWS 
+Cloudformation
+
+What is bootstrap 
+
+cdk bootstrap "aws://528963888625/eu-central-1" 
+
+bootstrap and we can see it in cloudformation
+![Proof of work](assets/week6/cdk_cloudformation.png)
+
+
+cdk deploy
 
 ![Proof of work](assets/week6/ecs_cluster.png)
 
