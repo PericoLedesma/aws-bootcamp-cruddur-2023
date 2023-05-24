@@ -5,7 +5,7 @@
 
 ABS_PATH=$(readlink -f "$0")
 SERVERLESS_PATH=$(dirname $ABS_PATH)
-BIN_PATH=$(dirname $FRONTEND_PATH)
+BIN_PATH=$(dirname $SERVERLESS_PATH)
 PROJECT_PATH=$(dirname $BIN_PATH)
 SERVERLESS_PROJECT_PATH="$PROJECT_PATH/aws-bootcamp-cruddur-2023/thumbing-serverless-cdk"
 
