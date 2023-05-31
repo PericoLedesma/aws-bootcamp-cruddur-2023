@@ -2,7 +2,7 @@ import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as s3 from 'aws-cdk-lib/aws-s3'
 import * as s3n from 'aws-cdk-lib/aws-s3-notifications'
-import * as subscription from 'aws-cdk-lib/aws-sns-subscription'
+import * as subscriptions from 'aws-cdk-lib/aws-sns-subscriptions';
 import * as lambda from 'aws-cdk-lib/aws-lambda'
 import { LambdaInvokeAction } from 'aws-cdk-lib/aws-codepipeline-actions';
 import * as dotenv from 'dotenv';
