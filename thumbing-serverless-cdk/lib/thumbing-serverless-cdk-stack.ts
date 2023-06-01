@@ -24,6 +24,7 @@ export class ThumbingServerlessCdkStack extends cdk.Stack {
     const dotenv = require('dotenv');
     dotenv.config();
     
+    // The code that defines your stack goes here
     const uploadsBucketName: string = process.env.UPLOADS_BUCKET_NAME as string;
     const assetsBucketName: string = process.env.ASSETS_BUCKET_NAME as string;
     const folderInput: string = process.env.THUMBING_S3_FOLDER_INPUT as string;
@@ -40,8 +41,8 @@ export class ThumbingServerlessCdkStack extends cdk.Stack {
     console.log('functionPath',functionPath)
 
     // const bucket = this.createBucket(bucketName);
-    const uploadsbucket = this.importBucket(uploadsBucketName)
-    const assetsbucket = this.importBucket(assetsBucketName)
+    const uploadsBucket = this.createBucket(uploadsBucketName);
+    const assetsBucket = this.importBucket(assetsBucketName);
     
     // Create lamdba
     const lambda = this.createLambda(
@@ -53,14 +54,18 @@ export class ThumbingServerlessCdkStack extends cdk.Stack {
     
     // Create topic and subscription
     const snsTopic = this.createSnsTopic(topicName)
+    // this.createSnsSubscription(snsTopic,webhookUrl)
 
-    this.createS3NotifyToLambda(folderInput,lambda, uploadsBucketName)
-    this.createS3NotifyToSns(folderOutput, snsTopic, assetsBucketName)
+
+      // add our s3 event notifications
+    this.createS3NotifyToLambda(folderInput,lambda,uploadsBucket)
+    this.createS3NotifyToSns(folderOutput,snsTopic,assetsBucket)
+
     // this.createSnsSubscription(snsTopic,webhookUrl)
 
     // Create policies
-    const s3UploadsReadWritePolicy = this.createPolicyBucketAccess(uploadsBucketName.bucketArn)
-    const s3AssetsReadWritePolicy = this.createPolicyBucketAccess(assetsBucketName.bucketArn)
+    const s3UploadsReadWritePolicy = this.createPolicyBucketAccess(uploadsBucket.bucketArn)
+    const s3AssetsReadWritePolicy = this.createPolicyBucketAccess(assetsBucket.bucketArn)
     // const snsPublishPolicy = this.createPolicySnSPublish(snsTopic.topicArn)
 
     // Attach policies for permision
