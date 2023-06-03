@@ -41,6 +41,7 @@ s
 S3
 Budgets
 SDK
+cloudfront
 
 # Week content
 [(Back to index)](#content)k content
@@ -58,6 +59,17 @@ bootstrap and we can see it in cloudformation
 
 
 cdk deploy
+
+differences between put and post
+
+we are going to put the images in cloudfront cdn
+
+
+We created a endpoint to cloudfront to the s3 bucket 
+
+https://assets.mycruddurapp.com/avatars/processed/data.jpg
+
+
 
 ![Proof of work](assets/week6/ecs_cluster.png)
 
