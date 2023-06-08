@@ -11,3 +11,5 @@ BIN_DIR=$(dirname $ABS_PATH)
 
 source "$BIN_DIR/ecr-login"
 source "$BIN_DIR/setup-dbs"
+source "$BIN_DIR/backend/generate-env" 
+source "$BIN_DIR/frontend/generate-env" 
