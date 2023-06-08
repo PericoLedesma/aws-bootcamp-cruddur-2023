@@ -30,6 +30,9 @@ COPY . .
 
 EXPOSE ${PORT}
 
+# Print en developent the prints and helps us. Usefull
+ENV PYTHONUNBUFFERED=1 
+
 # CMD (command)
 # To run flask.  python3 -m flask run --host=0.0.0.0 --port=4567
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567", "--debug"]

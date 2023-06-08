@@ -44,8 +44,9 @@ class Db:
     print(sql, params)
     print(f'{cyan} --------------{no_color}')
 
-  def query_commit(self,sql,params={}):
-    self.print_sql('commit with returning',sql, params)
+  def query_commit(self,sql,params={},verbose=True):
+    if verbose:
+      self.print_sql('commit with returning',sql,params)
 
     pattern = r"\bRETURNING\b"
     is_returning_id=re.search(pattern, sql)
@@ -64,8 +65,9 @@ class Db:
       #conn.rollback()
 
 
-  def query_array_json(self,sql,params={}):   # when we want to return a json object
-    self.print_sql('array',sql, params)
+  def query_array_json(self,sql,params={},verbose=True):
+    if verbose:
+      self.print_sql('array',sql,params)
 
     wrapped_sql = self.query_wrap_array(sql)
     with self.pool.connection() as conn:
@@ -74,9 +76,10 @@ class Db:
         json = cur.fetchone()
         return json[0]
 
-  def query_object_json(self,sql,params={}): # When we want to return an array of json objects
-    self.print_sql('json',sql,params)
-    self.print_params(params)
+  def query_object_json(self,sql,params={},verbose=True):
+    if verbose:
+      self.print_sql('json',sql,params)
+      self.print_params(params)
     wrapped_sql = self.query_wrap_object(sql)
     with self.pool.connection() as conn:
       with conn.cursor() as cur:
@@ -104,13 +107,18 @@ class Db:
     """
     return sql
     
-  def query_value(self,sql,params={}):#Week5
-    self.print_sql('value',sql,params)
+  def query_value(self,sql,params={},verbose=True):
+    if verbose:
+      self.print_sql('value',sql,params)
     with self.pool.connection() as conn:
       with conn.cursor() as cur:
         cur.execute(sql,params)
         json = cur.fetchone()
         return json[0]
+        if json == None:
+          return None
+        else:
+          return json[0]
 
   def print_sql_err(self,err):
     # get details about the exception
