@@ -6,8 +6,7 @@ import DesktopSidebar     from '../components/DesktopSidebar';
 import ActivityFeed from '../components/ActivityFeed';
 import ActivityForm from '../components/ActivityForm';
 import ReplyForm from '../components/ReplyForm';
-import {checkAuth, getAccessToken} from '../lib/CheckAuth';
-import { getAmplifyUserAgent } from '@aws-amplify/core';
+import {checkAuth, getAccessToken} from '../lib/CheckAuth'; 
 
 
 export default function HomeFeedPage() {
@@ -41,6 +40,7 @@ export default function HomeFeedPage() {
   };
 
 
+  
   React.useEffect(()=>{
     //prevents double call
     if (dataFetchedRef.current) return;
@@ -49,7 +49,6 @@ export default function HomeFeedPage() {
     loadData();
     checkAuth(setUser);
   }, [])
-
 
   return (
     <article>
