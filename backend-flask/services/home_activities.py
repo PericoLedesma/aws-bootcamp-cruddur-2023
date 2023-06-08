@@ -66,5 +66,4 @@ class HomeActivities:
  
     sql = db.template('activities','home')
     results = db.query_array_json(sql)
-    print('==== End HomeActivities.run')
     return results

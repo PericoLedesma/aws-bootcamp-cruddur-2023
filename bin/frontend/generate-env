@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+# Run from the project directory 
+
 require 'erb'
 
 template = File.read 'erb/frontend-react-js.env.erb'
