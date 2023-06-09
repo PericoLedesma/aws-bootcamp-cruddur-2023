@@ -6,4 +6,4 @@ DATA_FILE_PATH="$SERVERLESS_PATH/files/data.jpg"
 
 
 
-aws s3 cp "$DATA_FILE_PATH" "s3://cruddur-uploaded-avatars.mycruddurapp/data.jpg"
+aws s3 cp "$DATA_FILE_PATH" "s3://cruddur-uploaded-avatars-mycruddurapp/data.jpg"
