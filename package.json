@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "@aws-cdk/aws-ec2": "^1.201.0",
-    "aws-jwt-verify": "^4.0.0",
-    "sharp": "^0.32.1"
-  }
-}
