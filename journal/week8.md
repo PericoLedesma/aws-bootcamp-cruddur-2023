@@ -19,9 +19,9 @@ Double Check Environment Variables
 7. [Implementation instructions](https://github.com/PericoLedesma/aws-bootcamp-cruddur-2023/blob/main/journal/week_instructions/week8.md)
 
 ----------------------------------------------------------------
-s
+
 ### Objetives
-- Basic knowledge of writing, deploying and logging serverless functions
+- Basic knowledge of writing, deploying, and logging serverless functions
 - Basic knowledge of working with serverless object storage
 - Basic knowledge of working with event-bus actions
 
@@ -69,7 +69,15 @@ We created a endpoint to cloudfront to the s3 bucket
 
 https://assets.mycruddurapp.com/avatars/processed/data.jpg
 
+To install the client s3 
 
+npm i @aws-sdk/client-s3 --save
+
+To generate the uploading url
+
+cd to cruddur-upload-file and them bundle exec ruby function.rb
+
+Another for crudduur-upload-file  - npm install aws-jwt-verify --save
 
 ![Proof of work](assets/week6/ecs_cluster.png)
 
