@@ -8,9 +8,10 @@ tasks:
       unzip awscliv2.zip
       sudo ./aws/install
       cd $THEIA_WORKSPACE_ROOT
+      bash bin/ecr-login
   - name: react-js
     command: |
-      "$THEIA_WORKSPACE_ROOT/bin/frontend/generate-env"
+      "$THEIA_WORKSPACE_ROOT/bin/frontend/generate-env" #If it doesnt work use ruby in front
       cd frontend-react-js
       npm i
   - name: flask 
