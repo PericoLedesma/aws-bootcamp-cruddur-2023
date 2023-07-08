@@ -3,7 +3,7 @@
 # Dont know why this command just works like this.
 
  docker build \
- --build-arg REACT_APP_BACKEND_URL="https://api.myappcruddur.com" \
+ --build-arg REACT_APP_BACKEND_URL="https://api.mycruddurapp.com" \
  --build-arg REACT_APP_AWS_PROJECT_REGION="eu-central-1" \
  --build-arg REACT_APP_AWS_COGNITO_REGION="eu-central-1" \
  --build-arg REACT_APP_AWS_USER_POOLS_ID="eu-central-1_m6hu1cbSu" \

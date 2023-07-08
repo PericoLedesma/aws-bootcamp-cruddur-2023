@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-# Run from the project directory 
+# Run from the project directory. Automatically ran at init 
 
 require 'erb'
 

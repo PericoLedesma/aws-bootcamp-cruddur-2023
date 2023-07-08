@@ -1,12 +1,14 @@
 #! /usr/bin/bash
 
+./ecr-login
 
-./backend/generate-env
+
+# ./backend/generate-env
 ./backend/image-build
 ./backend/image-push
 
 
-./frontend/generate-env
+# ./frontend/generate-env
 ./frontend/image-build
 ./frontend/image-push
 

@@ -1,7 +1,14 @@
 #! /usr/bin/bash   
 
 
-./db/setup
-./ddb/schema-load
-./ddb/seed
-./ddb/scan
+./db/setup "prod"
+./ddb/schema-load "prod"
+./ddb/seed "prod"
+
+
+
+
+# ./db/setup
+# ./ddb/schema-load
+# ./ddb/seed
+# ./ddb/scan

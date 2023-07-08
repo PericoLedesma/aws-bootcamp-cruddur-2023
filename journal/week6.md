@@ -274,12 +274,12 @@ Provision and configure Application Load Balancer along with target groups via A
 
 ## Domain Configuration
 
-I've registered a domain name `social.mycruddurapp.es` for this bootcamp via [strato](https://www.strato.es). We can manage the domain using Route53 via hosted zone, create an SSL certificate via ACM, setup a record set for naked domain to point to frontend-react-js, and setup a record set for api subdomain to point to the backend-flask:
+I've registered a domain name `mycruddurapp.com` for this bootcamp via [strato](https://www.strato.es). We can manage the domain using Route53 via hosted zone, create an SSL certificate via ACM, setup a record set for naked domain to point to frontend-react-js, and setup a record set for api subdomain to point to the backend-flask:
 
 - At Route 53 > Hosted zones, create a new one with the registered domain name and the public type; Copy the values presented in the NS record type, and paste them into the porkbun nameservers (changes to your authoritative nameservers may take up to a couple of hours to propagate worldwide).
-- At Certificate Manger, request a public certificate, add domain names of `social.mycruddurapp.es` and `*.social.mycruddurapp.es`, then enter the created certificate and click "Create records in Route 53", finally Route 53 will show two CNAME records.
-- At Load Balancers, add a listener to make HTTP:80 redirect to HTTPS:443, and another one to make HTTPS:443 forward to frontend with certificate we created; edit rules for HTTPS:443 to add a new IF which sets Host Header as `api.social.mycruddurapp.es` and sets THEN forward to `cruddur-backend-flask-tg`.
-- At Route 53 > Hosted zones > mycruddurapp.es, create a record without a record name, set type as "A - Route Traffic to an IPv4 address and some AWS resources", set route traffic as "Alias to Application and Classic Load Balancer" with the right region and load balancer, set routing policy as simple routing; do it again with record name `social.mycruddurapp.e`.
+- At Certificate Manger, request a public certificate, add domain names of `mycruddurapp.com` and mycruddurapp.com`, then enter the created certificate and click "Create records in Route 53", finally Route 53 will show two CNAME records.
+- At Load Balancers, add a listener to make HTTP:80 redirect to HTTPS:443, and another one to make HTTPS:443 forward to frontend with certificate we created; edit rules for HTTPS:443 to add a new IF which sets Host Header as `api.mycruddurapp.com` and sets THEN forward to `cruddur-backend-flask-tg`.
+- At Route 53 > Hosted zones > mycruddurapp.com, create a record without a record name, set type as "A - Route Traffic to an IPv4 address and some AWS resources", set route traffic as "Alias to Application and Classic Load Balancer" with the right region and load balancer, set routing policy as simple routing; do it again with record name `mycruddurapp.com`.
 
 
 ![Proof of work](assets/week6/create_dns_records.png)

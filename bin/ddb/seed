@@ -16,6 +16,7 @@ print("===>Running ddb/seed...")
 attrs = {
   'endpoint_url': 'http://localhost:8000'
 }
+
 # unset endpoint url for use with production database
 if len(sys.argv) == 2:
   if "prod" in sys.argv[1]:

@@ -3,7 +3,7 @@
 import boto3
 import sys
 
-print("===>Running ddb/scan...")
+print("===>Running ddb/schema-load...")
 
 attrs = {
     'endpoint_url':'http://localhost:8000'
