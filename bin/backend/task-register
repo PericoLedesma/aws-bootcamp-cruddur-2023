@@ -1,5 +1,5 @@
 #! /usr/bin/bash
-query
+
 ABS_PATH=$(readlink -f "$0")
 FRONTEND_PATH=$(dirname $ABS_PATH)
 BIN_PATH=$(dirname $FRONTEND_PATH)

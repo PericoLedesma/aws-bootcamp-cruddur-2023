@@ -1,7 +1,5 @@
 #! /usr/bin/bash
 
-./ecr-login
-
 
 # ./backend/generate-env
 ./backend/image-build
@@ -12,7 +10,7 @@
 ./frontend/image-build
 ./frontend/image-push
 
-./backend/task-definition-register
-./frontend/task-definition-register
+./backend/task-register
+./frontend/task-register
 
 ./create-services

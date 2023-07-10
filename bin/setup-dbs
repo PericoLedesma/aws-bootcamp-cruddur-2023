@@ -1,14 +1,19 @@
 #! /usr/bin/bash   
 
+if [ "$1" = "prod" ]; then
+    ./db/setup "prod"
+    ./ddb/schema-load "prod"
+    ./ddb/seed "prod"
+else
+    ./db/setup
+    ./ddb/schema-load
+    ./ddb/seed
+    ./ddb/scan
+fi
 
-./db/setup "prod"
-./ddb/schema-load "prod"
-./ddb/seed "prod"
 
 
 
 
-# ./db/setup
-# ./ddb/schema-load
-# ./ddb/seed
-# ./ddb/scan
+
+
