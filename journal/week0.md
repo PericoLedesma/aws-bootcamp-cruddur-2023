@@ -21,9 +21,16 @@ I completed all the task of the week.
 - Use as much as possible the aws free tier
 - Momento as a third party caching system
 
-https://lucid.app/lucidchart/c73396eb-1402-4670-a989-825b4ad1e003/edit?viewport_loc=-1156%2C-52%2C2780%2C1667%2C0_0&invitationId=inv_2bf866ae-a5bd-43f0-86ab-badc62de3787
+### System representation
 
+[Link to lucid chart](https://lucid.app/lucidchart/c73396eb-1402-4670-a989-825b4ad1e003/edit?viewport_loc=-1156%2C-52%2C2780%2C1667%2C0_0&invitationId=inv_2bf866ae-a5bd-43f0-86ab-badc62de3787)
+
+### Initial design
 ![System architecture](assets/system_architecture.png)
+
+### Final design
+
+![System architecture](assets/system_architecture2.png)
 
 
 # AWS CLI
@@ -263,6 +270,4 @@ aws budgets create-budget \
   
   
 </details>
-  
-  --------------------------------------------------------------------------------------------------------------------------------
 
