@@ -62,8 +62,7 @@ The bootstrap command creates a CloudFormation stack in the environment passed o
 cdk bootstrap "aws://528963888625/eu-central-1"
 ```
 
-![Proof of work](assets/week6/cdk_cloudformation.png)
-
+![Proof of work](assets/week8/cdk_cloudformation.png)
 
 
 
