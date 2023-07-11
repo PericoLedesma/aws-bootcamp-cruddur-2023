@@ -1,15 +1,51 @@
 # Week 0 — Billing and Architecture
 
 
-## Required Implementation
+### Content
 
-I completed all the task of the week.
+1. [Objetives](#Objetives)
+2. [Week summary](#Week-summary)
+3. [AWS Services used](#AWS-Services-used)
+4. [Week content](#Week-content)
+5. [Implementation notes](#Implementation-notes)
+6. [Useful references](#Useful-references )
+7. [Implementation instructions](https://github.com/PericoLedesma/aws-bootcamp-cruddur-2023/blob/main/journal/week_instructions/week1.md)
+
+----------------------------------------------------------------
+
+### Objetives
+- Gain confidence when working meter-billing with a Cloud Service Provider (CSP)
+- To understand how to build useful architecture diagrams
+- To gain a general idea of the cost of common cloud services
+- To ensure we have a working AWS account
+
+
+### Week summary 
+
+- Looking at an architectural diagram of what we plan to build
+- Running through the cloud services we will utilize
+- Testing that we can access our AWS accounts
+- Settings up AWS free-tier and understand how to track spend in AWS
+- Understanding how to look at monthly billing reports
+- Launching AWS CloudShell and looking at AWS CLI
+- Generating AWS credentials
+
+
+### AWS Services used
+- IAM
+- Cloudshell
+- Cloudwatch
+
+# Week content
+
+[(Back to index)](#content)
+
+Task completed:
 - I register in all the required services
-- The AWS I already had it when I saw a tutorial from Adreu for a certification, Therefore, all the task related with the new accounts where already done.
-- I created the architecture overview in Luci
-- I wartched all the videos 
+- The AWS account I already had it because I completed the AWS certification with Andrew. Therefore, all the task related with the new accounts where already done.
+- I created the architecture overview in Lucid
+- I watched all the videos 
 - AWS CLI and proof it works 
-
 
 # System architecture 
 
@@ -69,10 +105,11 @@ This is a tool where you want to estimate the cost of one or more services. Usef
 ## Budged alarm
 
 - To create the budget alarm with the CLI 
-
->     --account-id $ACCOUNT_ID \
->     --budget file://aws/json/budget.json \
->     --notifications-with-subscribers file://aws/json/notifications-with-subscribers.json
+```
+     --account-id $ACCOUNT_ID \
+     --budget file://aws/json/budget.json \
+     --notifications-with-subscribers file://aws/json/notifications-with-subscribers.json
+```
 
 Note: Important to have the json files necesarries with the configs
 
