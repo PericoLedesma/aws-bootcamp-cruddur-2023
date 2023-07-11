@@ -8,16 +8,13 @@
 3. [AWS Services used](#AWS-Services-used)
 4. [Week content](#Week-content)
 5. [Implementation notes](#Implementation-notes)
-      - [ECS Cluster and ECR Repo](#ECS-Cluster-and-ECR-Repo)
+      - [Implement CDK Stack](#Implement-CDK-Stack)
+      - [Serving Avatars via CloudFront](#Serving-Avatars-via-CloudFront)
+      - [Backend and Frontend for Profile Page](#Backend-and Frontend-for-Profile-Page)
+      - [DB Migration](#DB-Migration)
+      - [Implement Avatar Uploading](#Implement-Avatar-Uploading)
+      - [Double Check Environment Variables](#Double-Check-Environment-Variables)
 
-
-Implement CDK Stack
-Serving Avatars via CloudFront
-Backend and Frontend for Profile Page
-DB Migration
-Implement Avatar Uploading
-Double Check Environment Variables
-   
 7. [Implementation instructions](https://github.com/PericoLedesma/aws-bootcamp-cruddur-2023/blob/main/journal/week_instructions/week8.md)
 
 ----------------------------------------------------------------
@@ -26,7 +23,6 @@ Double Check Environment Variables
 - Basic knowledge of writing, deploying, and logging serverless functions
 - Basic knowledge of working with serverless object storage
 - Basic knowledge of working with event-bus actions
-
 
 
 ### Week Summary
@@ -38,15 +34,14 @@ Double Check Environment Variables
 - Implement basic file upload to S3 client-side
 
 
-
 ### AWS Services used
-S3
-Budgets
-SDK
-Cloudfront
+- S3
+- Budgets
+- SDK
+- Cloudfront
 
 # Week content
-[(Back to index)](#content)k content
+[(Back to index)](#content)
 
 This week we need to use CDK (Cloud Development Kit) to create S3 buckets, Lambda functions, SNS topics, etc., allowing users to upload their avatars to update their profiles.
 
@@ -58,17 +53,23 @@ Cloudformation
 
 What is bootstrap 
 
-cdk bootstrap "aws://528963888625/eu-central-1" 
+CDK bootstrap is a tool in the AWS CDK command-line interface responsible for populating a given environment (that is, a combination of AWS account and region) with resources required by the CDK to perform deployments into that environment.
 
-bootstrap and we can see it in cloudformation
+When you run cdk bootstrap cdk deploys the CDK toolkit stack into an AWS environment.
+
+The bootstrap command creates a CloudFormation stack in the environment passed on the command line. Currently, the only resource in that stack is An S3 bucket that holds the file assets and the resulting CloudFormation template to deploy.
+```
+cdk bootstrap "aws://528963888625/eu-central-1"
+```
+
 ![Proof of work](assets/week6/cdk_cloudformation.png)
 
 
-cdk deploy
 
-differences between put and post
 
-we are going to put the images in cloudfront cdn
+Differences between put and post.
+
+PUT is used for updating or creating a resource at a specific location, while POST is used for creating a new resource without specifying the exact location and having the server generate it.
 
 
 We created a endpoint to cloudfront to the s3 bucket 
