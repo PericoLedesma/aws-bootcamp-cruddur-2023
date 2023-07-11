@@ -10,7 +10,7 @@
 5. [Implementation notes](#Implementation-notes)
       - [Implement CDK Stack](#Implement-CDK-Stack)
       - [Serving Avatars via CloudFront](#Serving-Avatars-via-CloudFront)
-      - [Backend and Frontend for Profile Page](#Backend-and Frontend-for-Profile-Page)
+      - [Backend and Frontend for Profile Page](#Backend-and-Frontend-for-Profile-Page)
       - [DB Migration](#DB-Migration)
       - [Implement Avatar Uploading](#Implement-Avatar-Uploading)
       - [Double Check Environment Variables](#Double-Check-Environment-Variables)
@@ -261,7 +261,6 @@ At AWS Lambda, create the corresponding two functions:
    - add environment variables `USER_POOL_ID` and `CLIENT_ID`
 
 
-
 At AWS S3, update the permissions of `cruddur-uploaded-avatars-mycruddurapp` by editing the CORS configuration as seen in `aws/s3/cors.json`.
 
 At AWS API Gateway, create `api.<domain_name>` (in my case `api.mycruddurapp.com`), create two routes:
@@ -282,15 +281,7 @@ There are some environment variables and setups worth double checking:
 - `frontend-react-js/src/components/ProfileForm.js`: `gateway_url` and `backend_url` are correctly set.
 - Pay attention to variable name inconsistency in some scripts, e.g., `cognito_user_uuid` vs. `cognito_user_id`.
 
-## Proof of Implementation
 
-In my gitpod space, run the following commands, and then edit my profile with a new bio and image. The GIF below proofs that avatar uploading and rendering were successfully implemented.
-
-```sh
-cd /workspace/aws-bootcamp-cruddur-2023
-./bin/bootstrap
-docker compose up
-./bin/prepare
-```
-
-![Proof of Implementation](assets/week8-proof.gif)
+![Proof of Implementation](assets/api.png)
+![Proof of Implementation](assets/cors.png)
+![Proof of Implementation](assets/week8-proof.png)
