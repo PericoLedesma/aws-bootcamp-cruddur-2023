@@ -26,3 +26,8 @@
 
 # Week content
 [(Back to index)](#content)
+
+-------------------------------
+
+# Implementation notes
+[(Back to index)](#content)
